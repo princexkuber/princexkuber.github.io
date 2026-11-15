@@ -1,105 +1,526 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071a35">
-<meta name="description" content="Official personal profile of Kuber Singh Kushwaha — student, public speaker and digital content creator from Jharkhand, India.">
-<meta property="og:title" content="Prince X Kuber | Kuber Singh Kushwaha">
-<meta property="og:description" content="A personal profile featuring education, achievements, public speaking and content creation.">
-<title>Prince X Kuber | Kuber Singh Kushwaha</title>
-<style>
-:root{--bg:#061326;--surface:#0b203b;--surface2:#102b4d;--gold:#e8c477;--white:#f5f7fb;--muted:#b8c8dc;--line:#294765;--blue:#8db8ef}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#16385e 0,transparent 35%),var(--bg);color:var(--white);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#061326ed;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:1.5px;font-size:1.08rem}.brand b{color:var(--gold)}
-.navright{display:flex;align-items:center;gap:18px}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:var(--gold)}
-.lang{border:1px solid #54708e;background:#0d2542;color:var(--white);border-radius:9px;padding:8px 11px;cursor:pointer}
-.hero{padding:86px 0 72px;display:grid;grid-template-columns:1.35fr .65fr;gap:42px;align-items:center}
-.kicker{color:var(--gold);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:800}
-h1{font-size:clamp(2.65rem,7vw,5.1rem);line-height:1.04;letter-spacing:-2px;margin:14px 0 16px}h1 span{color:var(--gold)}
-.lead{font-size:1.12rem;color:var(--muted);max-width:650px}.location{color:#d8e3f1;font-size:.94rem;margin-top:18px}
-.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.btn{padding:11px 17px;border-radius:10px;border:1px solid var(--gold);font-weight:750;display:inline-flex;align-items:center;justify-content:center}.btn.primary{background:var(--gold);color:#17243a}.btn.ghost{color:var(--white)}
-.profile-art{min-height:280px;border:1px solid #496687;border-radius:26px;background:linear-gradient(145deg,#16385f,#091a30);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 24px 65px #0005}
-.profile-art:before,.profile-art:after{content:"";position:absolute;border:1px solid #e8c47755;border-radius:50%;width:245px;height:245px}.profile-art:after{width:195px;height:195px}
-.monogram{z-index:1;color:var(--gold);font-weight:900;font-size:3rem;letter-spacing:-3px;border:2px solid var(--gold);width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:#0a1d35}
-.hint{position:absolute;bottom:15px;color:#a9bdd5;font-size:.72rem;z-index:2}
-section{padding:52px 0}.section-kicker{color:var(--gold);font-size:.76rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}.section-title{font-size:2rem;line-height:1.2;margin:7px 0}.section-intro{color:var(--muted);margin:0 0 24px;max-width:720px}
-.card{background:linear-gradient(145deg,var(--surface),#09192d);border:1px solid var(--line);border-radius:17px;padding:23px}.card p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tile h3{color:var(--gold);font-size:1.08rem;margin:8px 0}.tile .symbol{font-size:1.55rem}.tile p{font-size:.94rem}
-.school{border-left:3px solid var(--gold)}.school h3{margin:0 0 6px;font-size:1.12rem}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{border:1px solid #3b5b7d;color:#d4e0ef;padding:5px 11px;border-radius:99px;font-size:.85rem}
-.socials{display:flex;flex-wrap:wrap;gap:11px}.social{border:1px solid #4b6684;background:#102b4d;padding:11px 16px;border-radius:10px;font-weight:700}.social:hover{border-color:var(--gold);color:var(--gold)}
-footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:.88rem}.footerline{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.small{font-size:.8rem;color:#91a8c3}.placeholder{border:1px dashed #526e8c;padding:13px;border-radius:12px;color:#aebfd3;font-size:.88rem}
-[ data-lang="hi"]{display:none}
-body.hindi [data-lang="en"]{display:none}body.hindi [data-lang="hi"]{display:initial}
-body.hindi .block-en{display:none}body.hindi .block-hi{display:block}
-@media(max-width:760px){nav{padding:13px 0;align-items:flex-start;flex-direction:column}.navright{width:100%;justify-content:space-between}.navlinks{gap:12px;flex-wrap:wrap;font-size:.82rem}.hero{grid-template-columns:1fr;padding:60px 0 40px;gap:25px}.profile-art{min-height:210px}.grid{grid-template-columns:1fr}.section-title{font-size:1.7rem}section{padding:39px 0}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince X Kuber | Kuber Singh Kushwaha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --secondary: #1e88e5;
+      --accent: #00acc1;
+      --bg: #f4f7fa;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --font-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: calc(16px * var(--font-scale));
+      line-height: 1.6;
+      transition: all 0.2s ease;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: #092e4e;
+      color: #fff;
+      padding: 6px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-socials a {
+      color: #fff;
+      margin-right: 14px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .top-socials a:hover {
+      color: #38bdf8;
+    }
+
+    .utility-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .utility-controls button {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .utility-controls button:hover {
+      background: var(--secondary);
+    }
+
+    /* Main Header */
+    header {
+      background: var(--card-bg);
+      padding: 15px 5%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Hero Slider */
+    .slider-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 20px auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      background: #0f4c81;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      height: 360px;
+      display: flex;
+      align-items: flex-end;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide-overlay {
+      width: 100%;
+      background: linear-gradient(to top, rgba(9, 46, 78, 0.92), rgba(9, 46, 78, 0.2));
+      color: #fff;
+      padding: 25px;
+    }
+
+    .slide-overlay h2 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .slide-overlay p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--primary);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 15px;
+    }
+
+    /* Latest Updates Board */
+    .updates-box {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid #dbeafe;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .updates-header {
+      background: linear-gradient(90deg, #00796b, #009688);
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .updates-list {
+      padding: 15px 20px;
+      max-height: 190px;
+      overflow-y: auto;
+    }
+
+    .update-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .badge-new {
+      background: #ef4444;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+
+    /* Quick Portal Cards */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+
+    .portal-card {
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      color: #fff;
+      padding: 24px 20px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(13, 71, 161, 0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(13, 71, 161, 0.3);
+    }
+
+    .portal-card i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #90caf9;
+    }
+
+    .portal-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .portal-card span {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      letter-spacing: 0.5px;
+    }
+
+    /* Detailed Sections */
+    .section-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e0f2fe;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .info-item {
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .info-item h4 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    /* Social Links Row */
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .social-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .yt { background: #ff0000; }
+    .ig { background: #e1306c; }
+    .fb { background: #1877f2; }
+    .x-tw { background: #000000; }
+
+    footer {
+      background: #092e4e;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      .slide { height: 280px; }
+      .slide-overlay h2 { font-size: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-<a class="brand" href="#top">PRINCE <b>X</b> KUBER</a>
-<div class="navright"><div class="navlinks">
-<a href="#about"><span data-lang="en">About</span><span data-lang="hi">परिचय</span></a>
-<a href="#education"><span data-lang="en">Education</span><span data-lang="hi">शिक्षा</span></a>
-<a href="#achievements"><span data-lang="en">Achievements</span><span data-lang="hi">उपलब्धियाँ</span></a>
-<a href="#activities"><span data-lang="en">Activities</span><span data-lang="hi">गतिविधियाँ</span></a>
-<a href="#connect"><span data-lang="en">Connect</span><span data-lang="hi">जुड़ें</span></a>
-</div><button class="lang" id="langToggle" type="button">हिन्दी</button></div>
-</nav></div></header>
-<main id="top">
-<div class="wrap hero">
-<div>
-<div class="kicker"><span data-lang="en">Personal profile & digital identity</span><span data-lang="hi">व्यक्तिगत परिचय एवं डिजिटल पहचान</span></div>
-<h1>Kuber Singh <span>Kushwaha</span></h1>
-<p class="lead" data-lang="en">Student, public speaker and content creator — exploring ideas, learning continuously and sharing my journey.</p>
-<p class="lead" data-lang="hi">विद्यार्थी, वक्ता और कंटेंट क्रिएटर — नए विचारों को समझते हुए, लगातार सीखते हुए और अपनी यात्रा साझा करते हुए।</p>
-<div class="location"><span data-lang="en">India · Jharkhand</span><span data-lang="hi">भारत · झारखंड</span></div>
-<div class="buttons"><a class="btn primary" href="#about"><span data-lang="en">Explore my profile</span><span data-lang="hi">मेरा परिचय देखें</span></a><a class="btn ghost" href="#achievements"><span data-lang="en">My achievements</span><span data-lang="hi">मेरी उपलब्धियाँ</span></a></div>
-</div>
-<div class="profile-art" aria-label="Profile photo space"><div class="monogram">KSK</div><div class="hint"><span data-lang="en">Profile photo can be added later</span><span data-lang="hi">प्रोफाइल फोटो बाद में जोड़ी जा सकती है</span></div></div>
-</div>
 
-<section id="about"><div class="wrap"><div class="section-kicker"><span data-lang="en">Introduction</span><span data-lang="hi">परिचय</span></div><h2 class="section-title"><span data-lang="en">About Me</span><span data-lang="hi">मेरे बारे में</span></h2>
-<p class="section-intro" data-lang="en">A short introduction to who I am and what I enjoy doing.</p><p class="section-intro" data-lang="hi">मैं कौन हूँ और किन कामों में मेरी रुचि है, उसका संक्षिप्त परिचय।</p>
-<div class="card"><p data-lang="en">My name is <strong>Kuber Singh Kushwaha</strong>. I am a student who enjoys expressing ideas, speaking in front of people, learning about history and philosophy, and creating digital content. I value curiosity, communication, creativity and continuous learning. This website brings together my educational journey, achievements and activities.</p>
-<p data-lang="hi">मेरा नाम <strong>कुबेर सिंह कुशवाहा</strong> है। मैं एक विद्यार्थी हूँ और अपने विचार व्यक्त करना, लोगों के सामने बोलना, इतिहास एवं दर्शन के बारे में जानना और डिजिटल कंटेंट बनाना पसंद करता हूँ। मेरे लिए जिज्ञासा, संवाद, रचनात्मकता और निरंतर सीखना महत्वपूर्ण हैं। यह वेबसाइट मेरी शिक्षा, उपलब्धियों और गतिविधियों को एक जगह प्रस्तुत करती है।</p></div>
-</div></section>
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="top-socials">
+      <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/princexkuber" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+    <div class="utility-controls">
+      <button onclick="changeFont(-0.1)">A-</button>
+      <button onclick="resetFont()">A</button>
+      <button onclick="changeFont(0.1)">A+</button>
+      <button id="langBtn" onclick="toggleLang()">हिन्दी</button>
+    </div>
+  </div>
 
-<section id="education"><div class="wrap"><div class="section-kicker"><span data-lang="en">Learning journey</span><span data-lang="hi">शिक्षा की यात्रा</span></div><h2 class="section-title"><span data-lang="en">Education</span><span data-lang="hi">शिक्षा</span></h2>
-<div class="card school"><h3>Jawaharlal Nehru Memorial Senior Secondary School</h3><p data-lang="en">My school and an important part of my academic and personal development.</p><p data-lang="hi">मेरा विद्यालय, जो मेरी शैक्षणिक और व्यक्तिगत विकास यात्रा का महत्वपूर्ण हिस्सा है।</p></div>
-</div></section>
+  <!-- Main Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">PK</div>
+      <div class="brand-text">
+        <h1>PRINCE X KUBER</h1>
+        <p data-en="Kuber Singh Kushwaha • Student, Public Speaker & Creator" data-hi="कुबेर सिंह कुशवाहा • छात्र, पब्लिक स्पीकर और कंटेंट क्रिएटर">Kuber Singh Kushwaha • Student, Public Speaker & Creator</p>
+      </div>
+    </div>
+  </header>
 
-<section id="achievements"><div class="wrap"><div class="section-kicker"><span data-lang="en">Milestones & recognition</span><span data-lang="hi">उपलब्धियाँ एवं सम्मान</span></div><h2 class="section-title"><span data-lang="en">Achievements</span><span data-lang="hi">मेरी उपलब्धियाँ</span></h2>
-<p class="section-intro" data-lang="en">A growing collection of milestones, certificates and recognitions. More verified details can be added over time.</p><p class="section-intro" data-lang="hi">मेरी उपलब्धियों, प्रमाणपत्रों और सम्मानों का संग्रह। समय के साथ और प्रमाणित विवरण जोड़े जा सकते हैं।</p>
-<div class="grid">
-<article class="card tile"><div class="symbol">🏅</div><h3><span data-lang="en">Olympiad Recognition</span><span data-lang="hi">ओलंपियाड में सम्मान</span></h3><p data-lang="en">Recognition in the Bloom Computer Olympiad, based on the certificate shared.</p><p data-lang="hi">साझा किए गए प्रमाणपत्र के अनुसार Bloom Computer Olympiad में प्राप्त सम्मान।</p></article>
-<article class="card tile"><div class="symbol">🏆</div><h3><span data-lang="en">Quiz Participation</span><span data-lang="hi">क्विज़ प्रतियोगिता</span></h3><p data-lang="en">Participation in an inter-school quiz competition.</p><p data-lang="hi">अंतर-विद्यालय क्विज़ प्रतियोगिता में सहभागिता।</p></article>
-<article class="card tile"><div class="symbol">🎖️</div><h3><span data-lang="en">School Activities</span><span data-lang="hi">विद्यालय की गतिविधियाँ</span></h3><p data-lang="en">Certificates and recognition from school activities and events.</p><p data-lang="hi">विद्यालय की गतिविधियों और कार्यक्रमों से जुड़े प्रमाणपत्र एवं सम्मान।</p></article>
-</div>
-<p class="small" style="margin-top:14px" data-lang="en">Only selected achievement summaries are shown here. Private certificate numbers and student identifiers are intentionally not published.</p><p class="small" style="margin-top:14px" data-lang="hi">यहाँ उपलब्धियों का संक्षिप्त विवरण दिया गया है। निजी प्रमाणपत्र नंबर और विद्यार्थी पहचान विवरण प्रकाशित नहीं किए गए हैं।</p>
-</div></section>
+  <!-- Photo Slider Section -->
+  <div class="slider-container">
+    <div class="slides" id="slides">
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80');">
+        <div class="slide-overlay">
+          <h2 data-en="Kuber Singh Kushwaha (Prince)" data-hi="कुबेर सिंह कुशवाहा (प्रिन्स)">Kuber Singh Kushwaha (Prince)</h2>
+          <p data-en="Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad" data-hi="हेड बॉय (2026–27) • जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह, धनबाद">Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad</p>
+        </div>
+      </div>
 
-<section id="activities"><div class="wrap"><div class="section-kicker"><span data-lang="en">What I do</span><span data-lang="hi">मेरी गतिविधियाँ</span></div><h2 class="section-title"><span data-lang="en">Interests & Activities</span><span data-lang="hi">रुचियाँ एवं गतिविधियाँ</span></h2>
-<div class="grid">
-<article class="card tile"><div class="symbol">🎙️</div><h3><span data-lang="en">Public Speaking</span><span data-lang="hi">वक्तृत्व कला</span></h3><p data-lang="en">I enjoy speaking, expressing my thoughts and connecting with people through words.</p><p data-lang="hi">मुझे बोलना, अपने विचार व्यक्त करना और शब्दों के माध्यम से लोगों से जुड़ना पसंद है।</p></article>
-<article class="card tile"><div class="symbol">🎬</div><h3><span data-lang="en">Content Creation</span><span data-lang="hi">कंटेंट क्रिएशन</span></h3><p data-lang="en">Creating videos and short-form content for digital platforms.</p><p data-lang="hi">डिजिटल प्लेटफॉर्म के लिए वीडियो और शॉर्ट कंटेंट बनाना।</p></article>
-<article class="card tile"><div class="symbol">📚</div><h3><span data-lang="en">History & Philosophy</span><span data-lang="hi">इतिहास एवं दर्शन</span></h3><p data-lang="en">Exploring history, ideas, philosophy and different perspectives.</p><p data-lang="hi">इतिहास, विचारों, दर्शन और विभिन्न दृष्टिकोणों को समझना।</p></article>
-<article class="card tile"><div class="symbol">🎵</div><h3><span data-lang="en">Music & Singing</span><span data-lang="hi">संगीत एवं गायन</span></h3><p data-lang="en">An interest in music and singing.</p><p data-lang="hi">संगीत और गायन में रुचि।</p></article>
-<article class="card tile"><div class="symbol">🤝</div><h3><span data-lang="en">Leadership</span><span data-lang="hi">नेतृत्व</span></h3><p data-lang="en">Taking part in school responsibilities and activities.</p><p data-lang="hi">विद्यालय की जिम्मेदारियों और गतिविधियों में भागीदारी।</p></article>
-<article class="card tile"><div class="symbol">🌱</div><h3><span data-lang="en">Personal Growth</span><span data-lang="hi">व्यक्तिगत विकास</span></h3><p data-lang="en">Learning new skills and improving through experience.</p><p data-lang="hi">नए कौशल सीखना और अनुभवों से स्वयं को बेहतर बनाना।</p></article>
-</div></div></section>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80');">
+        <div class="slide-overlay">
+          <h2 data-en="Public Speaking & Leadership" data-hi="पब्लिक स्पीकिंग और नेतृत्व">Public Speaking & Leadership</h2>
+          <p data-en="Delivering keynote addresses, hosting school assemblies, and inspiring young minds." data-hi="मंच संचालन, प्रमुख भाषण और युवाओं को प्रेरित करने की पहल।">Delivering keynote addresses, hosting school assemblies, and inspiring young minds.</p>
+        </div>
+      </div>
 
-<section id="connect"><div class="wrap"><div class="section-kicker"><span data-lang="en">Stay connected</span><span data-lang="hi">जुड़े रहें</span></div><h2 class="section-title"><span data-lang="en">Find Me Online</span><span data-lang="hi">सोशल मीडिया पर</span></h2>
-<p class="section-intro" data-lang="en">Follow my work and content on social platforms. Official profile links can be added here when ready.</p><p class="section-intro" data-lang="hi">मेरे काम और कंटेंट को सोशल मीडिया पर देखें। आधिकारिक प्रोफाइल लिंक तैयार होने पर यहाँ जोड़े जा सकते हैं।</p>
-<div class="placeholder" data-lang="en">Social profile URLs have not been provided yet. Add your verified YouTube, Instagram and Facebook links before publishing.</div><div class="placeholder" data-lang="hi">अभी सोशल मीडिया प्रोफाइल के URL नहीं मिले हैं। वेबसाइट प्रकाशित करने से पहले अपने सही YouTube, Instagram और Facebook लिंक जोड़ें।</div>
-<div class="socials" style="margin-top:15px"><span class="social">YouTube · @princexkuber</span><span class="social">Instagram · @princexkuber</span><span class="social">Facebook · Prince X Kuber</span></div>
-</div></section>
-</main>
-<footer><div class="wrap footerline"><div><strong>PRINCE X KUBER</strong><br><span data-lang="en">Personal profile of Kuber Singh Kushwaha</span><span data-lang="hi">कुबेर सिंह कुशवाहा का व्यक्तिगत परिचय</span></div><div>India · Jharkhand<br><span class="small">© 2026 Prince X Kuber</span></div></div></footer>
-<script>
-const toggle=document.getElementById('langToggle');
-toggle.addEventListener('click',()=>{document.body.classList.toggle('hindi');const hi=document.body.classList.contains('hindi');document.documentElement.lang=hi?'hi':'en';toggle.textContent=hi?'English':'हिन्दी';});
-</script>
-</body></html>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');">
+        <div class="slide-overlay">
+          <h2 data-en="Academics & Digital Creation" data-hi="शिक्षा और डिजिटल कंटेंट">Academics & Digital Creation</h2>
+          <p data-en="Class 11 (PCM + CS) Student • History, Philosophy & Vocal Music Enthusiast" data-hi="कक्षा 11 (PCM + कंप्यूटर साइंस) • इतिहास, दर्शनशास्त्र और गायन में विशेष रुचि">Class 11 (PCM + CS) Student • History, Philosophy & Vocal Music Enthusiast</p>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+  <div class="container">
+
+    <!-- Latest Updates Board -->
+    <div class="updates-box">
+      <div class="updates-header">
+        <i class="fas fa-bullhorn"></i>
+        <span data-en="LATEST UPDATES & HIGHLIGHTS" data-hi="नवीनतम अपडेट्स और उपलब्धियाँ">LATEST UPDATES & HIGHLIGHTS</span>
+      </div>
+      <div class="updates-list">
+        <div class="update-item">
+          <span class="badge-new">NEW</span>
+          <span data-en="Serving as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School for the 2026–2027 academic session." data-hi="शैक्षणिक सत्र 2026–2027 के लिए जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल के हेड बॉय के रूप में कार्यरत।">Serving as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School for the 2026–2027 academic session.</span>
+        </div>
+        <div class="update-item">
+          <span class="badge-new">2026</span>
+          <span data-en="Qualified for the regional essay writing round of Viksit Bharat Young Leaders Dialogue 2027 (MY Bharat Dhanbad)." data-hi="विकसित भारत यंग लीडर्स डायलॉग 2027 (MY भारत धनबाद) के क्षेत्रीय निबंध लेखन राउंड के लिए चयनित।">Qualified for the regional essay writing round of Viksit Bharat Young Leaders Dialogue 2027 (MY Bharat Dhanbad).</span>
+        </div>
+        <div class="update-item">
+          <span class="badge-new">RANK 4</span>
+          <span data-en="Achieved National Rank 4 in the Bloom Computer Olympiad (BCO)." data-hi="ब्लूम कंप्यूटर ओलंपियाड (BCO) में अखिल भारतीय रैंक 4 (National Rank 4) प्राप्त की।">Achieved National Rank 4 in the Bloom Computer Olympiad (BCO).</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Portal Cards -->
+    <div class="portal-grid">
+      <a href="#about" class="portal-card">
+        <i class="fas fa-user-graduate"></i>
+        <h3 data-en="परिचय / ABOUT ME" data-hi="परिचय / ABOUT ME">परिचय / ABOUT ME</h3>
+        <span>PROFILE & VISION</span>
+      </a>
+      <a href="#achievements" class="portal-card">
+        <i class="fas fa-trophy"></i>
+        <h3 data-en="उपलब्धियाँ / ACHIEVEMENTS" data-hi="उपलब्धियाँ / ACHIEVEMENTS">उपलब्धियाँ / ACHIEVEMENTS</h3>
+        <span>AWARDS & HONORS</span>
+      </a>
+      <a href="#interests" class="portal-card">
+        <i class="fas fa-microphone-alt"></i>
+        <h3 data-en="गतिविधियाँ / ACTIVITIES" data-hi="गतिविधियाँ / ACTIVITIES">गतिविधियाँ / ACTIVITIES</h3>
+        <span>SKILLS & PASSIONS</span>
+      </a>
+      <a href="#connect" class="portal-card">
+        <i class="fas fa-share-alt"></i>
+        <h3 data-en="संपर्क / CONNECT" data-hi="संपर्क / CONNECT">संपर्क / CONNECT</h3>
+        <span>SOCIAL CHANNELS</span>
+      </a>
+    </div>
+
+    <!-- About & Education Section -->
+    <div class="section-card" id="about">
+      <h2 class="section-title"><i class="fas fa-id-card"></i> <span data-en="About Me & Education" data-hi="मेरा परिचय और शिक्षा">About Me & Education</span></h2>
+      <p style="margin-bottom: 15px;" data-en="Hello! I am Kuber Singh Kushwaha (popularly known as Prince), a Class 11 Science (PCM & Computer Science) student from Digwadih, Dhanbad, Jharkhand. Alongside academics, I am passionate about public speaking, student leadership, regional history, philosophy, vocal music, and creating meaningful digital content." data-hi="नमस्ते! मैं कुबेर सिंह कुशवाहा (प्रिन्स) हूँ। मैं डिगवाडीह, धनबाद (झारखंड) से कक्षा 11 (गणित, भौतिकी, रसायन और कंप्यूटर साइंस) का छात्र हूँ। पढ़ाई के साथ-साथ मुझे पब्लिक स्पीकिंग, छात्र नेतृत्व, इतिहास, दर्शनशास्त्र, गायन और डिजिटल कंटेंट निर्माण में गहरी रुचि है।">
+        Hello! I am Kuber Singh Kushwaha (popularly known as Prince), a Class 11 Science (PCM & Computer Science) student from Digwadih, Dhanbad, Jharkhand. Alongside academics, I am passionate about public speaking, student leadership, regional history, philosophy, vocal music, and creating meaningful digital content.
+      </p>
+      <div class="info-grid">
+        <div class="info-item">
+          <h4 data-en="Current Education" data-hi="वर्तमान शिक्षा">Current Education</h4>
+          <p data-en="Class 11 (PCM + Computer Science), Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad" data-hi="कक्षा 11 (PCM + कंप्यूटर साइंस), जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह, धनबाद">Class 11 (PCM + Computer Science), Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad</p>
+        </div>
+        <div class="info-item">
+          <h4 data-en="Secondary Education (CBSE)" data-hi="माध्यमिक शिक्षा (CBSE)">Secondary Education (CBSE)</h4>
+          <p data-en="Completed Class 10 CBSE Board Examinations in 2026." data-hi="वर्ष 2026 में CBSE कक्षा 10 की बोर्ड परीक्षा उत्तीर्ण।">Completed Class 10 CBSE Board Examinations in 2026.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="section-card" id="achievements">
+      <h2 class="section-title"><i class="fas fa-award"></i> <span data-en="Key Achievements & Leadership" data-hi="प्रमुख उपलब्धियाँ और नेतृत्व">Key Achievements & Leadership</span></h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <h4>Head Boy (2026–2027)</h4>
+          <p data-en="Elected student council leader representing Jawaharlal Nehru Memorial Senior Secondary School; delivered Independence Day & Teachers' Day keynote speeches." data-hi="जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल के हेड बॉय; स्वतंत्रता दिवस और शिक्षक दिवस पर मुख्य भाषण एवं कार्यक्रम संचालन।">Elected student council leader representing Jawaharlal Nehru Memorial Senior Secondary School; delivered Independence Day & Teachers' Day keynote speeches.</p>
+        </div>
+        <div class="info-item">
+          <h4>Bloom Computer Olympiad</h4>
+          <p data-en="Secured National Rank 4 in the Bloom Computer Olympiad (BCO)." data-hi="ब्लूम कंप्यूटर ओलंपियाड (BCO) में राष्ट्रीय स्तर पर चौथा स्थान (National Rank 4) हासिल किया।">Secured National Rank 4 in the Bloom Computer Olympiad (BCO).</p>
+        </div>
+        <div class="info-item">
+          <h4>Viksit Bharat Young Leaders Dialogue</h4>
+          <p data-en="Qualified for the regional essay writing round organized by MY Bharat Dhanbad." data-hi="MY भारत धनबाद द्वारा आयोजित विकसित भारत यंग लीडर्स डायलॉग 2027 के क्षेत्रीय निबंध राउंड में चयनित।">Qualified for the regional essay writing round organized by MY Bharat Dhanbad.</p>
+        </div>
+        <div class="info-item">
+          <h4>School Events & Quizzes</h4>
+          <p data-en="Hosted Kavi Sammelan for middle school students and earned recognition in inter-school quizzes and co-curricular events." data-hi="कवि सम्मेलन की मेज़बानी तथा इंटर-स्कूल क्विज़ और सह-पाठ्यक्रम गतिविधियों में उत्कृष्ट प्रदर्शन एवं प्रमाण पत्र।">Hosted Kavi Sammelan for middle school students and earned recognition in inter-school quizzes and co-curricular events.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interests & Skills Section -->
+    <div class="section-card" id="interests">
+      <h2 class="section-title"><i class="fas fa-star"></i> <span data-en="Interests & Core Strengths" data-hi="रुचियाँ और प्रमुख कौशल">Interests & Core Strengths</span></h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <h4 data-en="Public Speaking & Anchoring" data-hi="पब्लिक स्पीकिंग और मंच संचालन">Public Speaking & Anchoring</h4>
+          <p data-en="Keynote addresses, stage hosting, debates, and youth leadership forums." data-hi="प्रमुख भाषण, मंच संचालन, वाद-विवाद और युवा नेतृत्व मंच।">Keynote addresses, stage hosting, debates, and youth leadership forums.</p>
+        </div>
+        <div class="info-item">
+          <h4 data-en="Digital Content Creation" data-hi="डिजिटल कंटेंट क्रिएशन">Digital Content Creation</h4>
+          <p data-en="Creating educational, historical, and motivational short videos on YouTube & Instagram." data-hi="YouTube और Instagram पर ऐतिहासिक, प्रेरक और ज्ञानवर्धक वीडियो का निर्माण।">Creating educational, historical, and motivational short videos on YouTube & Instagram.</p>
+        </div>
+        <div class="info-item">
+          <h4 data-en="Vocal Music & Singing" data-hi="संगीत और गायन">Vocal Music & Singing</h4>
+          <p data-en="Solo singing performances, patriotic songs, and harmonium practice." data-hi="एकल गायन, देशभक्ति गीत और हारमोनियम अभ्यास।">Solo singing performances, patriotic songs, and harmonium practice.</p>
+        </div>
+        <div class="info-item">
+          <h4 data-en="History, Philosophy & Tech" data-hi="इतिहास, दर्शन और तकनीक">History, Philosophy & Tech</h4>
+          <p data-en="Exploring Indian history, governance concepts, mental math, and web automation." data-hi="भारतीय इतिहास, शासन प्रणाली, मानसिक गणित और वेब ऑटोमेशन 
