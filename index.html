@@ -3,41 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prince X Kuber | Kuber Singh Kushwaha</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Kuber Singh Kushwaha | Official Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
-      --primary: #0f4c81;
-      --secondary: #1e88e5;
-      --accent: #00acc1;
-      --bg: #f4f7fa;
-      --card-bg: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
+      --primary: #0b1f3a;       /* Deep Royal Navy */
+      --primary-light: #163a69;
+      --accent: #d97706;        /* Warm Gold Accent */
+      --teal: #0d9488;          /* Emerald Teal */
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
       --font-scale: 1;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       font-size: calc(16px * var(--font-scale));
-      line-height: 1.6;
-      transition: all 0.2s ease;
+      line-height: 1.65;
     }
 
-    /* Top Utility Bar */
+    /* Top Accessibility & Social Bar */
     .top-bar {
-      background: #092e4e;
-      color: #fff;
-      padding: 6px 5%;
+      background: #061224;
+      color: #f8fafc;
+      padding: 8px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -47,48 +46,47 @@
     }
 
     .top-socials a {
-      color: #fff;
-      margin-right: 14px;
+      color: #cbd5e1;
+      margin-right: 15px;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
-    .top-socials a:hover {
-      color: #38bdf8;
-    }
+    .top-socials a:hover { color: #fbbf24; }
 
-    .utility-controls {
+    .controls {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .utility-controls button {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    .controls button {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #fff;
-      padding: 3px 8px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 0.8rem;
       font-weight: 600;
+      font-size: 0.82rem;
+      transition: background 0.2s;
     }
 
-    .utility-controls button:hover {
-      background: var(--secondary);
-    }
+    .controls button:hover { background: var(--accent); border-color: var(--accent); }
 
-    /* Main Header */
+    /* Sticky Header & Quick Navigation */
     header {
-      background: var(--card-bg);
-      padding: 15px 5%;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      background: var(--card);
+      padding: 14px 5%;
+      box-shadow: 0 4px 20px rgba(11, 31, 58, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand {
@@ -97,265 +95,325 @@
       gap: 12px;
     }
 
-    .brand-logo {
-      width: 48px;
-      height: 48px;
+    .avatar {
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--teal));
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
+      font-weight: 800;
+      font-size: 1.15rem;
+      border: 2px solid var(--accent);
+    }
+
+    .brand h1 {
       font-size: 1.2rem;
-    }
-
-    .brand-text h1 {
-      font-size: 1.25rem;
       color: var(--primary);
-      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.3px;
     }
 
-    .brand-text p {
+    .brand span {
       font-size: 0.8rem;
       color: var(--muted);
+      display: block;
     }
 
-    /* Hero Slider */
-    .slider-container {
-      position: relative;
-      max-width: 1100px;
-      margin: 20px auto;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      background: #0f4c81;
-    }
-
-    .slides {
+    nav {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .slide {
-      min-width: 100%;
-      position: relative;
-      height: 360px;
-      display: flex;
-      align-items: flex-end;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .slide-overlay {
-      width: 100%;
-      background: linear-gradient(to top, rgba(9, 46, 78, 0.92), rgba(9, 46, 78, 0.2));
-      color: #fff;
-      padding: 25px;
-    }
-
-    .slide-overlay h2 {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-
-    .slide-overlay p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.85);
+    nav a {
+      text-decoration: none;
       color: var(--primary);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .prev-btn { left: 15px; }
-    .next-btn { right: 15px; }
-
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto 40px;
-      padding: 0 15px;
-    }
-
-    /* Latest Updates Board */
-    .updates-box {
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid #dbeafe;
-      overflow: hidden;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-
-    .updates-header {
-      background: linear-gradient(90deg, #00796b, #009688);
-      color: #fff;
-      padding: 10px 20px;
       font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 65%, #0f766e 100%);
+      color: #fff;
+      padding: 45px 5%;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(251, 191, 36, 0.2);
+      border: 1px solid #fbbf24;
+      color: #fde68a;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #e2e8f0;
+      font-size: 1rem;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1050px;
+      margin: -25px auto 50px;
+      padding: 0 16px;
+    }
+
+    /* 5 Column Cards */
+    .column-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 26px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    .col-header {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
     }
 
-    .updates-list {
-      padding: 15px 20px;
-      max-height: 190px;
-      overflow-y: auto;
-    }
-
-    .update-item {
-      padding: 10px 0;
-      border-bottom: 1px dashed #e5e7eb;
+    .col-num {
+      background: var(--primary);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.92rem;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
     }
 
-    .update-item:last-child {
-      border-bottom: none;
-    }
-
-    .badge-new {
-      background: #ef4444;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      white-space: nowrap;
-      margin-top: 3px;
-    }
-
-    /* Quick Portal Cards */
-    .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-bottom: 35px;
-    }
-
-    .portal-card {
-      background: linear-gradient(135deg, #1565c0, #0d47a1);
-      color: #fff;
-      padding: 24px 20px;
-      border-radius: 12px;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 6px 15px rgba(13, 71, 161, 0.2);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .portal-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(13, 71, 161, 0.3);
-    }
-
-    .portal-card i {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #90caf9;
-    }
-
-    .portal-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-    }
-
-    .portal-card span {
-      font-size: 0.8rem;
-      opacity: 0.85;
-      letter-spacing: 0.5px;
-    }
-
-    /* Detailed Sections */
-    .section-card {
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-
-    .section-title {
+    .col-header h3 {
       color: var(--primary);
       font-size: 1.3rem;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e0f2fe;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-weight: 700;
     }
 
-    .info-grid {
+    /* Hierarchy Badges for Achievements */
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .rank-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+    }
+
+    .rank-item.national { border-left-color: #d97706; background: #fffbeb; }
+    .rank-item.zonal { border-left-color: #0d9488; background: #f0fdfa; }
+
+    .level-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .tag-national { background: #fef3c7; color: #b45309; }
+    .tag-zonal { background: #ccfbf1; color: #0f766e; }
+    .tag-school { background: #e0e7ff; color: #1d4ed8; }
+
+    /* Academic Timeline Grid */
+    .timeline-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 15px;
     }
 
-    .info-item {
+    .timeline-box {
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
       background: #f8fafc;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid var(--secondary);
+      position: relative;
     }
 
-    .info-item h4 {
+    .timeline-box.current {
+      background: linear-gradient(to bottom right, #eff6ff, #ffffff);
+      border: 1.5px solid #3b82f6;
+    }
+
+    .class-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-box h4 {
       color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-box p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Endorsement Form & Cards */
+    .endorse-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .endorse-layout { grid-template-columns: 1fr; }
+    }
+
+    .form-group { margin-bottom: 14px; }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
       margin-bottom: 5px;
+      color: var(--primary);
     }
 
-    /* Social Links Row */
-    .social-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
       border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary), var(--teal));
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover { opacity: 0.92; }
+
+    .approved-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+
+    .endorse-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      padding: 14px;
+      border-radius: 10px;
+    }
+
+    .endorse-card h5 { color: var(--primary); font-size: 0.98rem; }
+    .endorse-card small { color: var(--teal); font-weight: 600; display: block; margin-bottom: 6px; }
+    .endorse-card p { font-size: 0.9rem; color: var(--text); font-style: italic; }
+
+    /* Social Grid */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .s-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 10px;
       color: #fff;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.92rem;
-      transition: opacity 0.2s, transform 0.2s;
+      font-weight: 600;
+      transition: transform 0.2s;
     }
 
-    .social-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-    .yt { background: #ff0000; }
-    .ig { background: #e1306c; }
-    .fb { background: #1877f2; }
-    .x-tw { background: #000000; }
+    .s-link:hover { transform: translateY(-3px); }
+    .s-yt { background: #dc2626; }
+    .s-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .s-x  { background: #0f172a; }
+    .s-fb { background: #1d4ed8; }
+
+    /* Closing Vision Box */
+    .vision-box {
+      background: linear-gradient(135deg, #0b1f3a, #1e3a8a);
+      color: #fff;
+      text-align: center;
+    }
+
+    .vision-box .col-header { border-bottom-color: rgba(255,255,255,0.15); justify-content: center; }
+    .vision-box .col-header h3 { color: #fbbf24; }
+    .vision-box p { color: #e2e8f0; max-width: 780px; margin: 0 auto; font-size: 1rem; }
 
     footer {
-      background: #092e4e;
-      color: #cbd5e1;
+      background: #061224;
+      color: #94a3b8;
       text-align: center;
-      padding: 20px 15px;
+      padding: 20px;
       font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      .slide { height: 280px; }
-      .slide-overlay h2 { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -364,163 +422,293 @@
   <!-- Top Utility Bar -->
   <div class="top-bar">
     <div class="top-socials">
-      <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/princexkuber" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/princexkuber" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
-    <div class="utility-controls">
-      <button onclick="changeFont(-0.1)">A-</button>
-      <button onclick="resetFont()">A</button>
-      <button onclick="changeFont(0.1)">A+</button>
-      <button id="langBtn" onclick="toggleLang()">हिन्दी</button>
+    <div class="controls">
+      <button type="button" onclick="adjustFont(-0.08)">A-</button>
+      <button type="button" onclick="resetFont()">A</button>
+      <button type="button" onclick="adjustFont(0.08)">A+</button>
+      <button type="button" id="langToggle" onclick="switchLanguage()">हिन्दी</button>
     </div>
   </div>
 
-  <!-- Main Header -->
+  <!-- Header & 5-Column Quick Jump -->
   <header>
     <div class="brand">
-      <div class="brand-logo">PK</div>
-      <div class="brand-text">
-        <h1>PRINCE X KUBER</h1>
-        <p data-en="Kuber Singh Kushwaha • Student, Public Speaker & Creator" data-hi="कुबेर सिंह कुशवाहा • छात्र, पब्लिक स्पीकर और कंटेंट क्रिएटर">Kuber Singh Kushwaha • Student, Public Speaker & Creator</p>
+      <div class="avatar">KK</div>
+      <div>
+        <h1>KUBER SINGH KUSHWAHA</h1>
+        <span data-en="Prince X Kuber • Head Boy & Public Speaker" data-hi="प्रिन्स एक्स कुबेर • हेड बॉय और पब्लिक स्पीकर">Prince X Kuber • Head Boy & Public Speaker</span>
       </div>
     </div>
+    <nav>
+      <a href="#col1" data-en="About Kuber" data-hi="परिचय">About Kuber</a>
+      <a href="#col2" data-en="Academics" data-hi="शिक्षा">Academics</a>
+      <a href="#col3" data-en="Voices & Remarks" data-hi="प्रतिक्रिया">Voices & Remarks</a>
+      <a href="#col4" data-en="Connect" data-hi="संपर्क">Connect</a>
+      <a href="#col5" data-en="Vision" data-hi="लक्ष्य">Vision</a>
+    </nav>
   </header>
 
-  <!-- Photo Slider Section -->
-  <div class="slider-container">
-    <div class="slides" id="slides">
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80');">
-        <div class="slide-overlay">
-          <h2 data-en="Kuber Singh Kushwaha (Prince)" data-hi="कुबेर सिंह कुशवाहा (प्रिन्स)">Kuber Singh Kushwaha (Prince)</h2>
-          <p data-en="Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad" data-hi="हेड बॉय (2026–27) • जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह, धनबाद">Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80');">
-        <div class="slide-overlay">
-          <h2 data-en="Public Speaking & Leadership" data-hi="पब्लिक स्पीकिंग और नेतृत्व">Public Speaking & Leadership</h2>
-          <p data-en="Delivering keynote addresses, hosting school assemblies, and inspiring young minds." data-hi="मंच संचालन, प्रमुख भाषण और युवाओं को प्रेरित करने की पहल।">Delivering keynote addresses, hosting school assemblies, and inspiring young minds.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');">
-        <div class="slide-overlay">
-          <h2 data-en="Academics & Digital Creation" data-hi="शिक्षा और डिजिटल कंटेंट">Academics & Digital Creation</h2>
-          <p data-en="Class 11 (PCM + CS) Student • History, Philosophy & Vocal Music Enthusiast" data-hi="कक्षा 11 (PCM + कंप्यूटर साइंस) • इतिहास, दर्शनशास्त्र और गायन में विशेष रुचि">Class 11 (PCM + CS) Student • History, Philosophy & Vocal Music Enthusiast</p>
-        </div>
-      </div>
-    </div>
-    <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge" data-en="Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School" data-hi="हेड बॉय (2026–27) • जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल">Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School</div>
+    <h2 data-en="Kuber Singh Kushwaha (Prince)" data-hi="कुबेर सिंह कुशवाहा (प्रिन्स)">Kuber Singh Kushwaha (Prince)</h2>
+    <p data-en="Class 11 Science (PCM) Scholar • National Olympiad Ranker • Orator & Digital Creator from Dhanbad, Jharkhand" data-hi="कक्षा 11 विज्ञान (PCM) छात्र • राष्ट्रीय ओलंपियाड रैंकर • वक्ता और डिजिटल क्रिएटर (धनबाद, झारखंड)">Class 11 Science (PCM) Scholar • National Olympiad Ranker • Orator & Digital Creator from Dhanbad, Jharkhand</p>
+  </section>
 
   <div class="container">
 
-    <!-- Latest Updates Board -->
-    <div class="updates-box">
-      <div class="updates-header">
-        <i class="fas fa-bullhorn"></i>
-        <span data-en="LATEST UPDATES & HIGHLIGHTS" data-hi="नवीनतम अपडेट्स और उपलब्धियाँ">LATEST UPDATES & HIGHLIGHTS</span>
+    <!-- COLUMN 1: ABOUT KUBER & HIERARCHICAL ACHIEVEMENTS -->
+    <section class="column-card" id="col1">
+      <div class="col-header">
+        <div class="col-num">1</div>
+        <h3 data-en="About Kuber & Key Achievements" data-hi="कुबेर का परिचय और प्रमुख उपलब्धियाँ">About Kuber & Key Achievements</h3>
       </div>
-      <div class="updates-list">
-        <div class="update-item">
-          <span class="badge-new">NEW</span>
-          <span data-en="Serving as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School for the 2026–2027 academic session." data-hi="शैक्षणिक सत्र 2026–2027 के लिए जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल के हेड बॉय के रूप में कार्यरत।">Serving as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School for the 2026–2027 academic session.</span>
-        </div>
-        <div class="update-item">
-          <span class="badge-new">2026</span>
-          <span data-en="Qualified for the regional essay writing round of Viksit Bharat Young Leaders Dialogue 2027 (MY Bharat Dhanbad)." data-hi="विकसित भारत यंग लीडर्स डायलॉग 2027 (MY भारत धनबाद) के क्षेत्रीय निबंध लेखन राउंड के लिए चयनित।">Qualified for the regional essay writing round of Viksit Bharat Young Leaders Dialogue 2027 (MY Bharat Dhanbad).</span>
-        </div>
-        <div class="update-item">
-          <span class="badge-new">RANK 4</span>
-          <span data-en="Achieved National Rank 4 in the Bloom Computer Olympiad (BCO)." data-hi="ब्लूम कंप्यूटर ओलंपियाड (BCO) में अखिल भारतीय रैंक 4 (National Rank 4) प्राप्त की।">Achieved National Rank 4 in the Bloom Computer Olympiad (BCO).</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Portal Cards -->
-    <div class="portal-grid">
-      <a href="#about" class="portal-card">
-        <i class="fas fa-user-graduate"></i>
-        <h3 data-en="परिचय / ABOUT ME" data-hi="परिचय / ABOUT ME">परिचय / ABOUT ME</h3>
-        <span>PROFILE & VISION</span>
-      </a>
-      <a href="#achievements" class="portal-card">
-        <i class="fas fa-trophy"></i>
-        <h3 data-en="उपलब्धियाँ / ACHIEVEMENTS" data-hi="उपलब्धियाँ / ACHIEVEMENTS">उपलब्धियाँ / ACHIEVEMENTS</h3>
-        <span>AWARDS & HONORS</span>
-      </a>
-      <a href="#interests" class="portal-card">
-        <i class="fas fa-microphone-alt"></i>
-        <h3 data-en="गतिविधियाँ / ACTIVITIES" data-hi="गतिविधियाँ / ACTIVITIES">गतिविधियाँ / ACTIVITIES</h3>
-        <span>SKILLS & PASSIONS</span>
-      </a>
-      <a href="#connect" class="portal-card">
-        <i class="fas fa-share-alt"></i>
-        <h3 data-en="संपर्क / CONNECT" data-hi="संपर्क / CONNECT">संपर्क / CONNECT</h3>
-        <span>SOCIAL CHANNELS</span>
-      </a>
-    </div>
-
-    <!-- About & Education Section -->
-    <div class="section-card" id="about">
-      <h2 class="section-title"><i class="fas fa-id-card"></i> <span data-en="About Me & Education" data-hi="मेरा परिचय और शिक्षा">About Me & Education</span></h2>
-      <p style="margin-bottom: 15px;" data-en="Hello! I am Kuber Singh Kushwaha (popularly known as Prince), a Class 11 Science (PCM & Computer Science) student from Digwadih, Dhanbad, Jharkhand. Alongside academics, I am passionate about public speaking, student leadership, regional history, philosophy, vocal music, and creating meaningful digital content." data-hi="नमस्ते! मैं कुबेर सिंह कुशवाहा (प्रिन्स) हूँ। मैं डिगवाडीह, धनबाद (झारखंड) से कक्षा 11 (गणित, भौतिकी, रसायन और कंप्यूटर साइंस) का छात्र हूँ। पढ़ाई के साथ-साथ मुझे पब्लिक स्पीकिंग, छात्र नेतृत्व, इतिहास, दर्शनशास्त्र, गायन और डिजिटल कंटेंट निर्माण में गहरी रुचि है।">
-        Hello! I am Kuber Singh Kushwaha (popularly known as Prince), a Class 11 Science (PCM & Computer Science) student from Digwadih, Dhanbad, Jharkhand. Alongside academics, I am passionate about public speaking, student leadership, regional history, philosophy, vocal music, and creating meaningful digital content.
+      <p data-en="I am Kuber Singh Kushwaha (Prince), currently serving as the Head Boy of Jawaharlal Nehru Memorial Senior Secondary School, Digwadih (Affiliated to CBSE, New Delhi). Passionate about leadership, public speaking, history, and technology, here is a summary of my recognitions from National to School level:" data-hi="मैं कुबेर सिंह कुशवाहा (प्रिन्स) हूँ और वर्तमान में जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह (CBSE, नई दिल्ली से संबद्ध) के हेड बॉय के रूप में कार्यरत हूँ। नेतृत्व, भाषण कला और तकनीक में रुचि के साथ, राष्ट्रीय से लेकर विद्यालय स्तर तक की मेरी प्रमुख उपलब्धियाँ नीचे दी गई हैं:">
+        I am Kuber Singh Kushwaha (Prince), currently serving as the Head Boy of Jawaharlal Nehru Memorial Senior Secondary School, Digwadih (Affiliated to CBSE, New Delhi). Passionate about leadership, public speaking, history, and technology, here is a summary of my recognitions from National to School level:
       </p>
-      <div class="info-grid">
-        <div class="info-item">
-          <h4 data-en="Current Education" data-hi="वर्तमान शिक्षा">Current Education</h4>
-          <p data-en="Class 11 (PCM + Computer Science), Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad" data-hi="कक्षा 11 (PCM + कंप्यूटर साइंस), जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह, धनबाद">Class 11 (PCM + Computer Science), Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad</p>
+
+      <div class="rank-list">
+        <!-- National Level -->
+        <div class="rank-item national">
+          <span class="level-tag tag-national">National Level</span>
+          <div>
+            <strong data-en="National Rank 4 — Bloom Computer Olympiad (BCO)" data-hi="राष्ट्रीय रैंक 4 — ब्लूम कंप्यूटर ओलंपियाड (BCO)">National Rank 4 — Bloom Computer Olympiad (BCO)</strong>
+            <p style="font-size:0.88rem; color:var(--muted);" data-en="Secured All-India Rank 4 in computer science and analytical reasoning." data-hi="कंप्यूटर विज्ञान और तार्किक क्षमता में अखिल भारतीय चौथा स्थान प्राप्त किया।">Secured All-India Rank 4 in computer science and analytical reasoning.</p>
+          </div>
         </div>
-        <div class="info-item">
-          <h4 data-en="Secondary Education (CBSE)" data-hi="माध्यमिक शिक्षा (CBSE)">Secondary Education (CBSE)</h4>
-          <p data-en="Completed Class 10 CBSE Board Examinations in 2026." data-hi="वर्ष 2026 में CBSE कक्षा 10 की बोर्ड परीक्षा उत्तीर्ण।">Completed Class 10 CBSE Board Examinations in 2026.</p>
+
+        <!-- Zonal Level -->
+        <div class="rank-item zonal">
+          <span class="level-tag tag-zonal">Zonal Level</span>
+          <div>
+            <strong data-en="Dhanbad Zonal Inter-School Quiz Competition (31 August 2024)" data-hi="धनबाद ज़ोनल इंटर-स्कूल क्विज़ प्रतियोगिता (31 अगस्त 2024)">Dhanbad Zonal Inter-School Quiz Competition (31 August 2024)</strong>
+            <p style="font-size:0.88rem; color:var(--muted);" data-en="Represented the school at the Dhanbad Zonal level and qualified up to the Second Round." data-hi="धनबाद ज़ोनल स्तर पर विद्यालय का प्रतिनिधित्व किया और दूसरे राउंड तक क्वालीफाई किया।">Represented the school at the Dhanbad Zonal level and qualified up to the Second Round.</p>
+          </div>
+        </div>
+
+        <!-- School Level Winner -->
+        <div class="rank-item">
+          <span class="level-tag tag-school">School Winner</span>
+          <div>
+            <strong data-en="Winner — Inter-House Debate Competition (Class 11)" data-hi="विजेता — इंटर-हाउस वाद-विवाद प्रतियोगिता (कक्षा 11)">Winner — Inter-House Debate Competition (Class 11)</strong>
+            <p style="font-size:0.88rem; color:var(--muted);" data-en="Won 1st position debating on 'Social Media'; previously participated in Class 10 ('Social Media') and Class 9 ('Multi-Party System')." data-hi="'सोशल मीडिया' विषय पर प्रथम स्थान प्राप्त किया; इससे पहले कक्षा 10 ('सोशल मीडिया') और कक्षा 9 ('मल्टी-पार्टी सिस्टम') में सक्रिय भागीदारी की।">Won 1st position debating on 'Social Media'; previously participated in Class 10 ('Social Media') and Class 9 ('Multi-Party System').</p>
+          </div>
+        </div>
+
+        <!-- Kavi Sammelan & Co-curricular -->
+        <div class="rank-item">
+          <span class="level-tag tag-school">School Trophy</span>
+          <div>
+            <strong data-en="3rd Prize Trophy — Kavi Sammelan (14 November 2023) & 5–7 Event Certificates" data-hi="तृतीय पुरस्कार ट्रॉफी — कवि सम्मेलन (14 नवंबर 2023) एवं 5–7 प्रतियोगिता प्रमाण पत्र">3rd Prize Trophy — Kavi Sammelan (14 November 2023) & 5–7 Event Certificates</strong>
+            <p style="font-size:0.88rem; color:var(--muted);" data-en="Earned first trophy memento on Children's Day Kavi Sammelan, followed by multiple certificates in poetry, public speaking, and school events." data-hi="बाल दिवस कवि सम्मेलन में पहला मोमेंटो/ट्रॉफी प्राप्त किया, साथ ही विभिन्न विद्यालय प्रतियोगिताओं में 5 से 7 प्रमाण पत्र अर्जित किए।">Earned first trophy memento on Children's Day Kavi Sammelan, followed by multiple certificates in poetry, public speaking, and school events.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Achievements Section -->
-    <div class="section-card" id="achievements">
-      <h2 class="section-title"><i class="fas fa-award"></i> <span data-en="Key Achievements & Leadership" data-hi="प्रमुख उपलब्धियाँ और नेतृत्व">Key Achievements & Leadership</span></h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <h4>Head Boy (2026–2027)</h4>
-          <p data-en="Elected student council leader representing Jawaharlal Nehru Memorial Senior Secondary School; delivered Independence Day & Teachers' Day keynote speeches." data-hi="जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल के हेड बॉय; स्वतंत्रता दिवस और शिक्षक दिवस पर मुख्य भाषण एवं कार्यक्रम संचालन।">Elected student council leader representing Jawaharlal Nehru Memorial Senior Secondary School; delivered Independence Day & Teachers' Day keynote speeches.</p>
+    <!-- COLUMN 2: ACADEMIC PERFORMANCE & LEADERSHIP JOURNEY -->
+    <section class="column-card" id="col2">
+      <div class="col-header">
+        <div class="col-num">2</div>
+        <h3 data-en="Academic Performance & Leadership" data-hi="शैक्षणिक प्रदर्शन और नेतृत्व यात्रा">Academic Performance & Leadership</h3>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="timeline-box current">
+          <span class="class-badge">Class 11 (Current)</span>
+          <h4 data-en="Head Boy (2026–2027)" data-hi="हेड बॉय (2026–2027)">Head Boy (2026–2027)</h4>
+          <p data-en="Jawaharlal Nehru Memorial Senior Secondary School (Science - PCM). Leading the student council and school assemblies." data-hi="जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल (विज्ञान - PCM)। छात्र परिषद और विद्यालय सभाओं का नेतृत्व।">Jawaharlal Nehru Memorial Senior Secondary School (Science - PCM). Leading the student council and school assemblies.</p>
         </div>
-        <div class="info-item">
-          <h4>Bloom Computer Olympiad</h4>
-          <p data-en="Secured National Rank 4 in the Bloom Computer Olympiad (BCO)." data-hi="ब्लूम कंप्यूटर ओलंपियाड (BCO) में राष्ट्रीय स्तर पर चौथा स्थान (National Rank 4) हासिल किया।">Secured National Rank 4 in the Bloom Computer Olympiad (BCO).</p>
+
+        <div class="timeline-box">
+          <span class="class-badge">Class 10 (CBSE Board)</span>
+          <h4 data-en="First Division & Class Monitor" data-hi="प्रथम श्रेणी (First Division) और क्लास मॉनिटर">First Division & Class Monitor</h4>
+          <p data-en="Passed CBSE Class 10 Board Examinations with First Division while serving as Class Monitor." data-hi="क्लास मॉनिटर की जिम्मेदारी निभाते हुए प्रथम श्रेणी (First Division) के साथ CBSE कक्षा 10 की बोर्ड परीक्षा उत्तीर्ण की।">Passed CBSE Class 10 Board Examinations with First Division while serving as Class Monitor.</p>
         </div>
-        <div class="info-item">
-          <h4>Viksit Bharat Young Leaders Dialogue</h4>
-          <p data-en="Qualified for the regional essay writing round organized by MY Bharat Dhanbad." data-hi="MY भारत धनबाद द्वारा आयोजित विकसित भारत यंग लीडर्स डायलॉग 2027 के क्षेत्रीय निबंध राउंड में चयनित।">Qualified for the regional essay writing round organized by MY Bharat Dhanbad.</p>
+
+        <div class="timeline-box">
+          <span class="class-badge">Class 9</span>
+          <h4 data-en="Academic Captain" data-hi="अकादमिक कैप्टन (Academic Captain)">Academic Captain</h4>
+          <p data-en="Served as Academic Captain, mentoring peers and representing the class in debates." data-hi="अकादमिक कैप्टन के रूप में सहपाठियों का मार्गदर्शन किया और वाद-विवाद में कक्षा का प्रतिनिधित्व किया।">Served as Academic Captain, mentoring peers and representing the class in debates.</p>
         </div>
-        <div class="info-item">
-          <h4>School Events & Quizzes</h4>
-          <p data-en="Hosted Kavi Sammelan for middle school students and earned recognition in inter-school quizzes and co-curricular events." data-hi="कवि सम्मेलन की मेज़बानी तथा इंटर-स्कूल क्विज़ और सह-पाठ्यक्रम गतिविधियों में उत्कृष्ट प्रदर्शन एवं प्रमाण पत्र।">Hosted Kavi Sammelan for middle school students and earned recognition in inter-school quizzes and co-curricular events.</p>
+
+        <div class="timeline-box">
+          <span class="class-badge">Class 8</span>
+          <h4 data-en="Best Illustrator of Physics Experiment" data-hi="बेस्ट इलस्ट्रेटर ऑफ फिजिक्स एक्सपेरिमेंट">Best Illustrator of Physics Experiment</h4>
+          <p data-en="Awarded for excellence in scientific diagramming and practical physics illustration." data-hi="भौतिक विज्ञान के प्रयोगों और चित्रण में उत्कृष्ट प्रदर्शन के लिए सम्मानित।">Awarded for excellence in scientific diagramming and practical physics illustration.</p>
+        </div>
+
+        <div class="timeline-box">
+          <span class="class-badge">Class 7 & Previous School</span>
+          <h4 data-en="All-Round A+ Grade & Best Student" data-hi="सभी विषयों में A+ ग्रेड और बेस्ट स्टूडेंट">All-Round A+ Grade & Best Student</h4>
+          <p data-en="Achieved A+ across all subjects in Class 7; honored as Best Student at D.A.V. +2 High School, Mohan Bazar, Pathardih." data-hi="कक्षा 7 में सभी विषयों में A+ ग्रेड प्राप्त किया; डी.ए.वी. +2 हाई स्कूल, मोहन बाजार, पाथरडीह में 'बेस्ट स्टूडेंट' का सम्मान।">Achieved A+ across all subjects in Class 7; honored as Best Student at D.A.V. +2 High School, Mohan Bazar, Pathardih.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Interests & Skills Section -->
-    <div class="section-card" id="interests">
-      <h2 class="section-title"><i class="fas fa-star"></i> <span data-en="Interests & Core Strengths" data-hi="रुचियाँ और प्रमुख कौशल">Interests & Core Strengths</span></h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <h4 data-en="Public Speaking & Anchoring" data-hi="पब्लिक स्पीकिंग और मंच संचालन">Public Speaking & Anchoring</h4>
-          <p data-en="Keynote addresses, stage hosting, debates, and youth leadership forums." data-hi="प्रमुख भाषण, मंच संचालन, वाद-विवाद और युवा नेतृत्व मंच।">Keynote addresses, stage hosting, debates, and youth leadership forums.</p>
+    <!-- COLUMN 3: VOICES & ENDORSEMENTS (MODERATION SYSTEM) -->
+    <section class="column-card" id="col3">
+      <div class="col-header">
+        <div class="col-num">3</div>
+        <h3 data-en="Voices & Endorsements" data-hi="शिक्षकों और साथियों के विचार">Voices & Endorsements</h3>
+      </div>
+      <p style="margin-bottom:16px; color:var(--muted); font-size:0.92rem;" data-en="Principals, teachers, mentors, and friends who know me can share their remarks below. Submitted messages appear here after verification." data-hi="मेरे प्रधानाचार्य, शिक्षक, मार्गदर्शक और मित्र नीचे फॉर्म भरकर मेरे बारे में अपने विचार साझा कर सकते हैं। सत्यापन (Approval) के बाद संदेश यहाँ दिखाई देंगे।">
+        Principals, teachers, mentors, and friends who know me can share their remarks below. Submitted messages appear here after verification.
+      </p>
+
+      <div class="endorse-layout">
+        <!-- Submission Form -->
+        <form id="endorseForm">
+          <div class="form-group">
+            <label data-en="Your Full Name *" data-hi="आपका पूरा नाम *">Your Full Name *</label>
+            <input type="text" id="senderName" required placeholder="e.g., Dr. Sunita Sharma / Rahul Kumar">
+          </div>
+          <div class="form-group">
+            <label data-en="Your Position / Relation *" data-hi="आपका पद या परिचय *">Your Position / Relation *</label>
+            <input type="text" id="senderRole" required placeholder="e.g., Principal, JNM Sr. Sec. School / Classmate">
+          </div>
+          <div class="form-group">
+            <label data-en="Your Message about Kuber *" data-hi="कुबेर के बारे में आपका संदेश *">Your Message about Kuber *</label>
+            <textarea id="senderMsg" rows="3" required placeholder="Write your feedback or remarks..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn" data-en="Send for Approval" data-hi="समीक्षा के लिए भेजें">Send for Approval</button>
+          <p id="formStatus" style="margin-top:10px; font-size:0.85rem; font-weight:600;"></p>
+        </form>
+
+        <!-- Approved Remarks Display -->
+        <div>
+          <h4 style="color:var(--primary); margin-bottom:10px; font-size:0.95rem;" data-en="Verified Remarks:" data-hi="प्रमाणित विचार:">Verified Remarks:</h4>
+          <div class="approved-list" id="approvedList">
+            <div class="endorse-card">
+              <h5>Jawaharlal Nehru Memorial Sr. Sec. School</h5>
+              <small>Official Academic Record • 2026–27</small>
+              <p>"Serving with dedication as the Head Boy, demonstrating strong leadership, discipline, and oratory excellence."</p>
+            </div>
+          </div>
         </div>
-        <div class="info-item">
-          <h4 data-en="Digital Content Creation" data-hi="डिजिटल कंटेंट क्रिएशन">Digital Content Creation</h4>
-          <p data-en="Creating educational, historical, and motivational short videos on YouTube & Instagram." data-hi="YouTube और Instagram पर ऐतिहासिक, प्रेरक और ज्ञानवर्धक वीडियो का निर्माण।">Creating educational, historical, and motivational short videos on YouTube & Instagram.</p>
-        </div>
-        <div class="info-item">
-          <h4 data-en="Vocal Music & Singing" data-hi="संगीत और गायन">Vocal Music & Singing</h4>
-          <p data-en="Solo singing performances, patriotic songs, and harmonium practice." data-hi="एकल गायन, देशभक्ति गीत और हारमोनियम अभ्यास।">Solo singing performances, patriotic songs, and harmonium practice.</p>
-        </div>
-        <div class="info-item">
-          <h4 data-en="History, Philosophy & Tech" data-hi="इतिहास, दर्शन और तकनीक">History, Philosophy & Tech</h4>
-          <p data-en="Exploring Indian history, governance concepts, mental math, and web automation." data-hi="भारतीय इतिहास, शासन प्रणाली, मानसिक गणित और वेब ऑटोमेशन 
+      </div>
+    </section>
+
+    <!-- COLUMN 4: CONNECT WITH ME -->
+    <section class="column-card" id="col4">
+      <div class="col-header">
+        <div class="col-num">4</div>
+        <h3 data-en="Connect With Me" data-hi="सोशल मीडिया पर जुड़ें">Connect With Me</h3>
+      </div>
+      <div class="social-grid">
+        <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank" class="s-link s-yt"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank" class="s-link s-ig"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://x.com/princexkuber" target="_blank" class="s-link s-x"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+        <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank" class="s-link s-fb"><i class="fab fa-facebook"></i> Facebook</a>
+      </div>
+    </section>
+
+    <!-- COLUMN 5: VISION & PERSONAL STATEMENT -->
+    <section class="column-card vision-box" id="col5">
+      <div class="col-header">
+        <div class="col-num" style="background:#d97706;">5</div>
+        <h3 data-en="Vision & Philosophy" data-hi="मेरा दृष्टिकोण और लक्ष्य">Vision & Philosophy</h3>
+      </div>
+      <p data-en="“True leadership is not defined by titles, but by responsibility, continuous learning, and the courage to voice meaningful ideas. Combining scientific thinking with human values, I strive to learn from every experience and contribute positively to society.”" data-hi="“सच्चा नेतृत्व पदों से नहीं, बल्कि जिम्मेदारी, निरंतर सीखने की ललक और सार्थक विचारों को व्यक्त करने के साहस से परिभाषित होता है। वैज्ञानिक सोच और मानवीय मूल्यों के साथ मैं हर अनुभव से सीखकर समाज में सकारात्मक योगदान देने के लिए प्रयासरत हूँ।”">
+        “True leadership is not defined by titles, but by responsibility, continuous learning, and the courage to voice meaningful ideas. Combining scientific thinking with human values, I strive to learn from every experience and contribute positively to society.”
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Kuber Singh Kushwaha (Prince X Kuber) • Digwadih, Dhanbad, Jharkhand</p>
+  </footer>
+
+  <script>
+    // 1. Font Size Controls (100% Working)
+    let currentScale = 1;
+    function adjustFont(change) {
+      currentScale = Math.min(1.25, Math.max(0.85, +(currentScale + change).toFixed(2)));
+      document.documentElement.style.setProperty('--font-scale', currentScale);
+    }
+    function resetFont() {
+      currentScale = 1;
+      document.documentElement.style.setProperty('--font-scale', 1);
+    }
+
+    // 2. Bilingual Language Toggle (100% Working)
+    let activeLang = 'en';
+    function switchLanguage() {
+      activeLang = (activeLang === 'en') ? 'hi' : 'en';
+      document.getElementById('langToggle').textContent = (activeLang === 'en') ? 'हिन्दी' : 'English';
+      const elements = document.querySelectorAll('[data-en]');
+      elements.forEach(function(el) {
+        const text = el.getAttribute('data-' + activeLang);
+        if (text) el.textContent = text;
+      });
+    }
+
+    // 3. Google Apps Script Web App URL (Paste your deployed Web App URL below)
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+    // Load Approved Endorsements automatically
+    window.addEventListener('DOMContentLoaded', function() {
+      if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") return;
+      fetch(SCRIPT_URL)
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById('approvedList');
+          data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'endorse-card';
+            card.innerHTML = `<h5>${item.name}</h5><small>${item.role}</small><p>"${item.message}"</p>`;
+            list.prepend(card);
+          });
+        })
+        .catch(err => console.log("Waiting for script setup"));
+    });
+
+    // Submit Endorsement Form
+    document.getElementById('endorseForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      const btn = document.getElementById('submitBtn');
+
+      if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+        status.style.color = "#d97706";
+        status.textContent = "Note: Connect Google Apps Script URL to activate email approval.";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      const payload = {
+        name: document.getElementById('senderName').value,
+        role: document.getElementById('senderRole').value,
+        message: document.getElementById('senderMsg').value
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(() => {
+        status.style.color = "#0d9488";
+        status.textContent = "Thank you! Your message has been sent to Kuber for approval.";
+        document.getElementById('endorseForm').reset();
+      })
+      .catch(() => {
+        status.style.color = "#dc2626";
+        status.textContent = "Error sending message. Please try again.";
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = (activeLang === 'en') ? "Send for Approval" : "समीक्षा के लिए भेजें";
+      });
+    });
+  </script>
+</body>
+</html>
