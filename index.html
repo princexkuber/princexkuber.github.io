@@ -3,33 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuber Singh Kushwaha (Prince) — Portfolio</title>
+  <title>Kuber Singh Kushwaha (Prince) — Official Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --surface: #ffffff;
       --text: #0f172a;
       --muted: #475569;
       --primary: #0b1f3a;
       --accent: #0d9488;
       --accent-soft: rgba(13, 148, 136, 0.12);
+      --gold: #d97706;
+      --gold-soft: rgba(217, 119, 6, 0.12);
       --border: #e2e8f0;
-      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.07);
       --base-size: 16px;
     }
 
     [data-theme="dark"] {
-      --bg: #090d16;
+      --bg: #080c14;
       --surface: #111827;
-      --text: #f1f5f9;
+      --text: #f8fafc;
       --muted: #94a3b8;
       --primary: #38bdf8;
       --accent: #2dd4bf;
       --accent-soft: rgba(45, 212, 191, 0.14);
+      --gold: #fbbf24;
+      --gold-soft: rgba(251, 191, 36, 0.14);
       --border: #1e293b;
-      --shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.45);
+      --shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,203 +49,292 @@
       transition: background 0.25s ease, color 0.25s ease;
     }
 
-    /* Top Utility Bar */
+    /* Top Bar */
     .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-inner {
+      max-width: 960px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 960px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
     }
 
     .brand-tag {
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: 800;
+      font-size: 0.95rem;
       color: var(--accent);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
     }
 
-    .controls {
-      display: flex;
-      gap: 0.45rem;
-      align-items: center;
-    }
+    .controls { display: flex; gap: 0.4rem; align-items: center; }
 
     .ctrl-btn {
-      background: var(--surface);
+      background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 0.4rem 0.65rem;
+      padding: 0.38rem 0.65rem;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: 0.2s;
     }
 
     .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Hero Section */
+    /* Main Container */
     .container {
-      max-width: 920px;
+      max-width: 960px;
       width: 100%;
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding: 1.75rem 1.25rem 3rem;
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 2.2rem;
+    /* Profile Hero Card */
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
+
+    @media (max-width: 680px) {
+      .hero-card { flex-direction: column; text-align: center; padding: 1.5rem 1.2rem; }
+    }
+
+    .avatar-circle {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #0b1f3a, #0d9488);
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.35);
+    }
+
+    .hero-info { flex: 1; }
 
     .hero-badge {
       display: inline-block;
       background: var(--accent-soft);
       color: var(--accent);
-      padding: 0.35rem 0.9rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
     }
 
-    .hero h1 {
+    .hero-info h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 1.95rem;
       line-height: 1.2;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
-    .hero p {
+    .hero-info p {
       color: var(--muted);
-      font-size: 1rem;
-      max-width: 580px;
-      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /* 4 Clean Cards Grid */
-    .cards-grid {
+    /* Quick Highlights Strip */
+    .stats-strip {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.1rem;
-      margin-bottom: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
     }
 
     @media (max-width: 640px) {
-      .cards-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.85rem; }
+      .stats-strip { grid-template-columns: 1fr; gap: 0.65rem; }
     }
+
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-icon {
+      font-size: 1.35rem;
+      background: var(--gold-soft);
+      color: var(--gold);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+    .stat-val { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+    /* Section Heading */
+    .section-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      padding-left: 0.2rem;
+    }
+
+    /* 4 Rich Interactive Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    @media (max-width: 640px) { .cards-grid { grid-template-columns: 1fr; } }
 
     .nav-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 1.4rem;
+      padding: 1.3rem;
       box-shadow: var(--shadow);
       cursor: pointer;
       text-align: left;
       transition: transform 0.2s ease, border-color 0.2s ease;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 0.9rem;
     }
 
-    .nav-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-    }
+    .nav-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 
-    .card-left {
+    .card-top {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      justify-content: space-between;
+      gap: 0.85rem;
     }
 
+    .card-left { display: flex; align-items: center; gap: 0.9rem; }
+
     .card-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: var(--accent-soft);
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       flex-shrink: 0;
     }
 
-    .card-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-      color: var(--text);
+    .card-title { font-size: 1.08rem; font-weight: 700; color: var(--text); }
+    .card-sub { font-size: 0.83rem; color: var(--muted); }
+    .card-arrow { font-size: 0.82rem; color: var(--accent); font-weight: 700; white-space: nowrap; }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
 
-    .card-sub {
-      font-size: 0.85rem;
+    .mini-tag {
+      background: var(--bg);
       color: var(--muted);
+      border: 1px solid var(--border);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.22rem 0.55rem;
+      border-radius: 6px;
     }
 
-    .card-arrow {
-      font-size: 1.2rem;
-      color: var(--accent);
-      font-weight: 700;
+    /* Featured Quote + Voice Panel */
+    .voice-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
     }
 
-    /* Bottom Action Buttons */
-    .voice-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .featured-quote {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 0.95rem 1.1rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 640px) {
-      .voice-actions { grid-template-columns: 1fr; }
-    }
+    .featured-quote p { font-style: italic; color: var(--text); margin-bottom: 0.35rem; }
+    .featured-quote span { font-size: 0.8rem; font-weight: 700; color: var(--accent); }
+
+    .voice-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    @media (max-width: 640px) { .voice-actions { grid-template-columns: 1fr; } }
 
     .action-btn {
-      padding: 1rem 1.25rem;
-      border-radius: 14px;
-      font-size: 0.98rem;
+      padding: 0.95rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      transition: 0.2s;
+      gap: 0.55rem;
       border: none;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #ffffff;
-      box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4);
+      box-shadow: 0 6px 18px -4px rgba(13, 148, 136, 0.4);
     }
-
-    .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
 
     .btn-secondary {
-      background: var(--surface);
+      background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
-      box-shadow: var(--shadow);
     }
 
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Modal System (Opens only on click) */
+    /* Modal System */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(9, 13, 22, 0.65);
+      background: rgba(8, 12, 20, 0.68);
       backdrop-filter: blur(4px);
       display: none;
       align-items: center;
@@ -261,14 +354,8 @@
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
-      padding: 1.6rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      animation: popIn 0.2s ease;
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
+      padding: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     }
 
     .modal-header {
@@ -276,14 +363,11 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.9rem;
+      padding-bottom: 0.85rem;
       margin-bottom: 1.1rem;
     }
 
-    .modal-header h2 {
-      font-size: 1.3rem;
-      color: var(--accent);
-    }
+    .modal-header h2 { font-size: 1.25rem; color: var(--accent); }
 
     .close-btn {
       background: var(--accent-soft);
@@ -292,7 +376,7 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -301,9 +385,9 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.8rem;
       line-height: 1.6;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     .info-list li {
@@ -313,12 +397,7 @@
       border-left: 3px solid var(--accent);
     }
 
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 1rem;
-    }
+    .social-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
 
     .social-chip {
       text-decoration: none;
@@ -330,51 +409,29 @@
       font-size: 0.88rem;
     }
 
-    /* Form inside Modal */
-    .form-group { margin-bottom: 0.95rem; }
-    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .form-group { margin-bottom: 0.9rem; }
+    .form-group label { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 0.35rem; }
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.72rem;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--bg);
       color: var(--text);
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    #formStatus {
-      margin-top: 0.85rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    /* Approved Testimonials */
     .remark-card {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.85rem;
+      padding: 0.95rem;
+      margin-bottom: 0.8rem;
     }
 
-    .remark-msg {
-      font-style: italic;
-      margin-bottom: 0.55rem;
-      line-height: 1.5;
-    }
-
-    .remark-meta {
-      font-size: 0.83rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .remark-msg { font-style: italic; margin-bottom: 0.45rem; line-height: 1.5; }
+    .remark-meta { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
 
     footer {
       text-align: center;
@@ -382,85 +439,151 @@
       font-size: 0.82rem;
       color: var(--muted);
       border-top: 1px solid var(--border);
+      background: var(--surface);
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Controls -->
   <header class="topbar">
-    <span class="brand-tag">KUBER'S CIRCLE</span>
-    <div class="controls">
-      <button class="ctrl-btn" onclick="changeFont(-1)" title="Decrease text">A-</button>
-      <button class="ctrl-btn" onclick="changeFont(0)" title="Reset text">A</button>
-      <button class="ctrl-btn" onclick="changeFont(1)" title="Increase text">A+</button>
-      <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+    <div class="topbar-inner">
+      <span class="brand-tag">✦ KUBER'S CIRCLE</span>
+      <div class="controls">
+        <button class="ctrl-btn" onclick="changeFont(-1)">A-</button>
+        <button class="ctrl-btn" onclick="changeFont(0)">A</button>
+        <button class="ctrl-btn" onclick="changeFont(1)">A+</button>
+        <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
     </div>
   </header>
 
-  <!-- Main Clean Screen -->
   <main class="container">
-    <section class="hero">
-      <span class="hero-badge">Head Boy (2026–27) • Student Leader • Creator</span>
-      <h1>Kuber Singh Kushwaha</h1>
-      <p>Also known as <strong>Prince</strong> — Aspiring Engineer & Civil Servant from Dhanbad, Jharkhand.</p>
+    <!-- Profile Hero Card -->
+    <section class="hero-card">
+      <div class="avatar-circle">KSK</div>
+      <div class="hero-info">
+        <span class="hero-badge" id="heroBadge">Head Boy (2026–27) • Student Leader • Creator</span>
+        <h1>Kuber Singh Kushwaha</h1>
+        <p id="heroTagline">Also known as <strong>Prince</strong> — Class 11 PCM Scholar, Orator & Aspiring Civil Servant from Dhanbad, Jharkhand.</p>
+      </div>
     </section>
 
-    <!-- 4 Focused Interactive Cards -->
+    <!-- 3 Key Highlights Strip -->
+    <section class="stats-strip">
+      <div class="stat-box">
+        <div class="stat-icon">🎖️</div>
+        <div>
+          <div class="stat-label">Leadership</div>
+          <div class="stat-val" id="stat1">Head Boy (2026–27)</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">🥇</div>
+        <div>
+          <div class="stat-label">Olympiad</div>
+          <div class="stat-val" id="stat2">National Rank 4</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">🎯</div>
+        <div>
+          <div class="stat-label">Current Focus</div>
+          <div class="stat-val" id="stat3">Class 11 PCM & JEE</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-label">Explore Portfolio Sections (Tap to Open)</div>
+
+    <!-- 4 Rich Cards -->
     <section class="cards-grid">
       <button class="nav-card" onclick="openModal('aboutModal')">
-        <div class="card-left">
-          <div class="card-icon">👤</div>
-          <div>
-            <div class="card-title">About Kuber</div>
-            <div class="card-sub">Identity, Leadership & Creative Passions</div>
+        <div class="card-top">
+          <div class="card-left">
+            <div class="card-icon">👤</div>
+            <div>
+              <div class="card-title">About Kuber</div>
+              <div class="card-sub">Identity, Leadership & Stage</div>
+            </div>
           </div>
+          <span class="card-arrow">View →</span>
         </div>
-        <span class="card-arrow">→</span>
+        <div class="card-tags">
+          <span class="mini-tag">Student Council</span>
+          <span class="mini-tag">Solo Singing</span>
+          <span class="mini-tag">Poetry & Anchoring</span>
+        </div>
       </button>
 
       <button class="nav-card" onclick="openModal('academicsModal')">
-        <div class="card-left">
-          <div class="card-icon">📘</div>
-          <div>
-            <div class="card-title">Academics</div>
-            <div class="card-sub">Class 11 PCM, Roadmap & Future Goals</div>
+        <div class="card-top">
+          <div class="card-left">
+            <div class="card-icon">📘</div>
+            <div>
+              <div class="card-title">Academics</div>
+              <div class="card-sub">Schooling & Competitive Roadmap</div>
+            </div>
           </div>
+          <span class="card-arrow">View →</span>
         </div>
-        <span class="card-arrow">→</span>
+        <div class="card-tags">
+          <span class="mini-tag">Class 11 PCM + CS</span>
+          <span class="mini-tag">JEE & SAT</span>
+          <span class="mini-tag">UPSC Vision</span>
+        </div>
       </button>
 
       <button class="nav-card" onclick="openModal('achievementsModal')">
-        <div class="card-left">
-          <div class="card-icon">🏆</div>
-          <div>
-            <div class="card-title">Achievements</div>
-            <div class="card-sub">Olympiads, Leadership & Public Speaking</div>
+        <div class="card-top">
+          <div class="card-left">
+            <div class="card-icon">🏆</div>
+            <div>
+              <div class="card-title">Achievements</div>
+              <div class="card-sub">Honors, Olympiads & Initiatives</div>
+            </div>
           </div>
+          <span class="card-arrow">View →</span>
         </div>
-        <span class="card-arrow">→</span>
+        <div class="card-tags">
+          <span class="mini-tag">AIR 4 Bloom Olympiad</span>
+          <span class="mini-tag">Viksit Bharat</span>
+          <span class="mini-tag">NASA Space Apps</span>
+        </div>
       </button>
 
       <button class="nav-card" onclick="openModal('connectModal')">
-        <div class="card-left">
-          <div class="card-icon">🌐</div>
-          <div>
-            <div class="card-title">Connect with Kuber</div>
-            <div class="card-sub">Social Handles, Projects & Direct Contact</div>
+        <div class="card-top">
+          <div class="card-left">
+            <div class="card-icon">🌐</div>
+            <div>
+              <div class="card-title">Connect with Kuber</div>
+              <div class="card-sub">Social Channels & Direct Contact</div>
+            </div>
           </div>
+          <span class="card-arrow">View →</span>
         </div>
-        <span class="card-arrow">→</span>
+        <div class="card-tags">
+          <span class="mini-tag">YouTube</span>
+          <span class="mini-tag">Instagram</span>
+          <span class="mini-tag">Kuber's Circle</span>
+        </div>
       </button>
     </section>
 
-    <!-- Bottom Interactive Voice Buttons -->
-    <section class="voice-actions">
-      <button class="action-btn btn-primary" onclick="openModal('voiceFormModal')">
-        ✍️ Raise Your Voice
-      </button>
-      <button class="action-btn btn-secondary" onclick="openRemarksModal()">
-        👁️ See What Others Say About Kuber
-      </button>
+    <!-- Voice & Remarks Panel -->
+    <section class="voice-panel">
+      <div class="featured-quote" id="featuredQuoteBox">
+        <p>"Share your thoughts about Kuber or read what teachers, peers, and mentors say."</p>
+        <span>✦ Community Wall — Live & Moderated</span>
+      </div>
+      <div class="voice-actions">
+        <button class="action-btn btn-primary" onclick="openModal('voiceFormModal')">
+          ✍️ Raise Your Voice
+        </button>
+        <button class="action-btn btn-secondary" onclick="openRemarksModal()">
+          👁️ See What Others Say (<span id="remarkCount">0</span>)
+        </button>
+      </div>
     </section>
   </main>
 
@@ -468,63 +591,58 @@
     © 2026 Kuber Singh Kushwaha (Prince) • Jharia, Dhanbad, Jharkhand
   </footer>
 
-  <!-- MODAL 1: About Kuber -->
+  <!-- MODALS -->
   <div class="modal-backdrop" id="aboutModal" onclick="backdropClose(event, 'aboutModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h2>👤 About Kuber</h2>
         <button class="close-btn" onclick="closeModal('aboutModal')">✕</button>
       </div>
-      <ul class="info-list">
+      <ul class="info-list" id="aboutList">
         <li><strong>Identity:</strong> Kuber Singh Kushwaha (fondly known as <em>Prince</em>), based in Jharia, Dhanbad, Jharkhand.</li>
-        <li><strong>Student Leadership:</strong> Serving as the <strong>Head Boy (2026–27)</strong> at Jawaharlal Nehru Memorial Senior Secondary School, leading student council initiatives and campus communication.</li>
+        <li><strong>Student Leadership:</strong> Serving as the <strong>Head Boy (2026–27)</strong> at Jawaharlal Nehru Memorial Senior Secondary School.</li>
         <li><strong>Arts & Stage:</strong> Solo singer, poet, theatrical performer, and event anchor for school assemblies and <em>Kavi Sammelans</em>.</li>
-        <li><strong>Documentary & Writing:</strong> Filming a local heritage documentary on Jharia and maintaining a disciplined daily journal inspired by Anne Frank.</li>
+        <li><strong>Creative Projects:</strong> Filming a historical documentary on Jharia and maintaining a daily journal inspired by Anne Frank.</li>
       </ul>
     </div>
   </div>
 
-  <!-- MODAL 2: Academics -->
   <div class="modal-backdrop" id="academicsModal" onclick="backdropClose(event, 'academicsModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h2>📘 Academics & Vision</h2>
         <button class="close-btn" onclick="closeModal('academicsModal')">✕</button>
       </div>
-      <ul class="info-list">
-        <li><strong>Current Stream:</strong> Class 11 (2026–27) — Physics, Chemistry, Mathematics (PCM) with Computer Science & Commercial Art at J.N.M. Senior Secondary School.</li>
-        <li><strong>Quantitative Mastery:</strong> Practicing Vedic Mathematics sutras and advanced problem-solving alongside NCERT & RD Sharma.</li>
-        <li><strong>Global & Engineering Targets:</strong> Preparing for SAT, TOEFL, and AP exams (2027) as well as JEE Main & Advanced (2028) aiming for IIT Bombay or MIT.</li>
+      <ul class="info-list" id="academicsList">
+        <li><strong>Current Stream:</strong> Class 11 (2026–27) — Physics, Chemistry, Mathematics (PCM) with Computer Science & Commercial Art.</li>
+        <li><strong>Global & Engineering Targets:</strong> Preparing for SAT, TOEFL, AP exams (2027) and JEE Main & Advanced (2028) aiming for IIT Bombay or MIT.</li>
         <li><strong>Long-Term Mission:</strong> Aspiring to serve the nation through the UPSC Civil Services Examination (2032).</li>
       </ul>
     </div>
   </div>
 
-  <!-- MODAL 3: Achievements -->
   <div class="modal-backdrop" id="achievementsModal" onclick="backdropClose(event, 'achievementsModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h2>🏆 Key Achievements</h2>
         <button class="close-btn" onclick="closeModal('achievementsModal')">✕</button>
       </div>
-      <ul class="info-list">
+      <ul class="info-list" id="achievementsList">
         <li><strong>National Rank 4:</strong> Secured All-India Rank 4 in the Bloom Computer Olympiad.</li>
         <li><strong>Head Boy (2026–27):</strong> Elected student leader at Jawaharlal Nehru Memorial Senior Secondary School.</li>
         <li><strong>Viksit Bharat Young Leaders Dialogue:</strong> Qualified for the regional essay-writing round via MY Bharat Dhanbad.</li>
-        <li><strong>NASA Space Apps Challenge 2026:</strong> Applied and represented local youth innovation as Local Lead applicant for Dhanbad.</li>
-        <li><strong>Public Speaking & Stage:</strong> Delivered Independence Day speeches, anchored school-wide Kavi Sammelans, and performed solo vocals on public stages.</li>
+        <li><strong>NASA Space Apps Challenge 2026:</strong> Applied as Local Lead for Dhanbad to foster youth innovation.</li>
       </ul>
     </div>
   </div>
 
-  <!-- MODAL 4: Connect with Kuber -->
   <div class="modal-backdrop" id="connectModal" onclick="backdropClose(event, 'connectModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h2>🌐 Connect with Kuber</h2>
         <button class="close-btn" onclick="closeModal('connectModal')">✕</button>
       </div>
-      <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
+      <p style="color: var(--muted); font-size: 0.94rem; line-height: 1.6;">
         Follow my creative journey, reflections, and student leadership updates under <strong>Kuber's Circle</strong>:
       </p>
       <div class="social-links">
@@ -536,7 +654,6 @@
     </div>
   </div>
 
-  <!-- MODAL 5: Raise Your Voice (Feedback Form) -->
   <div class="modal-backdrop" id="voiceFormModal" onclick="backdropClose(event, 'voiceFormModal')">
     <div class="modal-box">
       <div class="modal-header">
@@ -550,7 +667,7 @@
         </div>
         <div class="form-group">
           <label>How do you know Kuber? *</label>
-          <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
+          <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend" />
         </div>
         <div class="form-group">
           <label>City / Institution *</label>
@@ -563,12 +680,11 @@
         <button type="submit" class="action-btn btn-primary" style="width: 100%;" id="submitBtn">
           Send Remark
         </button>
-        <div id="formStatus"></div>
+        <div id="formStatus" style="margin-top:0.85rem;font-size:0.9rem;font-weight:600;"></div>
       </form>
     </div>
   </div>
 
-  <!-- MODAL 6: See What Others Say About Kuber -->
   <div class="modal-backdrop" id="remarksModal" onclick="backdropClose(event, 'remarksModal')">
     <div class="modal-box">
       <div class="modal-header">
@@ -582,21 +698,54 @@
   </div>
 
   <script>
-    // Your Existing Connected Apps Script Web App URL
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxt09gQw9dsXE15nb0eWT15VRtkT92IFi7YKpNQDyPdDXDO3Tmwpn28rhZZA5UIfEXS-Q/exec";
+    let cachedRemarks = [];
 
-    // Google Form Pre-connected Entry Endpoint
-    const FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfC9c6zM6b-0fN5Q9wP8uY1a2b3c4d5e6f7g8h9i0j/formResponse";
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch(WEB_APP_URL)
+        .then(res => res.json())
+        .then(data => {
+          cachedRemarks = Array.isArray(data) ? data : (data.remarks || []);
+          document.getElementById('remarkCount').textContent = cachedRemarks.length;
 
-    // Font Size Control
+          if (cachedRemarks.length > 0) {
+            const latest = cachedRemarks[cachedRemarks.length - 1];
+            document.getElementById('featuredQuoteBox').innerHTML = `
+              <p>"${latest.message}"</p>
+              <span>— ${latest.name} (${latest.role})</span>
+            `;
+          }
+
+          const content = data.content;
+          if (content) {
+            if (content.Hero && content.Hero.Badge) document.getElementById('heroBadge').textContent = content.Hero.Badge;
+            if (content.Hero && content.Hero.Tagline) document.getElementById('heroTagline').textContent = content.Hero.Tagline;
+            if (content.Hero && content.Hero.Stat1) document.getElementById('stat1').textContent = content.Hero.Stat1;
+            if (content.Hero && content.Hero.Stat2) document.getElementById('stat2').textContent = content.Hero.Stat2;
+            if (content.Hero && content.Hero.Stat3) document.getElementById('stat3').textContent = content.Hero.Stat3;
+
+            renderList('aboutList', content.About);
+            renderList('academicsList', content.Academics);
+            renderList('achievementsList', content.Achievements);
+          }
+        })
+        .catch(() => {});
+    });
+
+    function renderList(elementId, items) {
+      if (!items || items.length === 0) return;
+      const ul = document.getElementById(elementId);
+      ul.innerHTML = items.map(item =>
+        `<li>${item.title ? `<strong>${item.title}:</strong> ` : ''}${item.details}</li>`
+      ).join('');
+    }
+
     let currentFont = 16;
     function changeFont(step) {
-      if (step === 0) currentFont = 16;
-      else currentFont = Math.min(20, Math.max(14, currentFont + step));
+      currentFont = step === 0 ? 16 : Math.min(20, Math.max(14, currentFont + step));
       document.documentElement.style.setProperty('--base-size', currentFont + 'px');
     }
 
-    // Theme Control
     function toggleTheme() {
       const html = document.documentElement;
       const btn = document.getElementById('themeBtn');
@@ -609,45 +758,25 @@
       }
     }
 
-    // Modal Functions
-    function openModal(id) {
-      document.getElementById(id).classList.add('active');
-    }
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+    function backdropClose(e, id) { if (e.target.id === id) closeModal(id); }
 
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('active');
-    }
-
-    function backdropClose(e, id) {
-      if (e.target.id === id) closeModal(id);
-    }
-
-    // Fetch & Show Approved Remarks Only When Clicked
     function openRemarksModal() {
       openModal('remarksModal');
       const container = document.getElementById('remarksContainer');
-      container.innerHTML = '<p style="color: var(--muted);">Loading approved voices...</p>';
-
-      fetch(WEB_APP_URL)
-        .then(res => res.json())
-        .then(data => {
-          if (!data || data.length === 0) {
-            container.innerHTML = '<p style="color: var(--muted);">No remarks published yet. Be the first to share your thoughts!</p>';
-            return;
-          }
-          container.innerHTML = data.reverse().map(item => `
-            <div class="remark-card">
-              <div class="remark-msg">"${item.message}"</div>
-              <div class="remark-meta">— ${item.name} (${item.role})</div>
-            </div>
-          `).join('');
-        })
-        .catch(() => {
-          container.innerHTML = '<p style="color: #dc2626;">Unable to load remarks right now. Please try again later.</p>';
-        });
+      if (!cachedRemarks || cachedRemarks.length === 0) {
+        container.innerHTML = '<p style="color: var(--muted);">No remarks published yet. Be the first to share your thoughts!</p>';
+        return;
+      }
+      container.innerHTML = [...cachedRemarks].reverse().map(item => `
+        <div class="remark-card">
+          <div class="remark-msg">"${item.message}"</div>
+          <div class="remark-meta">— ${item.name} (${item.role})</div>
+        </div>
+      `).join('');
     }
 
-    // Submit Feedback Form
     function submitVoiceForm(e) {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
