@@ -1,710 +1,685 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KSKXP | PXKSK - Kuber Singh Kushwaha (Prince X Kuber) | JNMS Head Boy</title>
-  <meta name="description" content="Official portfolio of Kuber Singh Kushwaha (Prince Kumar / PrinceXKuber / KuberxPrince), also known as KSKXP and PXKSK — Head Boy at JNMS Digwadih, Dhanbad.">
-  <meta name="keywords" content="pxksk, kskxp, Kuber, Kuber Singh, Kuber Singh Kushwaha, Prince, Prince Kumar, JNMS Head Boy, KuberxPrince, PrinceXKuber">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Kuber Singh Kushwaha (Prince) — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0b1f3a;       /* Deep Royal Navy */
-      --primary-light: #163a69;
-      --accent: #d97706;        /* Warm Gold Accent */
-      --teal: #0d9488;          /* Emerald Teal */
-      --bg: #f1f5f9;
-      --card: #ffffff;
+      --bg: #f8fafc;
+      --surface: #ffffff;
       --text: #0f172a;
       --muted: #475569;
+      --primary: #0b1f3a;
+      --accent: #0d9488;
+      --accent-soft: rgba(13, 148, 136, 0.12);
       --border: #e2e8f0;
-      --font-scale: 1;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      --base-size: 16px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #090d16;
+      --surface: #111827;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #2dd4bf;
+      --accent-soft: rgba(45, 212, 191, 0.14);
+      --border: #1e293b;
+      --shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
+    html { font-size: var(--base-size); }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      font-size: calc(16px * var(--font-scale));
-      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    /* Top Accessibility & Social Bar */
-    .top-bar {
-      background: #061224;
-      color: #f8fafc;
-      padding: 8px 5%;
+    /* Top Utility Bar */
+    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      flex-wrap: wrap;
-      gap: 10px;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
     }
 
-    .top-socials a {
-      color: #cbd5e1;
-      margin-right: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
+    .brand-tag {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 0.5px;
     }
-
-    .top-socials a:hover { color: #fbbf24; }
 
     .controls {
       display: flex;
+      gap: 0.45rem;
       align-items: center;
-      gap: 8px;
     }
 
-    .controls button {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.82rem;
-      transition: background 0.2s;
-    }
-
-    .controls button:hover { background: var(--accent); border-color: var(--accent); }
-
-    /* Sticky Header & Quick Navigation */
-    header {
-      background: var(--card);
-      padding: 14px 5%;
-      box-shadow: 0 4px 20px rgba(11, 31, 58, 0.06);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--teal));
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.15rem;
-      border: 2px solid var(--accent);
-    }
-
-    .brand h1 {
-      font-size: 1.2rem;
-      color: var(--primary);
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-
-    .brand span {
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: #f8fafc;
+    .ctrl-btn {
+      background: var(--surface);
+      color: var(--text);
       border: 1px solid var(--border);
-      transition: all 0.2s;
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    nav a:hover {
-      background: var(--primary);
-      color: #fff;
+    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Hero Section */
+    .container {
+      max-width: 920px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    /* Hero Banner */
     .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 65%, #0f766e 100%);
-      color: #fff;
-      padding: 45px 5%;
       text-align: center;
+      margin-bottom: 2.2rem;
     }
 
     .hero-badge {
       display: inline-block;
-      background: rgba(251, 191, 36, 0.2);
-      border: 1px solid #fbbf24;
-      color: #fde68a;
-      padding: 4px 14px;
-      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: 0.85rem;
     }
 
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
 
     .hero p {
-      max-width: 720px;
-      margin: 0 auto;
-      color: #e2e8f0;
+      color: var(--muted);
       font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto;
     }
 
-    /* Main Container */
-    .container {
-      max-width: 1050px;
-      margin: -25px auto 50px;
-      padding: 0 16px;
+    /* 4 Clean Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+      margin-bottom: 1.6rem;
     }
 
-    /* 5 Column Cards */
-    .column-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 26px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.85rem; }
+    }
+
+    .nav-card {
+      background: var(--surface);
       border: 1px solid var(--border);
-    }
-
-    .col-header {
+      border-radius: 16px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.2s ease, border-color 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #f1f5f9;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .col-num {
-      background: var(--primary);
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+    .nav-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1.4rem;
       flex-shrink: 0;
     }
 
-    .col-header h3 {
-      color: var(--primary);
-      font-size: 1.3rem;
+    .card-title {
+      font-size: 1.12rem;
       font-weight: 700;
+      margin-bottom: 0.2rem;
+      color: var(--text);
     }
 
-    /* Hierarchy Badges for Achievements */
-    .rank-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .rank-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 15px;
-      border-radius: 12px;
-      background: #f8fafc;
-      border-left: 4px solid var(--primary);
-    }
-
-    .rank-item.national { border-left-color: #d97706; background: #fffbeb; }
-    .rank-item.zonal { border-left-color: #0d9488; background: #f0fdfa; }
-
-    .level-tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-
-    .tag-national { background: #fef3c7; color: #b45309; }
-    .tag-zonal { background: #ccfbf1; color: #0f766e; }
-    .tag-school { background: #e0e7ff; color: #1d4ed8; }
-
-    /* Academic Timeline Grid */
-    .timeline-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-    }
-
-    .timeline-box {
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #f8fafc;
-      position: relative;
-    }
-
-    .timeline-box.current {
-      background: linear-gradient(to bottom right, #eff6ff, #ffffff);
-      border: 1.5px solid #3b82f6;
-    }
-
-    .class-badge {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
-
-    .timeline-box h4 {
-      color: var(--primary);
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
-
-    .timeline-box p {
-      font-size: 0.9rem;
+    .card-sub {
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
-    /* Endorsement Form & Cards */
-    .endorse-layout {
+    .card-arrow {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Bottom Action Buttons */
+    .voice-actions {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
-    @media (max-width: 768px) {
-      .endorse-layout { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .voice-actions { grid-template-columns: 1fr; }
     }
 
-    .form-group { margin-bottom: 14px; }
+    .action-btn {
+      padding: 1rem 1.25rem;
+      border-radius: 14px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: 0.2s;
+      border: none;
+    }
 
-    .form-group label {
-      display: block;
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4);
+    }
+
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* Modal System (Opens only on click) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 13, 22, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .modal-backdrop.active { display: flex; }
+
+    .modal-box {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      max-width: 620px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 1.6rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      animation: popIn 0.2s ease;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .modal-header h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    .close-btn {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .info-list li {
+      background: var(--bg);
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .social-chip {
+      text-decoration: none;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.55rem 0.95rem;
+      border-radius: 8px;
       font-weight: 600;
       font-size: 0.88rem;
-      margin-bottom: 5px;
-      color: var(--primary);
     }
 
+    /* Form inside Modal */
+    .form-group { margin-bottom: 0.95rem; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem; }
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
 
     .form-group input:focus, .form-group textarea:focus {
       outline: none;
-      border-color: var(--primary);
+      border-color: var(--accent);
     }
 
-    .submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--teal));
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      font-size: 0.95rem;
-      transition: opacity 0.2s;
-    }
-
-    .submit-btn:hover { opacity: 0.92; }
-
-    .approved-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-height: 360px;
-      overflow-y: auto;
-    }
-
-    .endorse-card {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--teal);
-      padding: 14px;
-      border-radius: 10px;
-    }
-
-    .endorse-card h5 { color: var(--primary); font-size: 0.98rem; }
-    .endorse-card small { color: var(--teal); font-weight: 600; display: block; margin-bottom: 6px; }
-    .endorse-card p { font-size: 0.9rem; color: var(--text); font-style: italic; }
-
-    /* Social Grid */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-
-    .s-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px;
-      border-radius: 10px;
-      color: #fff;
-      text-decoration: none;
+    #formStatus {
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      transition: transform 0.2s;
     }
 
-    .s-link:hover { transform: translateY(-3px); }
-    .s-yt { background: #dc2626; }
-    .s-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-    .s-x  { background: #0f172a; }
-    .s-fb { background: #1d4ed8; }
-
-    /* Closing Vision Box */
-    .vision-box {
-      background: linear-gradient(135deg, #0b1f3a, #1e3a8a);
-      color: #fff;
-      text-align: center;
+    /* Approved Testimonials */
+    .remark-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
     }
 
-    .vision-box .col-header { border-bottom-color: rgba(255,255,255,0.15); justify-content: center; }
-    .vision-box .col-header h3 { color: #fbbf24; }
-    .vision-box p { color: #e2e8f0; max-width: 780px; margin: 0 auto; font-size: 1rem; }
+    .remark-msg {
+      font-style: italic;
+      margin-bottom: 0.55rem;
+      line-height: 1.5;
+    }
+
+    .remark-meta {
+      font-size: 0.83rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     footer {
-      background: #061224;
-      color: #94a3b8;
       text-align: center;
-      padding: 22px 15px;
-      font-size: 0.85rem;
+      padding: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Utility Bar -->
-  <div class="top-bar">
-    <div class="top-socials">
-      <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/princexkuber" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
+  <!-- Top Controls -->
+  <header class="topbar">
+    <span class="brand-tag">KUBER'S CIRCLE</span>
     <div class="controls">
-      <button type="button" onclick="adjustFont(-0.08)">A-</button>
-      <button type="button" onclick="resetFont()">A</button>
-      <button type="button" onclick="adjustFont(0.08)">A+</button>
-      <button type="button" id="langToggle" onclick="switchLanguage()">हिन्दी</button>
+      <button class="ctrl-btn" onclick="changeFont(-1)" title="Decrease text">A-</button>
+      <button class="ctrl-btn" onclick="changeFont(0)" title="Reset text">A</button>
+      <button class="ctrl-btn" onclick="changeFont(1)" title="Increase text">A+</button>
+      <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
     </div>
-  </div>
-
-  <!-- Header & 5-Column Quick Jump -->
-  <header>
-    <div class="brand">
-      <div class="avatar">KK</div>
-      <div>
-        <h1>KUBER SINGH KUSHWAHA</h1>
-        <span data-en="Prince X Kuber • Head Boy & Public Speaker" data-hi="प्रिन्स एक्स कुबेर • हेड बॉय और पब्लिक स्पीकर">Prince X Kuber • Head Boy & Public Speaker</span>
-      </div>
-    </div>
-    <nav>
-      <a href="#col1" data-en="About Kuber" data-hi="परिचय">About Kuber</a>
-      <a href="#col2" data-en="Academics" data-hi="शिक्षा">Academics</a>
-      <a href="#col3" data-en="Voices" data-hi="विचार">Voices</a>
-      <a href="#col4" data-en="Connect" data-hi="संपर्क">Connect</a>
-      <a href="#col5" data-en="Vision" data-hi="लक्ष्य">Vision</a>
-    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-badge" data-en="Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School" data-hi="हेड बॉय (2026–27) • जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल">Head Boy (2026–27) • Jawaharlal Nehru Memorial Senior Secondary School</div>
-    <h2 data-en="Kuber Singh Kushwaha (Prince)" data-hi="कुबेर सिंह कुशवाहा (प्रिन्स)">Kuber Singh Kushwaha (Prince)</h2>
-    <p data-en="Class 11 Science (PCM) Scholar • National Olympiad Ranker • Orator & Digital Creator from Dhanbad, Jharkhand" data-hi="कक्षा 11 विज्ञान (PCM) छात्र • राष्ट्रीय ओलंपियाड रैंकर • वक्ता और डिजिटल क्रिएटर (धनबाद, झारखंड)">Class 11 Science (PCM) Scholar • National Olympiad Ranker • Orator & Digital Creator from Dhanbad, Jharkhand</p>
-  </section>
+  <!-- Main Clean Screen -->
+  <main class="container">
+    <section class="hero">
+      <span class="hero-badge">Head Boy (2026–27) • Student Leader • Creator</span>
+      <h1>Kuber Singh Kushwaha</h1>
+      <p>Also known as <strong>Prince</strong> — Aspiring Engineer & Civil Servant from Dhanbad, Jharkhand.</p>
+    </section>
 
-  <div class="container">
-
-    <!-- COLUMN 1: ABOUT KUBER & HIERARCHICAL ACHIEVEMENTS -->
-    <section class="column-card" id="col1">
-      <div class="col-header">
-        <div class="col-num">1</div>
-        <h3 data-en="About Kuber & Key Achievements" data-hi="कुबेर का परिचय और प्रमुख उपलब्धियाँ">About Kuber & Key Achievements</h3>
-      </div>
-      <p data-en="I am Kuber Singh Kushwaha (Prince), currently serving as the Head Boy of Jawaharlal Nehru Memorial Senior Secondary School, Digwadih (Affiliated to CBSE, New Delhi). Passionate about leadership, public speaking, history, and technology, here is a summary of my recognitions from National to School level:" data-hi="मैं कुबेर सिंह कुशवाहा (प्रिन्स) हूँ और वर्तमान में जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल, डिगवाडीह (CBSE, नई दिल्ली से संबद्ध) के हेड बॉय के रूप में कार्यरत हूँ। नेतृत्व, भाषण कला और तकनीक में रुचि के साथ, राष्ट्रीय से लेकर विद्यालय स्तर तक की मेरी प्रमुख उपलब्धियाँ नीचे दी गई हैं:">
-        I am Kuber Singh Kushwaha (Prince), currently serving as the Head Boy of Jawaharlal Nehru Memorial Senior Secondary School, Digwadih (Affiliated to CBSE, New Delhi). Passionate about leadership, public speaking, history, and technology, here is a summary of my recognitions from National to School level:
-      </p>
-
-      <div class="rank-list">
-        <!-- National Level -->
-        <div class="rank-item national">
-          <span class="level-tag tag-national">National Level</span>
+    <!-- 4 Focused Interactive Cards -->
+    <section class="cards-grid">
+      <button class="nav-card" onclick="openModal('aboutModal')">
+        <div class="card-left">
+          <div class="card-icon">👤</div>
           <div>
-            <strong data-en="National Rank 4 — Bloom Computer Olympiad (BCO)" data-hi="राष्ट्रीय रैंक 4 — ब्लूम कंप्यूटर ओलंपियाड (BCO)">National Rank 4 — Bloom Computer Olympiad (BCO)</strong>
-            <p style="font-size:0.88rem; color:var(--muted);" data-en="Secured All-India Rank 4 in computer science and analytical reasoning." data-hi="कंप्यूटर विज्ञान और तार्किक क्षमता में अखिल भारतीय चौथा स्थान प्राप्त किया।">Secured All-India Rank 4 in computer science and analytical reasoning.</p>
+            <div class="card-title">About Kuber</div>
+            <div class="card-sub">Identity, Leadership & Creative Passions</div>
           </div>
         </div>
+        <span class="card-arrow">→</span>
+      </button>
 
-        <!-- Zonal Level -->
-        <div class="rank-item zonal">
-          <span class="level-tag tag-zonal">Zonal Level</span>
+      <button class="nav-card" onclick="openModal('academicsModal')">
+        <div class="card-left">
+          <div class="card-icon">📘</div>
           <div>
-            <strong data-en="Dhanbad Zonal Inter-School Quiz Competition (31 August 2024)" data-hi="धनबाद ज़ोनल इंटर-स्कूल क्विज़ प्रतियोगिता (31 अगस्त 2024)">Dhanbad Zonal Inter-School Quiz Competition (31 August 2024)</strong>
-            <p style="font-size:0.88rem; color:var(--muted);" data-en="Represented the school at the Dhanbad Zonal level and qualified up to the Second Round." data-hi="धनबाद ज़ोनल स्तर पर विद्यालय का प्रतिनिधित्व किया और दूसरे राउंड तक क्वालीफाई किया।">Represented the school at the Dhanbad Zonal level and qualified up to the Second Round.</p>
+            <div class="card-title">Academics</div>
+            <div class="card-sub">Class 11 PCM, Roadmap & Future Goals</div>
           </div>
         </div>
+        <span class="card-arrow">→</span>
+      </button>
 
-        <!-- School Level Winner -->
-        <div class="rank-item">
-          <span class="level-tag tag-school">School Winner</span>
+      <button class="nav-card" onclick="openModal('achievementsModal')">
+        <div class="card-left">
+          <div class="card-icon">🏆</div>
           <div>
-            <strong data-en="Winner — Inter-House Debate Competition (Class 11)" data-hi="विजेता — इंटर-हाउस वाद-विवाद प्रतियोगिता (कक्षा 11)">Winner — Inter-House Debate Competition (Class 11)</strong>
-            <p style="font-size:0.88rem; color:var(--muted);" data-en="Won 1st position debating on 'Social Media'; previously participated in Class 10 ('Social Media') and Class 9 ('Multi-Party System')." data-hi="'सोशल मीडिया' विषय पर प्रथम स्थान प्राप्त किया; इससे पहले कक्षा 10 ('सोशल मीडिया') और कक्षा 9 ('मल्टी-पार्टी सिस्टम') में सक्रिय भागीदारी की।">Won 1st position debating on 'Social Media'; previously participated in Class 10 ('Social Media') and Class 9 ('Multi-Party System').</p>
+            <div class="card-title">Achievements</div>
+            <div class="card-sub">Olympiads, Leadership & Public Speaking</div>
           </div>
         </div>
+        <span class="card-arrow">→</span>
+      </button>
 
-        <!-- Kavi Sammelan & Co-curricular -->
-        <div class="rank-item">
-          <span class="level-tag tag-school">School Trophy</span>
+      <button class="nav-card" onclick="openModal('connectModal')">
+        <div class="card-left">
+          <div class="card-icon">🌐</div>
           <div>
-            <strong data-en="3rd Prize Trophy — Kavi Sammelan (14 November 2023) & 5–7 Event Certificates" data-hi="तृतीय पुरस्कार ट्रॉफी — कवि सम्मेलन (14 नवंबर 2023) एवं 5–7 प्रतियोगिता प्रमाण पत्र">3rd Prize Trophy — Kavi Sammelan (14 November 2023) & 5–7 Event Certificates</strong>
-            <p style="font-size:0.88rem; color:var(--muted);" data-en="Earned first trophy memento on Children's Day Kavi Sammelan, followed by multiple certificates in poetry, public speaking, and school events." data-hi="बाल दिवस कवि सम्मेलन में पहला मोमेंटो/ट्रॉफी प्राप्त किया, साथ ही विभिन्न विद्यालय प्रतियोगिताओं में 5 से 7 प्रमाण पत्र अर्जित किए।">Earned first trophy memento on Children's Day Kavi Sammelan, followed by multiple certificates in poetry, public speaking, and school events.</p>
+            <div class="card-title">Connect with Kuber</div>
+            <div class="card-sub">Social Handles, Projects & Direct Contact</div>
           </div>
         </div>
-      </div>
+        <span class="card-arrow">→</span>
+      </button>
     </section>
 
-    <!-- COLUMN 2: ACADEMIC PERFORMANCE & LEADERSHIP JOURNEY -->
-    <section class="column-card" id="col2">
-      <div class="col-header">
-        <div class="col-num">2</div>
-        <h3 data-en="Academic Performance & Leadership" data-hi="शैक्षणिक प्रदर्शन और नेतृत्व यात्रा">Academic Performance & Leadership</h3>
-      </div>
-
-      <div class="timeline-grid">
-        <div class="timeline-box current">
-          <span class="class-badge">Class 11 (Current)</span>
-          <h4 data-en="Head Boy (2026–2027)" data-hi="हेड बॉय (2026–2027)">Head Boy (2026–2027)</h4>
-          <p data-en="Jawaharlal Nehru Memorial Senior Secondary School (Science - PCM). Leading the student council and school assemblies." data-hi="जवाहरलाल नेहरू मेमोरियल सीनियर सेकेंडरी स्कूल (विज्ञान - PCM)। छात्र परिषद और विद्यालय सभाओं का नेतृत्व।">Jawaharlal Nehru Memorial Senior Secondary School (Science - PCM). Leading the student council and school assemblies.</p>
-        </div>
-
-        <div class="timeline-box">
-          <span class="class-badge">Class 10 (CBSE Board)</span>
-          <h4 data-en="First Division & Class Monitor" data-hi="प्रथम श्रेणी (First Division) और क्लास मॉनिटर">First Division & Class Monitor</h4>
-          <p data-en="Passed CBSE Class 10 Board Examinations with First Division while serving as Class Monitor." data-hi="क्लास मॉनिटर की जिम्मेदारी निभाते हुए प्रथम श्रेणी (First Division) के साथ CBSE कक्षा 10 की बोर्ड परीक्षा उत्तीर्ण की।">Passed CBSE Class 10 Board Examinations with First Division while serving as Class Monitor.</p>
-        </div>
-
-        <div class="timeline-box">
-          <span class="class-badge">Class 9</span>
-          <h4 data-en="Academic Captain" data-hi="अकादमिक कैप्टन (Academic Captain)">Academic Captain</h4>
-          <p data-en="Served as Academic Captain, mentoring peers and representing the class in debates." data-hi="अकादमिक कैप्टन के रूप में सहपाठियों का मार्गदर्शन किया और वाद-विवाद में कक्षा का प्रतिनिधित्व किया।">Served as Academic Captain, mentoring peers and representing the class in debates.</p>
-        </div>
-
-        <div class="timeline-box">
-          <span class="class-badge">Class 8</span>
-          <h4 data-en="Best Illustrator of Physics Experiment" data-hi="बेस्ट इलस्ट्रेटर ऑफ फिजिक्स एक्सपेरिमेंट">Best Illustrator of Physics Experiment</h4>
-          <p data-en="Awarded for excellence in scientific diagramming and practical physics illustration." data-hi="भौतिक विज्ञान के प्रयोगों और चित्रण में उत्कृष्ट प्रदर्शन के लिए सम्मानित।">Awarded for excellence in scientific diagramming and practical physics illustration.</p>
-        </div>
-
-        <div class="timeline-box">
-          <span class="class-badge">Class 7 & Previous School</span>
-          <h4 data-en="All-Round A+ Grade & Best Student" data-hi="सभी विषयों में A+ ग्रेड और बेस्ट स्टूडेंट">All-Round A+ Grade & Best Student</h4>
-          <p data-en="Achieved A+ across all subjects in Class 7; honored as Best Student at D.A.V. +2 High School, Mohan Bazar, Pathardih." data-hi="कक्षा 7 में सभी विषयों में A+ ग्रेड प्राप्त किया; डी.ए.वी. +2 हाई स्कूल, मोहन बाजार, पाथरडीह में 'बेस्ट स्टूडेंट' का सम्मान।">Achieved A+ across all subjects in Class 7; honored as Best Student at D.A.V. +2 High School, Mohan Bazar, Pathardih.</p>
-        </div>
-      </div>
+    <!-- Bottom Interactive Voice Buttons -->
+    <section class="voice-actions">
+      <button class="action-btn btn-primary" onclick="openModal('voiceFormModal')">
+        ✍️ Raise Your Voice
+      </button>
+      <button class="action-btn btn-secondary" onclick="openRemarksModal()">
+        👁️ See What Others Say About Kuber
+      </button>
     </section>
-
-    <!-- COLUMN 3: VOICES FROM THOSE WHO KNOW ME (ONE-CLICK APPROVAL LIVE) -->
-    <section class="column-card" id="col3">
-      <div class="col-header">
-        <div class="col-num">3</div>
-        <h3 data-en="Voices from Those Who Know Me" data-hi="जो मुझे जानते हैं, उनके विचार">Voices from Those Who Know Me</h3>
-      </div>
-      <p style="margin-bottom:16px; color:var(--muted); font-size:0.92rem;" data-en="Thank you for visiting! Please share your thoughts, experiences, or a few kind words about working or interacting with Kuber Singh Kushwaha. Verified messages appear below after approval." data-hi="वेबसाइट पर आने के लिए धन्यवाद! कृपया कुबेर सिंह कुशवाहा के साथ अपने अनुभव, विचार या कुछ शब्द नीचे साझा करें। सत्यापन (Approval) के बाद संदेश नीचे दिखाई देंगे।">
-        Thank you for visiting! Please share your thoughts, experiences, or a few kind words about working or interacting with Kuber Singh Kushwaha. Verified messages appear below after approval.
-      </p>
-
-      <div class="endorse-layout">
-        <!-- Hidden iframe for silent Google Form submission -->
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof formSubmitted !== 'undefined' && formSubmitted) { showFormSuccess(); }"></iframe>
-
-        <!-- Submission Form linked directly to Google Forms -->
-        <form id="endorseForm" action="https://docs.google.com/forms/d/e/1FAIpQLScKGEh7fvE-q5Z82CjRQrQXxoNrNiFmHHHSeBsGzn3yd_kxZw/formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit()">
-          <div class="form-group">
-            <label data-en="Your Full Name *" data-hi="आपका पूरा नाम *">Your Full Name *</label>
-            <input type="text" name="entry.748349718" id="senderName" required placeholder="e.g., Dr. Sunita Sharma / Rahul Kumar">
-          </div>
-          <div class="form-group">
-            <label data-en="Relation *" data-hi="परिचय / संबंध *">Relation *</label>
-            <input type="text" name="entry.1134279371" id="senderRole" required placeholder="e.g., Teacher, Mentor, Classmate, Friend">
-          </div>
-          <div class="form-group">
-            <label data-en="Place of relation *" data-hi="संस्थान या स्थान *">Place of relation *</label>
-            <input type="text" name="entry.949725409" id="senderPlace" required placeholder="e.g., JNM Sr. Sec. School, Digwadih">
-          </div>
-          <div class="form-group">
-            <label data-en="What you think about me *" data-hi="मेरे बारे में आपके विचार *">What you think about me *</label>
-            <textarea name="entry.99257882" id="senderMsg" rows="3" required placeholder="Write your thoughts or feedback..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn" data-en="Share Your Thoughts" data-hi="अपने विचार भेजें">Share Your Thoughts</button>
-          <p id="formStatus" style="margin-top:10px; font-size:0.88rem; font-weight:600;"></p>
-        </form>
-
-        <!-- Featured & Approved Remarks Display -->
-        <div>
-          <h4 style="color:var(--primary); margin-bottom:10px; font-size:0.95rem;" data-en="Featured & Verified Remarks:" data-hi="प्रमुख एवं प्रमाणित विचार:">Featured & Verified Remarks:</h4>
-          <div class="approved-list" id="approvedList">
-            <div class="endorse-card">
-              <h5>Jawaharlal Nehru Memorial Sr. Sec. School</h5>
-              <small>Official Academic Record • 2026–27</small>
-              <p>"Serving with dedication as the Head Boy, demonstrating strong leadership, discipline, and oratory excellence."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COLUMN 4: CONNECT WITH ME -->
-    <section class="column-card" id="col4">
-      <div class="col-header">
-        <div class="col-num">4</div>
-        <h3 data-en="Connect With Me" data-hi="सोशल मीडिया पर जुड़ें">Connect With Me</h3>
-      </div>
-      <div class="social-grid">
-        <a href="https://youtube.com/@princexkuber?si=n-8YkTRAfW42V3hK" target="_blank" class="s-link s-yt"><i class="fab fa-youtube"></i> YouTube</a>
-        <a href="https://www.instagram.com/princexkuber?psln=MTI2ZG1nMzU5b2IwYQ==" target="_blank" class="s-link s-ig"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://x.com/princexkuber" target="_blank" class="s-link s-x"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
-        <a href="https://www.facebook.com/share/1KVPHhfVM3/" target="_blank" class="s-link s-fb"><i class="fab fa-facebook"></i> Facebook</a>
-      </div>
-    </section>
-
-    <!-- COLUMN 5: VISION & PERSONAL STATEMENT -->
-    <section class="column-card vision-box" id="col5">
-      <div class="col-header">
-        <div class="col-num" style="background:#d97706;">5</div>
-        <h3 data-en="Vision & Philosophy" data-hi="मेरा दृष्टिकोण और लक्ष्य">Vision & Philosophy</h3>
-      </div>
-      <p data-en="“True leadership is not defined by titles, but by responsibility, continuous learning, and the courage to voice meaningful ideas. Combining scientific thinking with human values, I strive to learn from every experience and contribute positively to society.”" data-hi="“सच्चा नेतृत्व पदों से नहीं, बल्कि जिम्मेदारी, निरंतर सीखने की ललक और सार्थक विचारों को व्यक्त करने के साहस से परिभाषित होता है। वैज्ञानिक सोच और मानवीय मूल्यों के साथ मैं हर अनुभव से सीखकर समाज में सकारात्मक योगदान देने के लिए प्रयासरत हूँ।”">
-        “True leadership is not defined by titles, but by responsibility, continuous learning, and the courage to voice meaningful ideas. Combining scientific thinking with human values, I strive to learn from every experience and contribute positively to society.”
-      </p>
-    </section>
-
-  </div>
+  </main>
 
   <footer>
-    <p>&copy; 2026 Kuber Singh Kushwaha (Prince Kumar / PrinceXKuber / KuberxPrince) — KSKXP | PXKSK • JNMS Head Boy, Digwadih, Dhanbad, Jharkhand</p>
+    © 2026 Kuber Singh Kushwaha (Prince) • Jharia, Dhanbad, Jharkhand
   </footer>
 
+  <!-- MODAL 1: About Kuber -->
+  <div class="modal-backdrop" id="aboutModal" onclick="backdropClose(event, 'aboutModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>👤 About Kuber</h2>
+        <button class="close-btn" onclick="closeModal('aboutModal')">✕</button>
+      </div>
+      <ul class="info-list">
+        <li><strong>Identity:</strong> Kuber Singh Kushwaha (fondly known as <em>Prince</em>), based in Jharia, Dhanbad, Jharkhand.</li>
+        <li><strong>Student Leadership:</strong> Serving as the <strong>Head Boy (2026–27)</strong> at Jawaharlal Nehru Memorial Senior Secondary School, leading student council initiatives and campus communication.</li>
+        <li><strong>Arts & Stage:</strong> Solo singer, poet, theatrical performer, and event anchor for school assemblies and <em>Kavi Sammelans</em>.</li>
+        <li><strong>Documentary & Writing:</strong> Filming a local heritage documentary on Jharia and maintaining a disciplined daily journal inspired by Anne Frank.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Academics -->
+  <div class="modal-backdrop" id="academicsModal" onclick="backdropClose(event, 'academicsModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>📘 Academics & Vision</h2>
+        <button class="close-btn" onclick="closeModal('academicsModal')">✕</button>
+      </div>
+      <ul class="info-list">
+        <li><strong>Current Stream:</strong> Class 11 (2026–27) — Physics, Chemistry, Mathematics (PCM) with Computer Science & Commercial Art at J.N.M. Senior Secondary School.</li>
+        <li><strong>Quantitative Mastery:</strong> Practicing Vedic Mathematics sutras and advanced problem-solving alongside NCERT & RD Sharma.</li>
+        <li><strong>Global & Engineering Targets:</strong> Preparing for SAT, TOEFL, and AP exams (2027) as well as JEE Main & Advanced (2028) aiming for IIT Bombay or MIT.</li>
+        <li><strong>Long-Term Mission:</strong> Aspiring to serve the nation through the UPSC Civil Services Examination (2032).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Achievements -->
+  <div class="modal-backdrop" id="achievementsModal" onclick="backdropClose(event, 'achievementsModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>🏆 Key Achievements</h2>
+        <button class="close-btn" onclick="closeModal('achievementsModal')">✕</button>
+      </div>
+      <ul class="info-list">
+        <li><strong>National Rank 4:</strong> Secured All-India Rank 4 in the Bloom Computer Olympiad.</li>
+        <li><strong>Head Boy (2026–27):</strong> Elected student leader at Jawaharlal Nehru Memorial Senior Secondary School.</li>
+        <li><strong>Viksit Bharat Young Leaders Dialogue:</strong> Qualified for the regional essay-writing round via MY Bharat Dhanbad.</li>
+        <li><strong>NASA Space Apps Challenge 2026:</strong> Applied and represented local youth innovation as Local Lead applicant for Dhanbad.</li>
+        <li><strong>Public Speaking & Stage:</strong> Delivered Independence Day speeches, anchored school-wide Kavi Sammelans, and performed solo vocals on public stages.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL 4: Connect with Kuber -->
+  <div class="modal-backdrop" id="connectModal" onclick="backdropClose(event, 'connectModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>🌐 Connect with Kuber</h2>
+        <button class="close-btn" onclick="closeModal('connectModal')">✕</button>
+      </div>
+      <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.6;">
+        Follow my creative journey, reflections, and student leadership updates under <strong>Kuber's Circle</strong>:
+      </p>
+      <div class="social-links">
+        <a class="social-chip" href="https://www.youtube.com/@princexkuber" target="_blank">▶ YouTube (@princexkuber)</a>
+        <a class="social-chip" href="https://www.instagram.com/princexkuber" target="_blank">📸 Instagram (@princexkuber)</a>
+        <a class="social-chip" href="https://www.facebook.com" target="_blank">📘 Facebook (Kuber's Circle)</a>
+        <a class="social-chip" href="mailto:kuber.singh.kushwaha27@gmail.com">✉️ Email Kuber</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 5: Raise Your Voice (Feedback Form) -->
+  <div class="modal-backdrop" id="voiceFormModal" onclick="backdropClose(event, 'voiceFormModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>✍️ Raise Your Voice</h2>
+        <button class="close-btn" onclick="closeModal('voiceFormModal')">✕</button>
+      </div>
+      <form id="feedbackForm" onsubmit="submitVoiceForm(event)">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="vName" required placeholder="e.g., Rahul Sharma" />
+        </div>
+        <div class="form-group">
+          <label>How do you know Kuber? *</label>
+          <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
+        </div>
+        <div class="form-group">
+          <label>City / Institution *</label>
+          <input type="text" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
+        </div>
+        <div class="form-group">
+          <label>Your Message or Remark *</label>
+          <textarea id="vMessage" rows="4" required placeholder="Write your thoughts about Kuber..."></textarea>
+        </div>
+        <button type="submit" class="action-btn btn-primary" style="width: 100%;" id="submitBtn">
+          Send Remark
+        </button>
+        <div id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 6: See What Others Say About Kuber -->
+  <div class="modal-backdrop" id="remarksModal" onclick="backdropClose(event, 'remarksModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>👁️ Voices From Those Who Know Kuber</h2>
+        <button class="close-btn" onclick="closeModal('remarksModal')">✕</button>
+      </div>
+      <div id="remarksContainer">
+        <p style="color: var(--muted);">Loading approved remarks...</p>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // 1. Font Size Controls
-    let currentScale = 1;
-    function adjustFont(change) {
-      currentScale = Math.min(1.25, Math.max(0.85, +(currentScale + change).toFixed(2)));
-      document.documentElement.style.setProperty('--font-scale', currentScale);
-    }
-    function resetFont() {
-      currentScale = 1;
-      document.documentElement.style.setProperty('--font-scale', 1);
-    }
-
-    // 2. Bilingual Language Toggle
-    let activeLang = 'en';
-    function switchLanguage() {
-      activeLang = (activeLang === 'en') ? 'hi' : 'en';
-      document.getElementById('langToggle').textContent = (activeLang === 'en') ? 'हिन्दी' : 'English';
-      const elements = document.querySelectorAll('[data-en]');
-      elements.forEach(function(el) {
-        const text = el.getAttribute('data-' + activeLang);
-        if (text) el.textContent = text;
-      });
-    }
-
-    // 3. Google Form Silent Submit Handler
-    let formSubmitted = false;
-    function handleFormSubmit() {
-      formSubmitted = true;
-      const btn = document.getElementById('submitBtn');
-      btn.disabled = true;
-      btn.textContent = (activeLang === 'en') ? "Sending..." : "भेजा जा रहा है...";
-    }
-
-    function showFormSuccess() {
-      formSubmitted = false;
-      const status = document.getElementById('formStatus');
-      const btn = document.getElementById('submitBtn');
-      status.style.color = "#0d9488";
-      status.textContent = (activeLang === 'en')
-        ? "Thank you! Your thoughts have been sent to Kuber for approval."
-        : "धन्यवाद! आपके विचार स्वीकृति (Approval) के लिए कुबेर को भेज दिए गए हैं।";
-      document.getElementById('endorseForm').reset();
-      btn.disabled = false;
-      btn.textContent = (activeLang === 'en') ? "Share Your Thoughts" : "अपने विचार भेजें";
-    }
-
-    // 4. Load Approved Remarks Automatically from Google Apps Script
+    // Your Existing Connected Apps Script Web App URL
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxt09gQw9dsXE15nb0eWT15VRtkT92IFi7YKpNQDyPdDXDO3Tmwpn28rhZZA5UIfEXS-Q/exec";
 
-    window.addEventListener('DOMContentLoaded', function() {
+    // Google Form Pre-connected Entry Endpoint
+    const FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfC9c6zM6b-0fN5Q9wP8uY1a2b3c4d5e6f7g8h9i0j/formResponse";
+
+    // Font Size Control
+    let currentFont = 16;
+    function changeFont(step) {
+      if (step === 0) currentFont = 16;
+      else currentFont = Math.min(20, Math.max(14, currentFont + step));
+      document.documentElement.style.setProperty('--base-size', currentFont + 'px');
+    }
+
+    // Theme Control
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      if (html.getAttribute('data-theme') === 'light') {
+        html.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️ Light';
+      } else {
+        html.setAttribute('data-theme', 'light');
+        btn.textContent = '🌙 Dark';
+      }
+    }
+
+    // Modal Functions
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function backdropClose(e, id) {
+      if (e.target.id === id) closeModal(id);
+    }
+
+    // Fetch & Show Approved Remarks Only When Clicked
+    function openRemarksModal() {
+      openModal('remarksModal');
+      const container = document.getElementById('remarksContainer');
+      container.innerHTML = '<p style="color: var(--muted);">Loading approved voices...</p>';
+
       fetch(WEB_APP_URL)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
-          const list = document.getElementById('approvedList');
-          data.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'endorse-card';
-            const h5 = document.createElement('h5');
-            h5.textContent = item.name;
-            const small = document.createElement('small');
-            small.textContent = item.role;
-            const p = document.createElement('p');
-            p.textContent = `"${item.message}"`;
-            card.appendChild(h5);
-            card.appendChild(small);
-            card.appendChild(p);
-            list.prepend(card);
-          });
+          if (!data || data.length === 0) {
+            container.innerHTML = '<p style="color: var(--muted);">No remarks published yet. Be the first to share your thoughts!</p>';
+            return;
+          }
+          container.innerHTML = data.reverse().map(item => `
+            <div class="remark-card">
+              <div class="remark-msg">"${item.message}"</div>
+              <div class="remark-meta">— ${item.name} (${item.role})</div>
+            </div>
+          `).join('');
         })
-        .catch(err => console.log("Remarks sync ready"));
-    });
+        .catch(() => {
+          container.innerHTML = '<p style="color: #dc2626;">Unable to load remarks right now. Please try again later.</p>';
+        });
+    }
+
+    // Submit Feedback Form
+    function submitVoiceForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const params = new URLSearchParams();
+      params.append('entry.1390400988', document.getElementById('vName').value);
+      params.append('entry.1846923513', document.getElementById('vRelation').value);
+      params.append('entry.1045781291', document.getElementById('vPlace').value);
+      params.append('entry.839337160', document.getElementById('vMessage').value);
+
+      fetch('https://docs.google.com/forms/d/1gEjchjEprxOzUaSVr3wBRUqO3u40BAzJqecLh8e6XnU/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: params
+      })
+      .then(() => {
+        status.style.color = '#0d9488';
+        status.textContent = '✅ Thank you! Your remark has been sent for Kuber’s approval.';
+        document.getElementById('feedbackForm').reset();
+      })
+      .catch(() => {
+        status.style.color = '#dc2626';
+        status.textContent = '❌ Something went wrong. Please try again.';
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send Remark';
+      });
+    }
   </script>
 </body>
 </html>
