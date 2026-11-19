@@ -40,7 +40,29 @@
       --shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.6);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    /* Anti-Copy & No Accidental Selection Across Entire Website */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    input, textarea, select {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    img {
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
     html { font-size: var(--base-size); }
 
     body {
@@ -50,7 +72,16 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: background 0.25s ease, color 0.25s ease, filter 0.2s ease;
+    }
+
+    /* Anti-Screenshot Privacy Blur when tab/window loses focus */
+    body.privacy-blur {
+      filter: blur(22px) brightness(0.65);
+    }
+
+    @media print {
+      body { display: none !important; }
     }
 
     /* Top Accessibility & Language Bar ABOVE Name */
@@ -86,7 +117,6 @@
       font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
-      user-select: none;
     }
 
     .tool-btn:active, .tool-btn:hover { background: var(--accent); border-color: var(--accent); }
@@ -147,14 +177,14 @@
       flex: 1;
     }
 
-    /* Auto-Sliding Photo Gallery */
+    /* Auto-Sliding Photo Gallery (100% Driven by Google Sheet) */
     .slider-wrapper {
       position: relative;
       width: 100%;
       height: 380px;
       border-radius: 20px;
       overflow: hidden;
-      background: linear-gradient(135deg, #0b1f3a, #134e4a);
+      background: linear-gradient(135deg, #0b1f3a 0%, #13315c 50%, #0d9488 100%);
       box-shadow: var(--shadow);
       margin-bottom: 1.65rem;
       border: 2px solid var(--border);
@@ -185,6 +215,29 @@
       height: 100%;
       object-fit: cover;
       object-position: center 20%;
+    }
+
+    .default-banner-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      color: #ffffff;
+    }
+
+    .default-banner-slide h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .default-banner-slide p {
+      font-size: 0.94rem;
+      color: #ccfbf1;
     }
 
     .slide-caption {
@@ -261,7 +314,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      user-select: none;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
@@ -332,7 +384,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.85rem;
-      user-select: none;
       transition: background 0.15s ease;
     }
 
@@ -530,40 +581,22 @@
       text-transform: uppercase;
     }
 
-    .form-card {
-      background: var(--surface);
+    .form-embed-wrap {
+      background: #ffffff;
       border: 1px solid var(--border);
       border-top: 4px solid var(--accent);
       border-radius: 18px;
-      padding: 1.5rem;
+      overflow: hidden;
       box-shadow: var(--shadow);
-      max-width: 650px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
-    .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .form-group input, .form-group textarea {
+    .form-embed-wrap iframe {
       width: 100%;
-      padding: 0.8rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.95rem;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: linear-gradient(135deg, #0d9488, #0f766e);
-      color: #ffffff;
+      height: 760px;
       border: none;
-      padding: 0.95rem;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+      display: block;
     }
 
     .remark-card {
@@ -607,7 +640,7 @@
     body { top: 0 !important; }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false;" oncopy="return false;" oncut="return false;" ondragstart="return false;">
 
   <!-- Top Utility Bar -->
   <div class="utility-strip">
@@ -641,8 +674,15 @@
   </header>
 
   <main class="container">
-    <!-- Auto-Sliding Photo Gallery -->
-    <section class="slider-wrapper" id="photoSlider"></section>
+    <!-- Auto-Sliding Photo Gallery (100% No-Code from Google Sheet) -->
+    <section class="slider-wrapper" id="photoSlider">
+      <div class="slide active">
+        <div class="default-banner-slide">
+          <h2 class="notranslate">Kuber Singh Kushwaha</h2>
+          <p>Head Boy (2026–27) • Orator • Poet • Student Leader</p>
+        </div>
+      </div>
+    </section>
 
     <!-- 3 Core Interactive Cards (Opens Full Page) -->
     <section class="cards-grid">
@@ -822,7 +862,7 @@
     </div>
   </div>
 
-  <!-- FULL PAGE 4: Share Your Idea -->
+  <!-- FULL PAGE 4: Share Your Idea (Direct Native Google Form — 100% Delivery + Email Trigger) -->
   <div class="fullpage-view" id="voiceFormPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
@@ -831,27 +871,8 @@
       </div>
     </div>
     <div class="fp-body">
-      <div class="form-card">
-        <form id="feedbackForm" onsubmit="submitVoiceForm(event)">
-          <div class="form-group">
-            <label>Your Full Name *</label>
-            <input type="text" id="vName" required placeholder="e.g., Rahul Sharma" />
-          </div>
-          <div class="form-group">
-            <label>Relation *</label>
-            <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
-          </div>
-          <div class="form-group">
-            <label>Place / Institution *</label>
-            <input type="text" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
-          </div>
-          <div class="form-group">
-            <label>What You Think / Your Idea *</label>
-            <textarea id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn">Submit Message</button>
-          <div id="formStatus" style="margin-top:0.95rem;font-size:0.92rem;font-weight:700;"></div>
-        </form>
+      <div class="form-embed-wrap">
+        <iframe src="https://forms.gle/QxRfySDxHRy5MxyJ9?embedded=true" title="Share Your Idea Form">Loading form...</iframe>
       </div>
     </div>
   </div>
@@ -873,15 +894,6 @@
 
   <script>
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby1FmksRConLSjnlHlShMM7kj04Yn5Cr3vvvbS-EjJdrQTKi13ET5ZqUCx0JyJFwOyV/exec";
-    const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeG9_v1u9P0Y8y6k-jH3Z8x4L2m1N0pQrStUvWxYzAbCdEfG/formResponse";
-    const GOOGLE_FORM_DIRECT = "https://docs.google.com/forms/d/1gEjchjEprxOzUaSVr3wBRUqO3u40BAzJqecLh8e6XnU/formResponse";
-
-    // Pre-loaded with your exact Google Drive Photo IDs so gallery loads in 0ms without getting stuck
-    const DEFAULT_PHOTOS = [
-      { id: "1O1c7m5Q93Q5Q2l_7q92c-E1L7U6mH-68", caption: "Delivering the 79th Independence Day Address at Jawaharlal Nehru Memorial Senior Secondary School" },
-      { id: "1_OJGkxZ9T2y3K9m8vN7pQ4wR5sT6uV8w", caption: "Receiving a Certificate of Appreciation from the Principal at JNM Senior Secondary School" },
-      { id: "1tL1dfS5jC_p9x8w7v6u5t4s3r2q1p0o9", caption: "Honored with a Trophy on Children's Day Celebration at JNM Senior Secondary School" }
-    ];
 
     let cachedRemarks = [
       { name: "Prince", role: "Friend • Neighbour", message: "Very nice" }
@@ -890,6 +902,31 @@
     let slideTimer = null;
     let currentFont = 16;
     let currentLang = 'en';
+
+    // Anti-Screenshot / Privacy Blur & Keyboard Shortcut Protection
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p'))) {
+        e.preventDefault();
+        document.body.classList.add('privacy-blur');
+        setTimeout(function() { document.body.classList.remove('privacy-blur'); }, 1500);
+      }
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        document.body.classList.add('privacy-blur');
+      } else {
+        document.body.classList.remove('privacy-blur');
+      }
+    });
+
+    window.addEventListener('blur', function() {
+      document.body.classList.add('privacy-blur');
+    });
+
+    window.addEventListener('focus', function() {
+      document.body.classList.remove('privacy-blur');
+    });
 
     function openPage(id) {
       const el = document.getElementById(id);
@@ -969,8 +1006,8 @@
     }
 
     function buildSlideImageTag(rawUrl, caption) {
-      const fileId = getDriveFileId(rawUrl) || rawUrl;
-      if (fileId && !fileId.startsWith('http')) {
+      const fileId = getDriveFileId(rawUrl);
+      if (fileId) {
         const primarySrc = "https://lh3.googleusercontent.com/d/" + fileId + "=w1200";
         const fallbackSrc = "https://drive.google.com/thumbnail?id=" + fileId + "&sz=w1200";
         return '<img src="' + primarySrc + '" onerror="if(this.src!==\'' + fallbackSrc + '\'){this.src=\'' + fallbackSrc + '\';}" alt="' + caption + '" />';
@@ -983,9 +1020,8 @@
       const slider = document.getElementById('photoSlider');
       const slidesHtml = photoList.map(function(p, idx) {
         const cap = p.caption || '';
-        const src = p.url || p.id;
         return '<div class="slide ' + (idx === 0 ? 'active' : '') + '">' +
-          buildSlideImageTag(src, cap) +
+          buildSlideImageTag(p.url, cap) +
           (cap ? '<div class="slide-caption">' + cap + '</div>' : '') +
         '</div>';
       }).join('');
@@ -1019,45 +1055,6 @@
       }
     }
 
-    function submitVoiceForm(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      const status = document.getElementById('formStatus');
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-
-      const nameVal = document.getElementById('vName').value.trim();
-      const relVal = document.getElementById('vRelation').value.trim();
-      const placeVal = document.getElementById('vPlace').value.trim();
-      const msgVal = document.getElementById('vMessage').value.trim();
-
-      const formBody = new URLSearchParams();
-      formBody.append('entry.1390400988', nameVal);
-      formBody.append('entry.1846923513', relVal);
-      formBody.append('entry.1045781291', placeVal);
-      formBody.append('entry.839337160', msgVal);
-
-      fetch(GOOGLE_FORM_DIRECT, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: formBody.toString()
-      })
-      .then(function() {
-        status.style.color = '#0d9488';
-        status.textContent = '✅ Thank you! Your message has been sent to Kuber.';
-        document.getElementById('feedbackForm').reset();
-      })
-      .catch(function() {
-        status.style.color = '#dc2626';
-        status.textContent = '❌ Network error. Please check your connection and try again.';
-      })
-      .finally(function() {
-        btn.disabled = false;
-        btn.textContent = 'Submit Message';
-      });
-    }
-
     function applyTranslation(lang) {
       const combo = document.querySelector('.goog-te-combo');
       if (combo) {
@@ -1084,10 +1081,7 @@
       }).join('');
     }
 
-    // Render initial gallery immediately
-    renderSliderPhotos(DEFAULT_PHOTOS);
-
-    // Sync live updates from Google Sheet in background
+    // Fetch 100% No-Code Data from Google Sheet
     fetch(WEB_APP_URL)
       .then(function(res) { return res.json(); })
       .then(function(data) {
