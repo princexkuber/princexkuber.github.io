@@ -40,7 +40,7 @@
       --shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.6);
     }
 
-    /* Anti-Copy & No Accidental Selection Across Entire Website */
+    /* Strict Anti-Copy & No Selection on Website Content */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -53,9 +53,11 @@
       -webkit-touch-callout: none;
     }
 
+    /* Allow smooth typing only inside Form Inputs */
     input, textarea, select {
       -webkit-user-select: text;
       user-select: text;
+      -webkit-touch-callout: default;
     }
 
     img {
@@ -75,7 +77,6 @@
       transition: background 0.25s ease, color 0.25s ease, filter 0.2s ease;
     }
 
-    /* Anti-Screenshot Privacy Blur when tab/window loses focus */
     body.privacy-blur {
       filter: blur(22px) brightness(0.65);
     }
@@ -177,22 +178,35 @@
       flex: 1;
     }
 
-    /* Auto-Sliding Photo Gallery (100% Driven by Google Sheet) */
+    /* Auto-Sliding Photo Gallery (Shows 100% Full Portrait & Landscape Photos Without Cropping) */
     .slider-wrapper {
       position: relative;
       width: 100%;
-      height: 380px;
+      height: 410px;
       border-radius: 20px;
       overflow: hidden;
-      background: linear-gradient(135deg, #0b1f3a 0%, #13315c 50%, #0d9488 100%);
+      background: #081221;
       box-shadow: var(--shadow);
       margin-bottom: 1.65rem;
       border: 2px solid var(--border);
     }
 
     @media (max-width: 640px) {
-      .slider-wrapper { height: 260px; }
+      .slider-wrapper { height: 310px; }
       .site-title h1 { font-size: 1.55rem; }
+    }
+
+    .slider-skeleton {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #0b1f3a 25%, #16335b 50%, #0b1f3a 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .slide {
@@ -200,61 +214,51 @@
       inset: 0;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.75s ease-in-out;
+      transition: opacity 0.7s ease-in-out;
       display: flex;
       align-items: flex-end;
-      background: #0b1f3a;
+      background: #081221;
     }
 
     .slide.active { opacity: 1; z-index: 2; pointer-events: auto; }
 
-    .slide img {
+    /* Blurred ambient backdrop so portrait photos have zero awkward bars */
+    .slide-bg {
+      position: absolute;
+      inset: -15px;
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
+      object-fit: cover;
+      filter: blur(18px) brightness(0.45);
+      z-index: 1;
+    }
+
+    /* Full uncropped foreground photo */
+    .slide-fg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-    }
-
-    .default-banner-slide {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.5rem;
-      color: #ffffff;
-    }
-
-    .default-banner-slide h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .default-banner-slide p {
-      font-size: 0.94rem;
-      color: #ccfbf1;
+      object-fit: contain;
+      z-index: 2;
+      padding-bottom: 42px;
     }
 
     .slide-caption {
       position: relative;
       z-index: 3;
       width: 100%;
-      background: linear-gradient(to top, rgba(6, 18, 36, 0.94) 0%, rgba(6, 18, 36, 0.6) 65%, transparent 100%);
+      background: linear-gradient(to top, rgba(6, 18, 36, 0.96) 0%, rgba(6, 18, 36, 0.78) 70%, transparent 100%);
       color: #ffffff;
-      padding: 2.2rem 1.35rem 1rem;
-      font-size: 0.94rem;
+      padding: 1.8rem 1.35rem 1.15rem;
+      font-size: 0.9rem;
       font-weight: 600;
       line-height: 1.45;
     }
 
     .slider-dots {
       position: absolute;
-      bottom: 10px;
+      bottom: 8px;
       right: 14px;
       z-index: 5;
       display: flex;
@@ -275,7 +279,7 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 5;
-      background: rgba(11, 31, 58, 0.65);
+      background: rgba(11, 31, 58, 0.7);
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.25);
       width: 38px;
@@ -287,8 +291,8 @@
       align-items: center;
       justify-content: center;
     }
-    .slider-prev { left: 12px; }
-    .slider-next { right: 12px; }
+    .slider-prev { left: 10px; }
+    .slider-next { right: 10px; }
 
     /* Colorful Vibrant Interactive Cards */
     .cards-grid {
@@ -581,22 +585,64 @@
       text-transform: uppercase;
     }
 
-    .form-embed-wrap {
-      background: #ffffff;
+    /* Clean Native-Styled Form Card (No Awkward Google iframe, Never Blurs on Typing) */
+    .form-card {
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-top: 4px solid var(--accent);
+      border-top: 5px solid var(--accent);
       border-radius: 18px;
-      overflow: hidden;
+      padding: 1.75rem;
       box-shadow: var(--shadow);
-      max-width: 720px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
-    .form-embed-wrap iframe {
+    .form-card-header {
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-card-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .form-card-header p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .form-group { margin-bottom: 1.05rem; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea {
       width: 100%;
-      height: 760px;
+      padding: 0.85rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #0d9488, #0f766e);
+      color: #ffffff;
       border: none;
-      display: block;
+      padding: 0.95rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .remark-card {
@@ -674,17 +720,12 @@
   </header>
 
   <main class="container">
-    <!-- Auto-Sliding Photo Gallery (100% No-Code from Google Sheet) -->
+    <!-- Auto-Sliding Photo Gallery (Smooth Shimmer -> Immediate Sheet Photos) -->
     <section class="slider-wrapper" id="photoSlider">
-      <div class="slide active">
-        <div class="default-banner-slide">
-          <h2 class="notranslate">Kuber Singh Kushwaha</h2>
-          <p>Head Boy (2026–27) • Orator • Poet • Student Leader</p>
-        </div>
-      </div>
+      <div class="slider-skeleton"></div>
     </section>
 
-    <!-- 3 Core Interactive Cards (Opens Full Page) -->
+    <!-- 3 Core Interactive Cards -->
     <section class="cards-grid">
       <div class="info-card" role="button" tabindex="0" onclick="openPage('aboutPage')">
         <div class="card-left">
@@ -862,7 +903,7 @@
     </div>
   </div>
 
-  <!-- FULL PAGE 4: Share Your Idea (Direct Native Google Form — 100% Delivery + Email Trigger) -->
+  <!-- FULL PAGE 4: Share Your Idea (Clean Custom Form + Direct Apps Script Sync — Zero Blur on Typing) -->
   <div class="fullpage-view" id="voiceFormPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
@@ -871,8 +912,31 @@
       </div>
     </div>
     <div class="fp-body">
-      <div class="form-embed-wrap">
-        <iframe src="https://forms.gle/QxRfySDxHRy5MxyJ9?embedded=true" title="Share Your Idea Form">Loading form...</iframe>
+      <div class="form-card">
+        <div class="form-card-header">
+          <h3>Voices from Those Who Know Me</h3>
+          <p>Share your thoughts, experiences, or feedback about working or interacting with <span class="notranslate">Kuber Singh Kushwaha</span>.</p>
+        </div>
+        <form id="feedbackForm" onsubmit="submitVoiceForm(event)">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" id="vName" required placeholder="e.g., Rahul Sharma" />
+          </div>
+          <div class="form-group">
+            <label>Relation *</label>
+            <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
+          </div>
+          <div class="form-group">
+            <label>Place / Institution *</label>
+            <input type="text" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
+          </div>
+          <div class="form-group">
+            <label>What You Think / Your Idea *</label>
+            <textarea id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Submit Message</button>
+          <div id="formStatus" style="margin-top:0.95rem;font-size:0.94rem;font-weight:700;"></div>
+        </form>
       </div>
     </div>
   </div>
@@ -903,7 +967,7 @@
     let currentFont = 16;
     let currentLang = 'en';
 
-    // Anti-Screenshot / Privacy Blur & Keyboard Shortcut Protection
+    // Anti-Screenshot Shortcut & Tab Switch Protection (Without blurring when typing in form)
     document.addEventListener('keydown', function(e) {
       if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p'))) {
         e.preventDefault();
@@ -918,14 +982,6 @@
       } else {
         document.body.classList.remove('privacy-blur');
       }
-    });
-
-    window.addEventListener('blur', function() {
-      document.body.classList.add('privacy-blur');
-    });
-
-    window.addEventListener('focus', function() {
-      document.body.classList.remove('privacy-blur');
     });
 
     function openPage(id) {
@@ -1005,14 +1061,16 @@
       return "";
     }
 
-    function buildSlideImageTag(rawUrl, caption) {
+    function buildSlideImageTags(rawUrl, caption) {
       const fileId = getDriveFileId(rawUrl);
+      let primarySrc = rawUrl;
+      let fallbackSrc = rawUrl;
       if (fileId) {
-        const primarySrc = "https://lh3.googleusercontent.com/d/" + fileId + "=w1200";
-        const fallbackSrc = "https://drive.google.com/thumbnail?id=" + fileId + "&sz=w1200";
-        return '<img src="' + primarySrc + '" onerror="if(this.src!==\'' + fallbackSrc + '\'){this.src=\'' + fallbackSrc + '\';}" alt="' + caption + '" />';
+        primarySrc = "https://lh3.googleusercontent.com/d/" + fileId + "=w1200";
+        fallbackSrc = "https://drive.google.com/thumbnail?id=" + fileId + "&sz=w1200";
       }
-      return '<img src="' + rawUrl + '" alt="' + caption + '" />';
+      return '<img class="slide-bg" src="' + primarySrc + '" onerror="if(this.src!==\'' + fallbackSrc + '\'){this.src=\'' + fallbackSrc + '\';}" alt="" />' +
+             '<img class="slide-fg" src="' + primarySrc + '" onerror="if(this.src!==\'' + fallbackSrc + '\'){this.src=\'' + fallbackSrc + '\';}" alt="' + caption + '" />';
     }
 
     function renderSliderPhotos(photoList) {
@@ -1021,7 +1079,7 @@
       const slidesHtml = photoList.map(function(p, idx) {
         const cap = p.caption || '';
         return '<div class="slide ' + (idx === 0 ? 'active' : '') + '">' +
-          buildSlideImageTag(p.url, cap) +
+          buildSlideImageTags(p.url, cap) +
           (cap ? '<div class="slide-caption">' + cap + '</div>' : '') +
         '</div>';
       }).join('');
@@ -1053,6 +1111,42 @@
       if (currentLang !== 'en') {
         setTimeout(function() { applyTranslation(currentLang); }, 150);
       }
+    }
+
+    function submitVoiceForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const nameVal = document.getElementById('vName').value.trim();
+      const relVal = document.getElementById('vRelation').value.trim();
+      const placeVal = document.getElementById('vPlace').value.trim();
+      const msgVal = document.getElementById('vMessage').value.trim();
+
+      // Send directly to Apps Script Web App URL + Backup Email Notification
+      const queryUrl = WEB_APP_URL +
+        '?action=submit' +
+        '&name=' + encodeURIComponent(nameVal) +
+        '&relation=' + encodeURIComponent(relVal) +
+        '&place=' + encodeURIComponent(placeVal) +
+        '&message=' + encodeURIComponent(msgVal);
+
+      fetch(queryUrl, { mode: 'no-cors' })
+        .then(function() {
+          status.style.color = '#0d9488';
+          status.textContent = '✅ Thank you! Your message has been submitted successfully.';
+          document.getElementById('feedbackForm').reset();
+        })
+        .catch(function() {
+          status.style.color = '#dc2626';
+          status.textContent = '❌ Network error. Please check your internet and try again.';
+        })
+        .finally(function() {
+          btn.disabled = false;
+          btn.textContent = 'Submit Message';
+        });
     }
 
     function applyTranslation(lang) {
