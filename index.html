@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuber Singh Kushwaha (Prince) — Official Portfolio</title>
+  <title>Kuber Singh Kushwaha — Official Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
@@ -15,10 +15,8 @@
       --primary: #0b1f3a;
       --accent: #0d9488;
       --accent-soft: rgba(13, 148, 136, 0.12);
-      --gold: #d97706;
-      --gold-soft: rgba(217, 119, 6, 0.12);
       --border: #e2e8f0;
-      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.07);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
       --base-size: 16px;
     }
 
@@ -30,8 +28,6 @@
       --primary: #38bdf8;
       --accent: #2dd4bf;
       --accent-soft: rgba(45, 212, 191, 0.14);
-      --gold: #fbbf24;
-      --gold-soft: rgba(251, 191, 36, 0.14);
       --border: #1e293b;
       --shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
     }
@@ -49,40 +45,48 @@
       transition: background 0.25s ease, color 0.25s ease;
     }
 
-    /* Top Bar */
-    .topbar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0.85rem 1.25rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* Top Header */
+    .header-bar {
+      background: linear-gradient(135deg, #0b1f3a 0%, #102a4c 100%);
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+      border-bottom: 3px solid var(--accent);
     }
 
-    .topbar-inner {
-      max-width: 960px;
+    .header-inner {
+      max-width: 980px;
       margin: 0 auto;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 0.85rem;
     }
 
-    .brand-tag {
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--accent);
-      letter-spacing: 0.6px;
+    .site-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      letter-spacing: 0.3px;
+      color: #ffffff;
+    }
+
+    .site-title span {
+      font-size: 0.82rem;
+      color: #99f6e4;
+      font-weight: 500;
+    }
+
+    .toolbar {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 0.45rem;
     }
 
-    .controls { display: flex; gap: 0.4rem; align-items: center; }
-
-    .ctrl-btn {
-      background: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
+    .tool-btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
       padding: 0.38rem 0.65rem;
       border-radius: 8px;
       font-size: 0.82rem;
@@ -90,137 +94,122 @@
       cursor: pointer;
     }
 
-    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .tool-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* Google Translate Compact Styling */
+    #google_translate_element select {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      padding: 0.34rem 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      outline: none;
+    }
+    #google_translate_element select option { color: #0f172a; background: #ffffff; }
+    .goog-te-gadget { font-size: 0 !important; }
+    .goog-te-gadget > span { display: none !important; }
 
     /* Main Container */
     .container {
-      max-width: 960px;
+      max-width: 980px;
       width: 100%;
       margin: 0 auto;
-      padding: 1.75rem 1.25rem 3rem;
+      padding: 1.4rem 1.25rem 2.5rem;
       flex: 1;
     }
 
-    /* Profile Hero Card */
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.75rem;
+    /* CBSE-Style Auto Photo Slider */
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0b1f3a;
       box-shadow: var(--shadow);
-      margin-bottom: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 680px) {
-      .hero-card { flex-direction: column; text-align: center; padding: 1.5rem 1.2rem; }
-    }
-
-    .avatar-circle {
-      width: 82px;
-      height: 82px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #0b1f3a, #0d9488);
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.35);
-    }
-
-    .hero-info { flex: 1; }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 0.55rem;
-    }
-
-    .hero-info h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.95rem;
-      line-height: 1.2;
-      margin-bottom: 0.35rem;
-    }
-
-    .hero-info p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Quick Highlights Strip */
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
       margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
     }
 
     @media (max-width: 640px) {
-      .stats-strip { grid-template-columns: 1fr; gap: 0.65rem; }
+      .slider-wrapper { height: 215px; }
     }
 
-    .stat-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0.9rem 1.1rem;
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
       display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      box-shadow: var(--shadow);
+      align-items: flex-end;
     }
 
-    .stat-icon {
-      font-size: 1.35rem;
-      background: var(--gold-soft);
-      color: var(--gold);
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+    .slide.active { opacity: 1; z-index: 2; }
+
+    .slide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b1f3a 0%, #0d9488 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      color: #ffffff;
+      text-align: center;
+      padding: 1.5rem;
     }
 
-    .stat-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; }
-    .stat-val { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-
-    /* Section Heading */
-    .section-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-      padding-left: 0.2rem;
+    .slide-caption {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      background: linear-gradient(to top, rgba(8, 12, 20, 0.88), transparent);
+      color: #ffffff;
+      padding: 1.5rem 1.25rem 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 600;
     }
 
-    /* 4 Rich Interactive Cards */
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      background: rgba(15, 23, 42, 0.55);
+      color: #ffffff;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .slider-prev { left: 10px; }
+    .slider-next { right: 10px; }
+
+    /* Primary Cards Grid */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.2rem;
     }
 
-    @media (max-width: 640px) { .cards-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
 
-    .nav-card {
+    .info-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -230,107 +219,103 @@
       text-align: left;
       transition: transform 0.2s ease, border-color 0.2s ease;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.9rem;
-    }
-
-    .nav-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-
-    .card-top {
-      display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.85rem;
+      gap: 1rem;
     }
 
-    .card-left { display: flex; align-items: center; gap: 0.9rem; }
+    .info-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+    .card-left { display: flex; align-items: center; gap: 0.95rem; }
 
     .card-icon {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       background: var(--accent-soft);
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       flex-shrink: 0;
     }
 
-    .card-title { font-size: 1.08rem; font-weight: 700; color: var(--text); }
-    .card-sub { font-size: 0.83rem; color: var(--muted); }
-    .card-arrow { font-size: 0.82rem; color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .card-title { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .card-desc { font-size: 0.84rem; color: var(--muted); }
+    .card-badge { font-size: 0.8rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
 
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .mini-tag {
-      background: var(--bg);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 0.22rem 0.55rem;
-      border-radius: 6px;
-    }
-
-    /* Featured Quote + Voice Panel */
-    .voice-panel {
+    /* Dual Split Card: See What Others Thought | Share Your Idea */
+    .dual-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.4rem;
+      border-radius: 16px;
       box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      margin-bottom: 1rem;
     }
 
-    .featured-quote {
-      background: var(--bg);
-      border-left: 3px solid var(--accent);
-      border-radius: 10px;
-      padding: 0.95rem 1.1rem;
-      margin-bottom: 1.1rem;
-      font-size: 0.92rem;
+    @media (max-width: 640px) {
+      .dual-card { grid-template-columns: 1fr; }
     }
 
-    .featured-quote p { font-style: italic; color: var(--text); margin-bottom: 0.35rem; }
-    .featured-quote span { font-size: 0.8rem; font-weight: 700; color: var(--accent); }
-
-    .voice-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-    @media (max-width: 640px) { .voice-actions { grid-template-columns: 1fr; } }
-
-    .action-btn {
-      padding: 0.95rem 1.2rem;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      font-weight: 600;
+    .dual-half {
+      padding: 1.3rem;
       cursor: pointer;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
+      justify-content: space-between;
+      gap: 0.85rem;
+      transition: background 0.2s ease;
       border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: 0 6px 18px -4px rgba(13, 148, 136, 0.4);
-    }
-
-    .btn-secondary {
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
-      border: 1px solid var(--border);
+      text-align: left;
     }
 
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .dual-half:first-child { border-right: 1px solid var(--border); }
+    @media (max-width: 640px) {
+      .dual-half:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    }
 
-    /* Modal System */
+    .dual-half:hover { background: var(--accent-soft); }
+
+    /* Full Width Connections Card */
+    .connect-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem 1.35rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .social-pill {
+      text-decoration: none;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.48rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .social-pill:hover { background: var(--accent); color: #ffffff; }
+
+    /* Modal System (Opens strictly on click) */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -350,12 +335,12 @@
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: 18px;
-      max-width: 620px;
+      max-width: 640px;
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
       padding: 1.5rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
     }
 
     .modal-header {
@@ -381,7 +366,7 @@
       cursor: pointer;
     }
 
-    .info-list {
+    .detail-list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -390,23 +375,11 @@
       font-size: 0.94rem;
     }
 
-    .info-list li {
+    .detail-list li {
       background: var(--bg);
       padding: 0.85rem 1rem;
       border-radius: 10px;
       border-left: 3px solid var(--accent);
-    }
-
-    .social-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
-
-    .social-chip {
-      text-decoration: none;
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 0.55rem 0.95rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.88rem;
     }
 
     .form-group { margin-bottom: 0.9rem; }
@@ -422,6 +395,18 @@
       font-size: 0.94rem;
     }
 
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 10px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
     .remark-card {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -431,384 +416,204 @@
     }
 
     .remark-msg { font-style: italic; margin-bottom: 0.45rem; line-height: 1.5; }
-    .remark-meta { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
+    .remark-meta { font-size: 0.82rem; color: var(--accent); font-weight: 700; }
 
+    /* Professional Footer */
     footer {
+      background: #0b1f3a;
+      color: #cbd5e1;
       text-align: center;
-      padding: 1.2rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: var(--surface);
+      padding: 1.6rem 1.25rem;
+      border-top: 3px solid var(--accent);
     }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-url {
+      font-size: 0.85rem;
+      color: #5eead4;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-sub { font-size: 0.78rem; color: #94a3b8; }
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <span class="brand-tag">✦ KUBER'S CIRCLE</span>
-      <div class="controls">
-        <button class="ctrl-btn" onclick="changeFont(-1)">A-</button>
-        <button class="ctrl-btn" onclick="changeFont(0)">A</button>
-        <button class="ctrl-btn" onclick="changeFont(1)">A+</button>
-        <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+  <!-- Top Header -->
+  <header class="header-bar">
+    <div class="header-inner">
+      <div class="site-title">
+        <h1>Kuber Singh Kushwaha</h1>
+        <span>Prince • Head Boy (2026–27) • Dhanbad, Jharkhand</span>
+      </div>
+      <div class="toolbar">
+        <button class="tool-btn" onclick="changeFont(-1)" title="Decrease Font">A-</button>
+        <button class="tool-btn" onclick="changeFont(0)" title="Normal Font">A</button>
+        <button class="tool-btn" onclick="changeFont(1)" title="Increase Font">A+</button>
+        <button class="tool-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <div id="google_translate_element" title="Translate Page"></div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Profile Hero Card -->
-    <section class="hero-card">
-      <div class="avatar-circle">KSK</div>
-      <div class="hero-info">
-        <span class="hero-badge" id="heroBadge">Head Boy (2026–27) • Student Leader • Creator</span>
-        <h1>Kuber Singh Kushwaha</h1>
-        <p id="heroTagline">Also known as <strong>Prince</strong> — Class 11 PCM Scholar, Orator & Aspiring Civil Servant from Dhanbad, Jharkhand.</p>
+    <!-- CBSE Style Auto-Sliding Photo Banner -->
+    <section class="slider-wrapper" id="photoSlider">
+      <div class="slide active">
+        <div class="slide-fallback">
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.4rem;">Kuber Singh Kushwaha</h2>
+          <p style="font-size:0.95rem;opacity:0.9;">Public Speaking • Student Leadership • Literature & Culture</p>
+        </div>
+        <div class="slide-caption">Add your photos anytime in Google Sheet → "Slider Photos" tab</div>
       </div>
+      <button class="slider-nav slider-prev" onclick="moveSlide(-1)">❮</button>
+      <button class="slider-nav slider-next" onclick="moveSlide(1)">❯</button>
     </section>
 
-    <!-- 3 Key Highlights Strip -->
-    <section class="stats-strip">
-      <div class="stat-box">
-        <div class="stat-icon">🎖️</div>
-        <div>
-          <div class="stat-label">Leadership</div>
-          <div class="stat-val" id="stat1">Head Boy (2026–27)</div>
-        </div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-icon">🥇</div>
-        <div>
-          <div class="stat-label">Olympiad</div>
-          <div class="stat-val" id="stat2">National Rank 4</div>
-        </div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-icon">🎯</div>
-        <div>
-          <div class="stat-label">Current Focus</div>
-          <div class="stat-val" id="stat3">Class 11 PCM & JEE</div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-label">Explore Portfolio Sections (Tap to Open)</div>
-
-    <!-- 4 Rich Cards -->
+    <!-- 3 Core Cards (Click to Open Details) -->
     <section class="cards-grid">
-      <button class="nav-card" onclick="openModal('aboutModal')">
-        <div class="card-top">
-          <div class="card-left">
-            <div class="card-icon">👤</div>
-            <div>
-              <div class="card-title">About Kuber</div>
-              <div class="card-sub">Identity, Leadership & Stage</div>
-            </div>
+      <button class="info-card" onclick="openModal('aboutModal')">
+        <div class="card-left">
+          <div class="card-icon">👤</div>
+          <div>
+            <div class="card-title">About Kuber</div>
+            <div class="card-desc">Background, Stream, Singing, Poetry & Philosophy</div>
           </div>
-          <span class="card-arrow">View →</span>
         </div>
-        <div class="card-tags">
-          <span class="mini-tag">Student Council</span>
-          <span class="mini-tag">Solo Singing</span>
-          <span class="mini-tag">Poetry & Anchoring</span>
-        </div>
+        <span class="card-badge">Open →</span>
       </button>
 
-      <button class="nav-card" onclick="openModal('academicsModal')">
-        <div class="card-top">
-          <div class="card-left">
-            <div class="card-icon">📘</div>
-            <div>
-              <div class="card-title">Academics</div>
-              <div class="card-sub">Schooling & Competitive Roadmap</div>
-            </div>
+      <button class="info-card" onclick="openModal('achievementsModal')">
+        <div class="card-left">
+          <div class="card-icon">🏆</div>
+          <div>
+            <div class="card-title">Achievements</div>
+            <div class="card-desc">Olympiads, Zonal Quizzes, Kavi Sammelans & Debates</div>
           </div>
-          <span class="card-arrow">View →</span>
         </div>
-        <div class="card-tags">
-          <span class="mini-tag">Class 11 PCM + CS</span>
-          <span class="mini-tag">JEE & SAT</span>
-          <span class="mini-tag">UPSC Vision</span>
-        </div>
+        <span class="card-badge">Open →</span>
       </button>
 
-      <button class="nav-card" onclick="openModal('achievementsModal')">
-        <div class="card-top">
-          <div class="card-left">
-            <div class="card-icon">🏆</div>
-            <div>
-              <div class="card-title">Achievements</div>
-              <div class="card-sub">Honors, Olympiads & Initiatives</div>
-            </div>
+      <button class="info-card" style="grid-column: 1 / -1;" onclick="openModal('academicsModal')">
+        <div class="card-left">
+          <div class="card-icon">📘</div>
+          <div>
+            <div class="card-title">Academics & Leadership Journey</div>
+            <div class="card-desc">Class 11 Head Boy to Class 7 Academic Track Record</div>
           </div>
-          <span class="card-arrow">View →</span>
         </div>
-        <div class="card-tags">
-          <span class="mini-tag">AIR 4 Bloom Olympiad</span>
-          <span class="mini-tag">Viksit Bharat</span>
-          <span class="mini-tag">NASA Space Apps</span>
-        </div>
-      </button>
-
-      <button class="nav-card" onclick="openModal('connectModal')">
-        <div class="card-top">
-          <div class="card-left">
-            <div class="card-icon">🌐</div>
-            <div>
-              <div class="card-title">Connect with Kuber</div>
-              <div class="card-sub">Social Channels & Direct Contact</div>
-            </div>
-          </div>
-          <span class="card-arrow">View →</span>
-        </div>
-        <div class="card-tags">
-          <span class="mini-tag">YouTube</span>
-          <span class="mini-tag">Instagram</span>
-          <span class="mini-tag">Kuber's Circle</span>
-        </div>
+        <span class="card-badge">Open →</span>
       </button>
     </section>
 
-    <!-- Voice & Remarks Panel -->
-    <section class="voice-panel">
-      <div class="featured-quote" id="featuredQuoteBox">
-        <p>"Share your thoughts about Kuber or read what teachers, peers, and mentors say."</p>
-        <span>✦ Community Wall — Live & Moderated</span>
+    <!-- Dual Split Card: See What Others Thought | Share Your Idea -->
+    <section class="dual-card">
+      <button class="dual-half" onclick="openRemarksModal()">
+        <div class="card-left">
+          <div class="card-icon">👁️</div>
+          <div>
+            <div class="card-title">See What Others Thought</div>
+            <div class="card-desc">Read curated voices (<span id="remarkCount">0</span>)</div>
+          </div>
+        </div>
+        <span class="card-badge">Read →</span>
+      </button>
+
+      <button class="dual-half" onclick="openModal('voiceFormModal')">
+        <div class="card-left">
+          <div class="card-icon">✍️</div>
+          <div>
+            <div class="card-title">Share Your Idea</div>
+            <div class="card-desc">Write your remark or message for Kuber</div>
+          </div>
+        </div>
+        <span class="card-badge">Write →</span>
+      </button>
+    </section>
+
+    <!-- Connections Bar -->
+    <section class="connect-card">
+      <div>
+        <div class="card-title" style="font-size:1rem;">🌐 Connections</div>
+        <div class="card-desc">Connect with Kuber across official platforms</div>
       </div>
-      <div class="voice-actions">
-        <button class="action-btn btn-primary" onclick="openModal('voiceFormModal')">
-          ✍️ Raise Your Voice
-        </button>
-        <button class="action-btn btn-secondary" onclick="openRemarksModal()">
-          👁️ See What Others Say (<span id="remarkCount">0</span>)
-        </button>
+      <div class="social-row" id="socialLinksContainer">
+        <a class="social-pill" href="https://www.instagram.com/princexkuber" target="_blank">📸 Instagram</a>
+        <a class="social-pill" href="https://www.youtube.com/@princexkuber" target="_blank">▶ YouTube</a>
+        <a class="social-pill" href="https://www.facebook.com" target="_blank">📘 Facebook</a>
+        <a class="social-pill" href="https://x.com" target="_blank">𝕏 Twitter / X</a>
       </div>
     </section>
   </main>
 
+  <!-- Professional Footer -->
   <footer>
-    © 2026 Kuber Singh Kushwaha (Prince) • Jharia, Dhanbad, Jharkhand
+    <div class="footer-title">Know More About Kuber Singh Kushwaha</div>
+    <div class="footer-url">https://princexkuber.github.io</div>
+    <div class="footer-sub">© 2026 Kuber Singh Kushwaha (Prince) • Jharia, Dhanbad, Jharkhand</div>
   </footer>
 
-  <!-- MODALS -->
+  <!-- MODAL 1: About Kuber (No Future Exams Mentioned) -->
   <div class="modal-backdrop" id="aboutModal" onclick="backdropClose(event, 'aboutModal')">
     <div class="modal-box">
       <div class="modal-header">
         <h2>👤 About Kuber</h2>
         <button class="close-btn" onclick="closeModal('aboutModal')">✕</button>
       </div>
-      <ul class="info-list" id="aboutList">
-        <li><strong>Identity:</strong> Kuber Singh Kushwaha (fondly known as <em>Prince</em>), based in Jharia, Dhanbad, Jharkhand.</li>
-        <li><strong>Student Leadership:</strong> Serving as the <strong>Head Boy (2026–27)</strong> at Jawaharlal Nehru Memorial Senior Secondary School.</li>
-        <li><strong>Arts & Stage:</strong> Solo singer, poet, theatrical performer, and event anchor for school assemblies and <em>Kavi Sammelans</em>.</li>
-        <li><strong>Creative Projects:</strong> Filming a historical documentary on Jharia and maintaining a daily journal inspired by Anne Frank.</li>
+      <ul class="detail-list" id="aboutList">
+        <li><strong>Identity & Residence:</strong> Kuber Singh Kushwaha (also known as <em>Prince</em>), from Jharia, Dhanbad, Jharkhand.</li>
+        <li><strong>Academic Stream:</strong> Studying in Class 11 (Science — Physics, Chemistry, Mathematics with Computer Science & Commercial Art) at Jawaharlal Nehru Memorial Senior Secondary School, Digwadih.</li>
+        <li><strong>Voice & Stage:</strong> Passionate solo singer, public speaker, and stage anchor who enjoys addressing school assemblies and cultural gatherings.</li>
+        <li><strong>Literature & Writing:</strong> Deep interest in Hindi language, poetry writing (<em>Hindi Kavita</em>), history, philosophy, and multilingual exploration.</li>
+        <li><strong>Content Creation:</strong> Digital content creator sharing thoughtful reflections, storytelling, and student leadership experiences.</li>
       </ul>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="academicsModal" onclick="backdropClose(event, 'academicsModal')">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2>📘 Academics & Vision</h2>
-        <button class="close-btn" onclick="closeModal('academicsModal')">✕</button>
-      </div>
-      <ul class="info-list" id="academicsList">
-        <li><strong>Current Stream:</strong> Class 11 (2026–27) — Physics, Chemistry, Mathematics (PCM) with Computer Science & Commercial Art.</li>
-        <li><strong>Global & Engineering Targets:</strong> Preparing for SAT, TOEFL, AP exams (2027) and JEE Main & Advanced (2028) aiming for IIT Bombay or MIT.</li>
-        <li><strong>Long-Term Mission:</strong> Aspiring to serve the nation through the UPSC Civil Services Examination (2032).</li>
-      </ul>
-    </div>
-  </div>
-
+  <!-- MODAL 2: Achievements -->
   <div class="modal-backdrop" id="achievementsModal" onclick="backdropClose(event, 'achievementsModal')">
     <div class="modal-box">
       <div class="modal-header">
-        <h2>🏆 Key Achievements</h2>
+        <h2>🏆 Achievements</h2>
         <button class="close-btn" onclick="closeModal('achievementsModal')">✕</button>
       </div>
-      <ul class="info-list" id="achievementsList">
-        <li><strong>National Rank 4:</strong> Secured All-India Rank 4 in the Bloom Computer Olympiad.</li>
-        <li><strong>Head Boy (2026–27):</strong> Elected student leader at Jawaharlal Nehru Memorial Senior Secondary School.</li>
-        <li><strong>Viksit Bharat Young Leaders Dialogue:</strong> Qualified for the regional essay-writing round via MY Bharat Dhanbad.</li>
-        <li><strong>NASA Space Apps Challenge 2026:</strong> Applied as Local Lead for Dhanbad to foster youth innovation.</li>
+      <ul class="detail-list" id="achievementsList">
+        <li><strong>International Hindi Olympiad:</strong> Participated at the international level, demonstrating strong command over Hindi literature and expression.</li>
+        <li><strong>Bloom Computer Olympiad (BCO):</strong> Secured <strong>National Rank 4</strong> at the All-India level.</li>
+        <li><strong>Dhanbad Zonal Level Quiz Competition:</strong> Represented school at the Dhanbad Zonal Level Quiz Competition.</li>
+        <li><strong>Kavi Sammelan & Poetry:</strong> Anchored and participated in 3 Kavi Sammelans, showcasing original Hindi poetry and stage leadership.</li>
+        <li><strong>Inter-House Debate Competitions:</strong> Winner / active participant in 2 Inter-House Debate Competitions at the school level.</li>
       </ul>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="connectModal" onclick="backdropClose(event, 'connectModal')">
+  <!-- MODAL 3: Academics (Class 11 Head Boy down to Class 7) -->
+  <div class="modal-backdrop" id="academicsModal" onclick="backdropClose(event, 'academicsModal')">
     <div class="modal-box">
       <div class="modal-header">
-        <h2>🌐 Connect with Kuber</h2>
-        <button class="close-btn" onclick="closeModal('connectModal')">✕</button>
+        <h2>📘 Academics & Leadership</h2>
+        <button class="close-btn" onclick="closeModal('academicsModal')">✕</button>
       </div>
-      <p style="color: var(--muted); font-size: 0.94rem; line-height: 1.6;">
-        Follow my creative journey, reflections, and student leadership updates under <strong>Kuber's Circle</strong>:
-      </p>
-      <div class="social-links">
-        <a class="social-chip" href="https://www.youtube.com/@princexkuber" target="_blank">▶ YouTube (@princexkuber)</a>
-        <a class="social-chip" href="https://www.instagram.com/princexkuber" target="_blank">📸 Instagram (@princexkuber)</a>
-        <a class="social-chip" href="https://www.facebook.com" target="_blank">📘 Facebook (Kuber's Circle)</a>
-        <a class="social-chip" href="mailto:kuber.singh.kushwaha27@gmail.com">✉️ Email Kuber</a>
-      </div>
+      <ul class="detail-list" id="academicsList">
+        <li><strong>Class 11 (2026–27) — Currently Head Boy:</strong> Leading the student council with high institutional responsibility, discipline coordination, event anchoring, and representing the student body at Jawaharlal Nehru Memorial Senior Secondary School.</li>
+        <li><strong>Class 10 — Class Monitor:</strong> Served as Class Monitor (2 terms), managing classroom discipline and peer coordination.</li>
+        <li><strong>Class 9 — Academic Captain:</strong> Appointed Academic Captain, supporting peer learning and academic initiatives.</li>
+        <li><strong>Class 8 — School Leader:</strong> Recognized as a School Leader in previous institution, actively leading school assemblies and student activities.</li>
+        <li><strong>Class 7 — Grade A Scholar:</strong> Achieved Grade A across all subjects with consistent academic excellence.</li>
+      </ul>
     </div>
   </div>
 
+  <!-- MODAL 4: Share Your Idea (Form) -->
   <div class="modal-backdrop" id="voiceFormModal" onclick="backdropClose(event, 'voiceFormModal')">
     <div class="modal-box">
       <div class="modal-header">
-        <h2>✍️ Raise Your Voice</h2>
-        <button class="close-btn" onclick="closeModal('voiceFormModal')">✕</button>
-      </div>
-      <form id="feedbackForm" onsubmit="submitVoiceForm(event)">
-        <div class="form-group">
-          <label>Your Name *</label>
-          <input type="text" id="vName" required placeholder="e.g., Rahul Sharma" />
-        </div>
-        <div class="form-group">
-          <label>How do you know Kuber? *</label>
-          <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend" />
-        </div>
-        <div class="form-group">
-          <label>City / Institution *</label>
-          <input type="text" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
-        </div>
-        <div class="form-group">
-          <label>Your Message or Remark *</label>
-          <textarea id="vMessage" rows="4" required placeholder="Write your thoughts about Kuber..."></textarea>
-        </div>
-        <button type="submit" class="action-btn btn-primary" style="width: 100%;" id="submitBtn">
-          Send Remark
-        </button>
-        <div id="formStatus" style="margin-top:0.85rem;font-size:0.9rem;font-weight:600;"></div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="remarksModal" onclick="backdropClose(event, 'remarksModal')">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2>👁️ Voices From Those Who Know Kuber</h2>
-        <button class="close-btn" onclick="closeModal('remarksModal')">✕</button>
-      </div>
-      <div id="remarksContainer">
-        <p style="color: var(--muted);">Loading approved remarks...</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxt09gQw9dsXE15nb0eWT15VRtkT92IFi7YKpNQDyPdDXDO3Tmwpn28rhZZA5UIfEXS-Q/exec";
-    let cachedRemarks = [];
-
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch(WEB_APP_URL)
-        .then(res => res.json())
-        .then(data => {
-          cachedRemarks = Array.isArray(data) ? data : (data.remarks || []);
-          document.getElementById('remarkCount').textContent = cachedRemarks.length;
-
-          if (cachedRemarks.length > 0) {
-            const latest = cachedRemarks[cachedRemarks.length - 1];
-            document.getElementById('featuredQuoteBox').innerHTML = `
-              <p>"${latest.message}"</p>
-              <span>— ${latest.name} (${latest.role})</span>
-            `;
-          }
-
-          const content = data.content;
-          if (content) {
-            if (content.Hero && content.Hero.Badge) document.getElementById('heroBadge').textContent = content.Hero.Badge;
-            if (content.Hero && content.Hero.Tagline) document.getElementById('heroTagline').textContent = content.Hero.Tagline;
-            if (content.Hero && content.Hero.Stat1) document.getElementById('stat1').textContent = content.Hero.Stat1;
-            if (content.Hero && content.Hero.Stat2) document.getElementById('stat2').textContent = content.Hero.Stat2;
-            if (content.Hero && content.Hero.Stat3) document.getElementById('stat3').textContent = content.Hero.Stat3;
-
-            renderList('aboutList', content.About);
-            renderList('academicsList', content.Academics);
-            renderList('achievementsList', content.Achievements);
-          }
-        })
-        .catch(() => {});
-    });
-
-    function renderList(elementId, items) {
-      if (!items || items.length === 0) return;
-      const ul = document.getElementById(elementId);
-      ul.innerHTML = items.map(item =>
-        `<li>${item.title ? `<strong>${item.title}:</strong> ` : ''}${item.details}</li>`
-      ).join('');
-    }
-
-    let currentFont = 16;
-    function changeFont(step) {
-      currentFont = step === 0 ? 16 : Math.min(20, Math.max(14, currentFont + step));
-      document.documentElement.style.setProperty('--base-size', currentFont + 'px');
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const btn = document.getElementById('themeBtn');
-      if (html.getAttribute('data-theme') === 'light') {
-        html.setAttribute('data-theme', 'dark');
-        btn.textContent = '☀️ Light';
-      } else {
-        html.setAttribute('data-theme', 'light');
-        btn.textContent = '🌙 Dark';
-      }
-    }
-
-    function openModal(id) { document.getElementById(id).classList.add('active'); }
-    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-    function backdropClose(e, id) { if (e.target.id === id) closeModal(id); }
-
-    function openRemarksModal() {
-      openModal('remarksModal');
-      const container = document.getElementById('remarksContainer');
-      if (!cachedRemarks || cachedRemarks.length === 0) {
-        container.innerHTML = '<p style="color: var(--muted);">No remarks published yet. Be the first to share your thoughts!</p>';
-        return;
-      }
-      container.innerHTML = [...cachedRemarks].reverse().map(item => `
-        <div class="remark-card">
-          <div class="remark-msg">"${item.message}"</div>
-          <div class="remark-meta">— ${item.name} (${item.role})</div>
-        </div>
-      `).join('');
-    }
-
-    function submitVoiceForm(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      const status = document.getElementById('formStatus');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      const params = new URLSearchParams();
-      params.append('entry.1390400988', document.getElementById('vName').value);
-      params.append('entry.1846923513', document.getElementById('vRelation').value);
-      params.append('entry.1045781291', document.getElementById('vPlace').value);
-      params.append('entry.839337160', document.getElementById('vMessage').value);
-
-      fetch('https://docs.google.com/forms/d/1gEjchjEprxOzUaSVr3wBRUqO3u40BAzJqecLh8e6XnU/formResponse', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params
-      })
-      .then(() => {
-        status.style.color = '#0d9488';
-        status.textContent = '✅ Thank you! Your remark has been sent for Kuber’s approval.';
-        document.getElementById('feedbackForm').reset();
-      })
-      .catch(() => {
-        status.style.color = '#dc2626';
-        status.textContent = '❌ Something went wrong. Please try again.';
-      })
-      .finally(() => {
-        btn.disabled = false;
-        btn.textContent = 'Send Remark';
-      });
-    }
-  </script>
-</body>
-</html>
+        <h2>✍️ Share Your Idea</h2>
+        <button
