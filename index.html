@@ -40,7 +40,7 @@
       --shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.6);
     }
 
-    /* Strict Anti-Copy & No Selection on Website Content */
+    /* Strict Anti-Copy & No Accidental Selection on Website Content */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -222,7 +222,6 @@
 
     .slide.active { opacity: 1; z-index: 2; pointer-events: auto; }
 
-    /* Blurred ambient backdrop so portrait photos have zero awkward bars */
     .slide-bg {
       position: absolute;
       inset: -15px;
@@ -233,7 +232,6 @@
       z-index: 1;
     }
 
-    /* Full uncropped foreground photo */
     .slide-fg {
       position: absolute;
       inset: 0;
@@ -585,7 +583,7 @@
       text-transform: uppercase;
     }
 
-    /* Clean Native-Styled Form Card (No Awkward Google iframe, Never Blurs on Typing) */
+    /* Clean Custom Form Card Connected Directly to Public Google Form Backend */
     .form-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -720,7 +718,7 @@
   </header>
 
   <main class="container">
-    <!-- Auto-Sliding Photo Gallery (Smooth Shimmer -> Immediate Sheet Photos) -->
+    <!-- Auto-Sliding Photo Gallery -->
     <section class="slider-wrapper" id="photoSlider">
       <div class="slider-skeleton"></div>
     </section>
@@ -820,8 +818,9 @@
     <div class="footer-sub">© 2026 <span class="notranslate">Kuber Singh Kushwaha (Prince)</span> • Jharia, Dhanbad, Jharkhand</div>
   </footer>
 
-  <!-- Hidden Google Translate -->
+  <!-- Hidden Google Translate & Hidden Form Submission Target -->
   <div id="google_translate_element" style="display:none;"></div>
+  <iframe name="hidden_submit_target" id="hidden_submit_target" style="display:none;"></iframe>
 
   <!-- FULL PAGE 1: About Kuber -->
   <div class="fullpage-view" id="aboutPage">
@@ -903,7 +902,7 @@
     </div>
   </div>
 
-  <!-- FULL PAGE 4: Share Your Idea (Clean Custom Form + Direct Apps Script Sync — Zero Blur on Typing) -->
+  <!-- FULL PAGE 4: Share Your Idea (Clean Custom Form -> Direct Public Google Form Backend -> Instant Email Trigger) -->
   <div class="fullpage-view" id="voiceFormPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
@@ -917,22 +916,22 @@
           <h3>Voices from Those Who Know Me</h3>
           <p>Share your thoughts, experiences, or feedback about working or interacting with <span class="notranslate">Kuber Singh Kushwaha</span>.</p>
         </div>
-        <form id="feedbackForm" onsubmit="submitVoiceForm(event)">
+        <form id="feedbackForm" action="https://docs.google.com/forms/d/e/1FAIpQLScKGEh7fvE-q5Z82CjRQrQXxoNrNiFmHHHSeBsGzn3yd_kxZw/formResponse" method="POST" target="hidden_submit_target" onsubmit="handleFormSubmit()">
           <div class="form-group">
             <label>Your Full Name *</label>
-            <input type="text" id="vName" required placeholder="e.g., Rahul Sharma" />
+            <input type="text" name="entry.1390400988" id="vName" required placeholder="e.g., Rahul Sharma" />
           </div>
           <div class="form-group">
             <label>Relation *</label>
-            <input type="text" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
+            <input type="text" name="entry.1846923513" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
           </div>
           <div class="form-group">
             <label>Place / Institution *</label>
-            <input type="text" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
+            <input type="text" name="entry.1045781291" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
           </div>
           <div class="form-group">
             <label>What You Think / Your Idea *</label>
-            <textarea id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
+            <textarea name="entry.839337160" id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
           </div>
           <button type="submit" class="submit-btn" id="submitBtn">Submit Message</button>
           <div id="formStatus" style="margin-top:0.95rem;font-size:0.94rem;font-weight:700;"></div>
@@ -967,7 +966,7 @@
     let currentFont = 16;
     let currentLang = 'en';
 
-    // Anti-Screenshot Shortcut & Tab Switch Protection (Without blurring when typing in form)
+    // Anti-Screenshot Shortcut & Tab Switch Protection (Never blurs during typing)
     document.addEventListener('keydown', function(e) {
       if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p'))) {
         e.preventDefault();
@@ -1113,40 +1112,19 @@
       }
     }
 
-    function submitVoiceForm(e) {
-      e.preventDefault();
+    function handleFormSubmit() {
       const btn = document.getElementById('submitBtn');
       const status = document.getElementById('formStatus');
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      const nameVal = document.getElementById('vName').value.trim();
-      const relVal = document.getElementById('vRelation').value.trim();
-      const placeVal = document.getElementById('vPlace').value.trim();
-      const msgVal = document.getElementById('vMessage').value.trim();
-
-      // Send directly to Apps Script Web App URL + Backup Email Notification
-      const queryUrl = WEB_APP_URL +
-        '?action=submit' +
-        '&name=' + encodeURIComponent(nameVal) +
-        '&relation=' + encodeURIComponent(relVal) +
-        '&place=' + encodeURIComponent(placeVal) +
-        '&message=' + encodeURIComponent(msgVal);
-
-      fetch(queryUrl, { mode: 'no-cors' })
-        .then(function() {
-          status.style.color = '#0d9488';
-          status.textContent = '✅ Thank you! Your message has been submitted successfully.';
-          document.getElementById('feedbackForm').reset();
-        })
-        .catch(function() {
-          status.style.color = '#dc2626';
-          status.textContent = '❌ Network error. Please check your internet and try again.';
-        })
-        .finally(function() {
-          btn.disabled = false;
-          btn.textContent = 'Submit Message';
-        });
+      setTimeout(function() {
+        status.style.color = '#0d9488';
+        status.textContent = '✅ Thank you! Your message has been sent to Kuber.';
+        document.getElementById('feedbackForm').reset();
+        btn.disabled = false;
+        btn.textContent = 'Submit Message';
+      }, 900);
     }
 
     function applyTranslation(lang) {
