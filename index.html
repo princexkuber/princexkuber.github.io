@@ -798,11 +798,11 @@
     <div class="footer-sub">© 2026 <span class="notranslate">Kuber Singh Kushwaha (Prince)</span> • Jharia, Dhanbad, Jharkhand</div>
   </footer>
 
-  <!-- Hidden Google Translate & Clean Single Form Target -->
+  <!-- Hidden Google Translate & Exact Google Form Target -->
   <div id="google_translate_element" style="display:none;"></div>
   <iframe name="hidden_gform_frame" id="hidden_gform_frame" style="display:none;"></iframe>
 
-  <!-- FULL PAGE 1: About Kuber (Includes Intro as Orderable Point 1) -->
+  <!-- FULL PAGE 1: About Kuber -->
   <div class="fullpage-view" id="aboutPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
@@ -841,7 +841,7 @@
     </div>
   </div>
 
-  <!-- FULL PAGE 4: Share Your Idea (Direct Native Form Submission -> Instant Google Sheet + Gmail Trigger) -->
+  <!-- FULL PAGE 4: Share Your Idea (Uses Exact Verified Entry IDs from Your Live Form) -->
   <div class="fullpage-view" id="voiceFormPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
@@ -855,22 +855,22 @@
           <h3>Voices from Those Who Know Me</h3>
           <p>Share your thoughts, experiences, or feedback about working or interacting with <span class="notranslate">Kuber Singh Kushwaha</span>.</p>
         </div>
-        <form id="feedbackForm" action="https://docs.google.com/forms/d/e/1FAIpQLScKGEh7fvE-q5Z82CjRQrQXxoNrNiFmHHHSeBsGzn3yd_kxZw/formResponse" method="POST" target="hidden_gform_frame" onsubmit="handleFormSubmit()">
+        <form id="feedbackForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScKGEh7fvE-q5Z82CjRQrQXxoNrNiFmHHHSeBsGzn3yd_kxZw/formResponse" method="POST" target="hidden_gform_frame" onsubmit="handleFormSubmit()">
           <div class="form-group">
             <label>Your Full Name *</label>
-            <input type="text" name="entry.1390400988" id="vName" required placeholder="e.g., Rahul Sharma" />
+            <input type="text" name="entry.748349718" id="vName" required placeholder="e.g., Rahul Sharma" />
           </div>
           <div class="form-group">
             <label>Relation *</label>
-            <input type="text" name="entry.1846923513" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
+            <input type="text" name="entry.1134279371" id="vRelation" required placeholder="e.g., Teacher, Classmate, Friend, Mentor" />
           </div>
           <div class="form-group">
-            <label>Place / Institution *</label>
-            <input type="text" name="entry.1045781291" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
+            <label>Place of Relation *</label>
+            <input type="text" name="entry.949725409" id="vPlace" required placeholder="e.g., Dhanbad / JNM School" />
           </div>
           <div class="form-group">
-            <label>What You Think / Your Idea *</label>
-            <textarea name="entry.839337160" id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
+            <label>What You Think About Me *</label>
+            <textarea name="entry.99257882" id="vMessage" rows="5" required placeholder="Write your message, feedback, or thoughts for Kuber..."></textarea>
           </div>
           <button type="submit" class="submit-btn" id="submitBtn">Submit Message</button>
           <div id="formStatus" style="margin-top:0.95rem;font-size:0.94rem;font-weight:700;"></div>
@@ -939,7 +939,6 @@
     let currentFont = 16;
     let currentLang = 'en';
 
-    // Render Core Cards (Supports reordering via Sheet Section="Cards")
     function renderCoreCards(cardsList) {
       const grid = document.getElementById('coreCardsGrid');
       const list = (cardsList && cardsList.length > 0) ? cardsList : DEFAULT_CARDS;
@@ -973,13 +972,11 @@
       }).join('');
     }
 
-    // Initialize immediately with Built-In Fallback Data
     renderCoreCards(DEFAULT_CARDS);
     renderSectionList('aboutList', DEFAULT_ABOUT);
     renderSectionList('achievementsList', DEFAULT_ACHIEVEMENTS);
     renderSectionList('academicsList', DEFAULT_ACADEMICS);
 
-    // Anti-Screenshot & Tab Switch Privacy Blur
     document.addEventListener('keydown', function(e) {
       if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p'))) {
         e.preventDefault();
@@ -1125,7 +1122,6 @@
       }
     }
 
-    // Single Clean Form Submission (Direct to Public Google Form -> Sheet -> Instant Gmail Trigger)
     function handleFormSubmit() {
       const btn = document.getElementById('submitBtn');
       const status = document.getElementById('formStatus');
@@ -1138,7 +1134,7 @@
         document.getElementById('feedbackForm').reset();
         btn.disabled = false;
         btn.textContent = 'Submit Message';
-      }, 1000);
+      }, 950);
     }
 
     function applyTranslation(lang) {
@@ -1159,7 +1155,6 @@
       new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
     }
 
-    // Sync Live Updates from Google Sheet (Overrides fallback only if rows exist in Sheet)
     fetch(WEB_APP_URL)
       .then(function(res) { return res.json(); })
       .then(function(data) {
