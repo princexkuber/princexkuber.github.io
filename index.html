@@ -119,7 +119,7 @@
       body { display: none !important; }
     }
 
-    /* CBSE-Style Top Utility Strip */
+    /* Top Utility Strip */
     .utility-strip {
       background: #07265c;
       color: #e0ecff;
@@ -169,7 +169,7 @@
     }
     .lang-select option { color: #0f172a; background: #ffffff; }
 
-    /* CBSE Royal Blue Main Header */
+    /* Brand Header */
     .header-bar {
       background: linear-gradient(135deg, #0b3d91 0%, #1557c0 55%, #1d63dc 100%);
       color: #ffffff;
@@ -596,7 +596,7 @@
       text-transform: uppercase;
     }
 
-    /* Clean Custom Form Card */
+    /* Form Card */
     .form-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -699,16 +699,16 @@
 </head>
 <body oncontextmenu="return false;" oncopy="return false;" oncut="return false;" ondragstart="return false;">
 
-  <!-- Top Utility Bar -->
+  <!-- Top Utility Bar (notranslate keeps Language Selector always readable so you can switch back to English anytime) -->
   <div class="utility-strip">
     <div class="utility-inner">
-      <div class="toolbar">
+      <div class="toolbar notranslate">
         <div class="tool-btn" role="button" tabindex="0" onclick="changeFont(-1)">A-</div>
         <div class="tool-btn" role="button" tabindex="0" onclick="changeFont(0)">A</div>
         <div class="tool-btn" role="button" tabindex="0" onclick="changeFont(1)">A+</div>
         <div class="tool-btn" role="button" tabindex="0" id="themeBtn" onclick="toggleTheme()">🌙 Dark</div>
       </div>
-      <select class="lang-select" id="langSelect" onchange="translatePage(this.value)" aria-label="Change Language">
+      <select class="lang-select notranslate" id="langSelect" onchange="translatePage(this.value)" aria-label="Change Language">
         <option value="en">🌐 Language: English</option>
         <option value="hi">🌐 हिन्दी (Hindi)</option>
         <option value="bn">🌐 বাংলা (Bengali)</option>
@@ -736,7 +736,7 @@
       <div class="slider-skeleton"></div>
     </section>
 
-    <!-- 3 Core Interactive Cards (Reorderable via Portfolio_Content Sheet) -->
+    <!-- 3 Core Interactive Cards (Permanent Structure + Sheet Reorderable) -->
     <section class="cards-grid" id="coreCardsGrid"></section>
 
     <!-- Dual Split Card -->
@@ -764,7 +764,7 @@
       </div>
     </section>
 
-    <!-- Connections Bar with Real Brand Logos -->
+    <!-- Connections Bar -->
     <section class="connect-card">
       <div>
         <div class="card-title" style="font-size:1.05rem;">🌐 Connections</div>
@@ -807,7 +807,7 @@
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
         <span class="fp-title">👤 About <span class="notranslate">Kuber Singh Kushwaha</span></span>
-        <button type="button" class="back-btn" onclick="closePage('aboutPage')">← Back to Home</button>
+        <button type="button" class="back-btn" onclick="goBackHome()">← Back to Home</button>
       </div>
     </div>
     <div class="fp-body">
@@ -820,7 +820,7 @@
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
         <span class="fp-title">🏆 Achievements & Honors</span>
-        <button type="button" class="back-btn" onclick="closePage('achievementsPage')">← Back to Home</button>
+        <button type="button" class="back-btn" onclick="goBackHome()">← Back to Home</button>
       </div>
     </div>
     <div class="fp-body">
@@ -833,7 +833,7 @@
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
         <span class="fp-title">📘 Academics & Leadership Journey</span>
-        <button type="button" class="back-btn" onclick="closePage('academicsPage')">← Back to Home</button>
+        <button type="button" class="back-btn" onclick="goBackHome()">← Back to Home</button>
       </div>
     </div>
     <div class="fp-body">
@@ -841,12 +841,12 @@
     </div>
   </div>
 
-  <!-- FULL PAGE 4: Share Your Idea (Uses Exact Verified Entry IDs from Your Live Form) -->
+  <!-- FULL PAGE 4: Share Your Idea -->
   <div class="fullpage-view" id="voiceFormPage">
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
         <span class="fp-title">✍️ Share Your Idea</span>
-        <button type="button" class="back-btn" onclick="closePage('voiceFormPage')">← Back to Home</button>
+        <button type="button" class="back-btn" onclick="goBackHome()">← Back to Home</button>
       </div>
     </div>
     <div class="fp-body">
@@ -884,7 +884,7 @@
     <div class="fp-topbar">
       <div class="fp-topbar-inner">
         <span class="fp-title">👁️ See What Others Thought</span>
-        <button type="button" class="back-btn" onclick="closePage('remarksPage')">← Back to Home</button>
+        <button type="button" class="back-btn" onclick="goBackHome()">← Back to Home</button>
       </div>
     </div>
     <div class="fp-body">
@@ -897,7 +897,7 @@
   <script>
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby1FmksRConLSjnlHlShMM7kj04Yn5Cr3vvvbS-EjJdrQTKi13ET5ZqUCx0JyJFwOyV/exec";
 
-    // Permanent Built-in Fallback Data (Protects your website even if Google Sheet is ever deleted)
+    // Permanent Built-in Fallback Data (Protects your website even if Google Sheet is deleted)
     const DEFAULT_CARDS = [
       { key: "About", icon: "👤", title: "About Kuber", desc: "Identity, Academic Stream, Singing, Self-Written Poetry & Philosophy", page: "aboutPage" },
       { key: "Achievements", icon: "🏆", title: "Achievements", desc: "International Olympiad, National Rank 4, Zonal Quiz & Extraordinary Talents", page: "achievementsPage" },
@@ -905,30 +905,30 @@
     ];
 
     const DEFAULT_ABOUT = [
-      { title: "Identity & Leadership Overview", details: "Kuber Singh Kushwaha, affectionately known as Prince, is a dedicated scholar, student leader, orator, and creative writer from Jharia, Dhanbad, Jharkhand. Currently serving as the Head Boy (2026–27) at Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, this portfolio reflects every facet of his academic journey, leadership, literary voice, and creative endeavors.", isIntro: true },
-      { title: "Academic Stream & Institution", details: "Enrolled in Class 11 (Science Stream — Physics, Chemistry, Mathematics alongside Computer Science and Commercial Art) at Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad." },
-      { title: "Voice, Solo Singing & Public Speaking", details: "A passionate solo vocalist and confident public speaker who leads school assemblies and captivates audiences with clarity, conviction, and poise." },
-      { title: "Hindi Literature & Self-Written Poetry", details: "Deeply connected to Hindi language and literature, Kuber composes his own original, self-written Hindi poems (Hindi Kavita) exploring human values, inspiration, and culture." },
-      { title: "History, Philosophy & Multilingual Exploration", details: "An avid reader of Indian and world history, philosophical ideas, and multiple languages, continuously broadening his intellectual horizon." },
-      { title: "Digital Content Creation", details: "An independent digital content creator sharing thoughtful reflections, storytelling, and student leadership insights across platforms." }
+      { order: 1, title: "Identity & Leadership Overview", details: "Kuber Singh Kushwaha, affectionately known as Prince, is a dedicated scholar, student leader, orator, and creative writer from Jharia, Dhanbad, Jharkhand. Currently serving as the Head Boy (2026–27) at Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, this portfolio reflects every facet of his academic journey, leadership, literary voice, and creative endeavors.", isIntro: true },
+      { order: 2, title: "Academic Stream & Institution", details: "Enrolled in Class 11 (Science Stream — Physics, Chemistry, Mathematics alongside Computer Science and Commercial Art) at Jawaharlal Nehru Memorial Senior Secondary School, Digwadih, Dhanbad." },
+      { order: 3, title: "Voice, Solo Singing & Public Speaking", details: "A passionate solo vocalist and confident public speaker who leads school assemblies and captivates audiences with clarity, conviction, and poise." },
+      { order: 4, title: "Hindi Literature & Self-Written Poetry", details: "Deeply connected to Hindi language and literature, Kuber composes his own original, self-written Hindi poems (Hindi Kavita) exploring human values, inspiration, and culture." },
+      { order: 5, title: "History, Philosophy & Multilingual Exploration", details: "An avid reader of Indian and world history, philosophical ideas, and multiple languages, continuously broadening his intellectual horizon." },
+      { order: 6, title: "Digital Content Creation", details: "An independent digital content creator sharing thoughtful reflections, storytelling, and student leadership insights across platforms." }
     ];
 
     const DEFAULT_ACHIEVEMENTS = [
-      { badge: "INTERNATIONAL LEVEL", badgeClass: "red-badge", liClass: "intl-highlight", title: "International Hindi Olympiad", details: "Represented at the international level in the International Hindi Olympiad, demonstrating exceptional mastery over Hindi literature, grammar, and expression among global participants." },
-      { badge: "NATIONAL REWARD • ALL INDIA RANK 4", badgeClass: "national-badge", title: "All-India Computer Olympiad (Bloom Computer Olympiad)", details: "Secured National Rank 4 across India in a highly competitive national-level examination testing advanced logical reasoning, algorithmic thinking, and computer science fundamentals." },
-      { badge: "ZONAL LEVEL COMPETITION REWARD", badgeClass: "zonal-badge", title: "Mind Martians — Dhanbad Zonal Level Quiz Competition", details: "Selected and rewarded at the prestigious Mind Martians Dhanbad Zonal Level Quiz Competition, representing the institution against top student teams across the district." },
-      { badge: "EXTRAORDINARY TALENT", badgeClass: "talent-badge", title: "Kavi Sammelan Participation & Poetic Excellence", details: "Showcased extraordinary literary talent across 3 Kavi Sammelans, earning wide acclaim for expressive poetic recitation and literary presence." },
-      { title: "Anchoring & Stage Handling Leadership", details: "Successfully anchored and managed the stage for major school assemblies, cultural programs, and literary events—coordinating live proceedings, guest introductions, and audience engagement with confidence and discipline." },
-      { title: "Original Self-Written Poetry", details: "Authored a collection of own-written Hindi poems reflecting social awareness, youth motivation, and philosophical depth." },
-      { title: "Inter-House Debate Competitions", details: "Demonstrated persuasive articulation and analytical debate skills across 2 Inter-House Debate Competitions at the school level." }
+      { order: 1, badge: "INTERNATIONAL LEVEL", badgeClass: "red-badge", liClass: "intl-highlight", title: "International Hindi Olympiad", details: "Represented at the international level in the International Hindi Olympiad, demonstrating exceptional mastery over Hindi literature, grammar, and expression among global participants." },
+      { order: 2, badge: "NATIONAL REWARD • ALL INDIA RANK 4", badgeClass: "national-badge", title: "All-India Computer Olympiad (Bloom Computer Olympiad)", details: "Secured National Rank 4 across India in a highly competitive national-level examination testing advanced logical reasoning, algorithmic thinking, and computer science fundamentals." },
+      { order: 3, badge: "ZONAL LEVEL COMPETITION REWARD", badgeClass: "zonal-badge", title: "Mind Martians — Dhanbad Zonal Level Quiz Competition", details: "Selected and rewarded at the prestigious Mind Martians Dhanbad Zonal Level Quiz Competition, representing the institution against top student teams across the district." },
+      { order: 4, badge: "EXTRAORDINARY TALENT", badgeClass: "talent-badge", title: "Kavi Sammelan Participation & Poetic Excellence", details: "Showcased extraordinary literary talent across 3 Kavi Sammelans, earning wide acclaim for expressive poetic recitation and literary presence." },
+      { order: 5, title: "Anchoring & Stage Handling Leadership", details: "Successfully anchored and managed the stage for major school assemblies, cultural programs, and literary events—coordinating live proceedings, guest introductions, and audience engagement with confidence and discipline." },
+      { order: 6, title: "Original Self-Written Poetry", details: "Authored a collection of own-written Hindi poems reflecting social awareness, youth motivation, and philosophical depth." },
+      { order: 7, title: "Inter-House Debate Competitions", details: "Demonstrated persuasive articulation and analytical debate skills across 2 Inter-House Debate Competitions at the school level." }
     ];
 
     const DEFAULT_ACADEMICS = [
-      { title: "Class 11 (2026–27) — Currently Head Boy", details: "Entrusted with the highest student leadership office as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School, carrying major institutional responsibilities including student council governance, school discipline, assembly leadership, and representing the student body." },
-      { title: "Class 10 — Class Monitor", details: "Served as Class Monitor across two terms, ensuring classroom coordination, peer discipline, and seamless communication between students and faculty." },
-      { title: "Class 9 — Academic Captain", details: "Appointed Academic Captain, mentoring classmates, organizing peer study initiatives, and fostering a disciplined academic environment." },
-      { title: "Class 8 — School Leader", details: "Recognized as a School Leader in his previous institution, actively leading school assemblies, house activities, and student welfare initiatives." },
-      { title: "Class 7 — Grade A Scholar", details: "Achieved Grade A across all subjects, establishing a strong foundation of academic excellence and consistency." }
+      { order: 1, title: "Class 11 (2026–27) — Currently Head Boy", details: "Entrusted with the highest student leadership office as Head Boy at Jawaharlal Nehru Memorial Senior Secondary School, carrying major institutional responsibilities including student council governance, school discipline, assembly leadership, and representing the student body." },
+      { order: 2, title: "Class 10 — Class Monitor", details: "Served as Class Monitor across two terms, ensuring classroom coordination, peer discipline, and seamless communication between students and faculty." },
+      { order: 3, title: "Class 9 — Academic Captain", details: "Appointed Academic Captain, mentoring classmates, organizing peer study initiatives, and fostering a disciplined academic environment." },
+      { order: 4, title: "Class 8 — School Leader", details: "Recognized as a School Leader in his previous institution, actively leading school assemblies, house activities, and student welfare initiatives." },
+      { order: 5, title: "Class 7 — Grade A Scholar", details: "Achieved Grade A across all subjects, establishing a strong foundation of academic excellence and consistency." }
     ];
 
     let cachedRemarks = [
@@ -938,6 +938,30 @@
     let slideTimer = null;
     let currentFont = 16;
     let currentLang = 'en';
+    let activeOverlayId = null;
+
+    // Smart Merge: Adding 1 new row in Sheet NEVER deletes or hides existing default points!
+    function mergeSheetWithDefaults(defaultItems, sheetItems) {
+      if (!sheetItems || sheetItems.length === 0) return defaultItems;
+      if (sheetItems.length === 1 && String(sheetItems[0].title || '').trim().toUpperCase() === 'HIDE') {
+        return [];
+      }
+      const mergedMap = new Map();
+      defaultItems.forEach(function(item, idx) {
+        const key = String(item.title || '').trim().toLowerCase();
+        mergedMap.set(key, Object.assign({}, item, { order: item.order || (idx + 1) }));
+      });
+      sheetItems.forEach(function(sItem, idx) {
+        const key = String(sItem.title || '').trim().toLowerCase();
+        const existing = mergedMap.get(key) || {};
+        mergedMap.set(key, Object.assign({}, existing, sItem, {
+          order: (sItem.order !== undefined && sItem.order !== '') ? Number(sItem.order) : (existing.order || (defaultItems.length + idx + 1))
+        }));
+      });
+      return Array.from(mergedMap.values()).sort(function(a, b) {
+        return (Number(a.order) || 999) - (Number(b.order) || 999);
+      });
+    }
 
     function renderCoreCards(cardsList) {
       const grid = document.getElementById('coreCardsGrid');
@@ -961,6 +985,10 @@
 
     function renderSectionList(elementId, items) {
       const ul = document.getElementById(elementId);
+      if (!items || items.length === 0) {
+        ul.innerHTML = '<li>No entries added yet. Add rows in your Google Sheet under this section to display them here.</li>';
+        return;
+      }
       ul.innerHTML = items.map(function(item) {
         const liCls = item.liClass ? ' class="' + item.liClass + '"' : (item.isIntro ? ' class="intro-highlight"' : '');
         const badgeHtml = item.badge ? '<div class="' + (item.badgeClass || 'national-badge') + '">' + item.badge + '</div><br>' : '';
@@ -977,6 +1005,52 @@
     renderSectionList('achievementsList', DEFAULT_ACHIEVEMENTS);
     renderSectionList('academicsList', DEFAULT_ACADEMICS);
 
+    // Browser History Integration: Phone Back Button & Desktop Browser Back Arrow return to Home safely!
+    function hideOverlayDOM(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+      document.body.style.overflow = '';
+      activeOverlayId = null;
+      if (currentLang !== 'en') {
+        setTimeout(function() { applyTranslation(currentLang); }, 150);
+      }
+    }
+
+    function openPage(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        if (activeOverlayId && activeOverlayId !== id) {
+          hideOverlayDOM(activeOverlayId);
+        }
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        activeOverlayId = id;
+        try {
+          window.history.pushState({ overlay: id }, "", "#" + id);
+        } catch (e) {}
+        if (currentLang !== 'en') {
+          setTimeout(function() { applyTranslation(currentLang); }, 150);
+        }
+      }
+    }
+
+    function goBackHome() {
+      if (activeOverlayId) {
+        const idToClose = activeOverlayId;
+        hideOverlayDOM(idToClose);
+        if (window.location.hash === "#" + idToClose) {
+          try { window.history.back(); } catch (e) {}
+        }
+      }
+    }
+
+    window.addEventListener('popstate', function() {
+      if (activeOverlayId) {
+        hideOverlayDOM(activeOverlayId);
+      }
+    });
+
+    // Privacy Protection
     document.addEventListener('keydown', function(e) {
       if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p'))) {
         e.preventDefault();
@@ -992,28 +1066,6 @@
         document.body.classList.remove('privacy-blur');
       }
     });
-
-    function openPage(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        if (currentLang !== 'en') {
-          setTimeout(function() { applyTranslation(currentLang); }, 150);
-        }
-      }
-    }
-
-    function closePage(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.remove('active');
-        document.body.style.overflow = '';
-        if (currentLang !== 'en') {
-          setTimeout(function() { applyTranslation(currentLang); }, 150);
-        }
-      }
-    }
 
     function changeFont(step) {
       currentFont = step === 0 ? 16 : Math.min(20, Math.max(14, currentFont + step));
@@ -1147,6 +1199,17 @@
 
     function translatePage(lang) {
       currentLang = lang;
+      if (lang === 'en') {
+        document.cookie = "googtrans=/en/en; path=/";
+        document.cookie = "googtrans=/en/en; domain=" + location.hostname + "; path=/";
+        const frame = document.querySelector('.goog-te-banner-frame');
+        if (frame && frame.contentDocument) {
+          const restoreBtn = frame.contentDocument.querySelector('[id=":1.restore"]');
+          if (restoreBtn) { restoreBtn.click(); return; }
+        }
+        applyTranslation('en');
+        return;
+      }
       document.cookie = "googtrans=/en/" + lang + "; path=/";
       applyTranslation(lang);
     }
@@ -1167,16 +1230,16 @@
         }
         if (data.content) {
           if (data.content.Cards && data.content.Cards.length > 0) {
-            renderCoreCards(data.content.Cards);
+            renderCoreCards(mergeSheetWithDefaults(DEFAULT_CARDS, data.content.Cards));
           }
           if (data.content.About && data.content.About.length > 0) {
-            renderSectionList('aboutList', data.content.About);
+            renderSectionList('aboutList', mergeSheetWithDefaults(DEFAULT_ABOUT, data.content.About));
           }
           if (data.content.Achievements && data.content.Achievements.length > 0) {
-            renderSectionList('achievementsList', data.content.Achievements);
+            renderSectionList('achievementsList', mergeSheetWithDefaults(DEFAULT_ACHIEVEMENTS, data.content.Achievements));
           }
           if (data.content.Academics && data.content.Academics.length > 0) {
-            renderSectionList('academicsList', data.content.Academics);
+            renderSectionList('academicsList', mergeSheetWithDefaults(DEFAULT_ACADEMICS, data.content.Academics));
           }
         }
       })
